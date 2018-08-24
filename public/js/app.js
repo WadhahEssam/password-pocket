@@ -45885,28 +45885,18 @@ function getMapData(map, key) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_TextField__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_InputAdornment__ = __webpack_require__(5789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_InputAdornment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_InputAdornment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_icons_AccountCircle__ = __webpack_require__(566);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_icons_AccountCircle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_icons_AccountCircle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__ = __webpack_require__(5793);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__ = __webpack_require__(5734);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__ = __webpack_require__(5746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormHelperText__ = __webpack_require__(5753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormHelperText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormHelperText__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_FormControl__ = __webpack_require__(5750);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_FormControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_MenuItem__ = __webpack_require__(5795);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_MenuItem___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_MenuItem__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_Visibility__ = __webpack_require__(5534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_VisibilityOff__ = __webpack_require__(5535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_IconButton__ = __webpack_require__(5793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Input__ = __webpack_require__(5734);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_Input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputLabel__ = __webpack_require__(5746);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_FormControl__ = __webpack_require__(5750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_FormControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility__ = __webpack_require__(5534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__ = __webpack_require__(5535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45914,11 +45904,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 
 
@@ -45956,6 +45941,16 @@ var LoginPanel = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'logo-div' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h5',
+                    { className: 'website-name-login-panel' },
+                    'Password Pocket'
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_TextField___default.a, {
                     id: 'with-placeholder',
                     label: 'Email',
@@ -45964,16 +45959,16 @@ var LoginPanel = function (_Component) {
                     margin: 'normal'
                 }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_10__material_ui_core_FormControl___default.a,
+                    __WEBPACK_IMPORTED_MODULE_6__material_ui_core_FormControl___default.a,
                     {
                         className: 'login-input'
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputLabel___default.a,
                         { htmlFor: 'adornment-password' },
                         'Password'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, {
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_Input___default.a, {
                         id: 'adornment-password',
                         type: this.state.showPassword ? 'text' : 'password',
                         value: this.state.password,
@@ -45984,7 +45979,7 @@ var LoginPanel = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_2__material_ui_core_InputAdornment___default.a,
                             { position: 'end' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                                __WEBPACK_IMPORTED_MODULE_3__material_ui_core_IconButton___default.a,
                                 {
                                     'aria-label': 'Toggle password visibility',
                                     onClick: function onClick(e) {
@@ -45994,7 +45989,7 @@ var LoginPanel = function (_Component) {
                                         _this2.setState({ showPassword: !_this2.state.showPassword });
                                     }
                                 },
-                                this.state.showPassword ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_VisibilityOff___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_Visibility___default.a, null)
+                                this.state.showPassword ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility___default.a, null)
                             )
                         )
                     })
@@ -46055,13 +46050,18 @@ var DescriptionPanel = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'h3',
                     { className: 'website-description' },
-                    'The most secure password keeper in the world , even owner can\'t access your information .'
+                    'The most secure password keeper , even developers can\'t access your information .'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button___default.a,
                     { variant: 'contained', color: 'primary', className: 'documentation-button', size: 'large' },
                     'Check why',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_icons_Security___default.a, { className: 'description-button-icon' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button___default.a,
+                    { variant: 'contained', color: 'primary', className: 'create-account-button', size: 'large' },
+                    'Create Account'
                 )
             );
         }
@@ -49781,34 +49781,6 @@ var createLocation = function createLocation(path, state, key, currentLocation) 
 var locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(__WEBPACK_IMPORTED_MODULE_1_value_equal__["a" /* default */])(a.state, b.state);
 };
-
-/***/ }),
-
-/***/ 566:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(0));
-
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(500));
-
-var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
-  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
-}), _react.default.createElement("path", {
-  fill: "none",
-  d: "M0 0h24v24H0z"
-})), 'AccountCircle');
-
-exports.default = _default;
 
 /***/ }),
 
@@ -57618,455 +57590,6 @@ IconButton.defaultProps = {
 var _default = (0, _withStyles.default)(styles, {
   name: 'MuiIconButton'
 })(IconButton);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ 5795:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function get() {
-    return _MenuItem.default;
-  }
-});
-
-var _MenuItem = _interopRequireDefault(__webpack_require__(5796));
-
-/***/ }),
-
-/***/ 5796:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.styles = void 0;
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(10));
-
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(6));
-
-var _extends2 = _interopRequireDefault(__webpack_require__(5));
-
-var _react = _interopRequireDefault(__webpack_require__(0));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(1));
-
-var _classnames = _interopRequireDefault(__webpack_require__(23));
-
-var _withStyles = _interopRequireDefault(__webpack_require__(18));
-
-var _ListItem = _interopRequireDefault(__webpack_require__(5797));
-
-// @inheritedComponent ListItem
-var styles = function styles(theme) {
-  return {
-    /* Styles applied to the root element. */
-    root: (0, _extends2.default)({}, theme.typography.subheading, {
-      height: 24,
-      boxSizing: 'content-box',
-      width: 'auto',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      paddingLeft: 16,
-      paddingRight: 16,
-      '&$selected': {
-        backgroundColor: theme.palette.action.selected
-      }
-    }),
-
-    /* Styles applied to the root element if `selected={true}`. */
-    selected: {}
-  };
-};
-
-exports.styles = styles;
-
-function MenuItem(props) {
-  var classes = props.classes,
-      className = props.className,
-      component = props.component,
-      selected = props.selected,
-      role = props.role,
-      other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "component", "selected", "role"]);
-  return _react.default.createElement(_ListItem.default, (0, _extends2.default)({
-    button: true,
-    role: role,
-    tabIndex: -1,
-    className: (0, _classnames.default)(classes.root, (0, _defineProperty2.default)({}, classes.selected, selected), className),
-    component: component
-  }, other));
-}
-
-MenuItem.propTypes =  true ? {
-  /**
-   * Menu item contents.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
-  classes: _propTypes.default.object.isRequired,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a DOM element or a component.
-   */
-  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * @ignore
-   */
-  role: _propTypes.default.string,
-
-  /**
-   * Use to apply selected styling.
-   */
-  selected: _propTypes.default.bool
-} : {};
-MenuItem.defaultProps = {
-  component: 'li',
-  role: 'menuitem',
-  selected: false
-};
-
-var _default = (0, _withStyles.default)(styles, {
-  name: 'MuiMenuItem'
-})(MenuItem);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ 5797:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function get() {
-    return _ListItem.default;
-  }
-});
-
-var _ListItem = _interopRequireDefault(__webpack_require__(5798));
-
-/***/ }),
-
-/***/ 5798:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.styles = void 0;
-
-var _extends2 = _interopRequireDefault(__webpack_require__(5));
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(10));
-
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(6));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(12));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(13));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(14));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(15));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(16));
-
-var _react = _interopRequireDefault(__webpack_require__(0));
-
-var _propTypes = _interopRequireDefault(__webpack_require__(1));
-
-var _classnames = _interopRequireDefault(__webpack_require__(23));
-
-var _withStyles = _interopRequireDefault(__webpack_require__(18));
-
-var _ButtonBase = _interopRequireDefault(__webpack_require__(484));
-
-var _reactHelpers = __webpack_require__(5752);
-
-var styles = function styles(theme) {
-  return {
-    /* Styles applied to the (normally root) `component` element. May be wrapped by a `container`. */
-    root: {
-      display: 'flex',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      position: 'relative',
-      textDecoration: 'none',
-      width: '100%',
-      boxSizing: 'border-box',
-      textAlign: 'left',
-      paddingTop: 12,
-      paddingBottom: 12
-    },
-
-    /* Styles applied to the `container` element if `children` includes `ListItemSecondaryAction`. */
-    container: {
-      position: 'relative'
-    },
-    // TODO: Sanity check this - why is focusVisibleClassName prop apparently applied to a div?
-
-    /* Styles applied to the `component`'s `focusVisibleClassName` property if `button={true}`. */
-    focusVisible: {
-      backgroundColor: theme.palette.action.hover
-    },
-
-    /* Legacy styles applied to the root element. Use `root` instead. */
-    default: {},
-
-    /* Styles applied to the `component` element if `dense={true}` or `children` includes `Avatar`. */
-    dense: {
-      paddingTop: 8,
-      paddingBottom: 8
-    },
-
-    /* Styles applied to the inner `component` element if `disabled={true}`. */
-    disabled: {
-      opacity: 0.5
-    },
-
-    /* Styles applied to the inner `component` element if `divider={true}`. */
-    divider: {
-      borderBottom: "1px solid ".concat(theme.palette.divider),
-      backgroundClip: 'padding-box'
-    },
-
-    /* Styles applied to the inner `component` element if `disableGutters={false}`. */
-    gutters: theme.mixins.gutters(),
-
-    /* Styles applied to the inner `component` element if `button={true}`. */
-    button: {
-      transition: theme.transitions.create('background-color', {
-        duration: theme.transitions.duration.shortest
-      }),
-      '&:hover': {
-        textDecoration: 'none',
-        backgroundColor: theme.palette.action.hover,
-        // Reset on touch devices, it doesn't add specificity
-        '@media (hover: none)': {
-          backgroundColor: 'transparent'
-        }
-      }
-    },
-
-    /* Styles applied to the `component` element if `children` includes `ListItemSecondaryAction`. */
-    secondaryAction: {
-      // Add some space to avoid collision as `ListItemSecondaryAction`
-      // is absolutely positionned.
-      paddingRight: 32
-    }
-  };
-};
-
-exports.styles = styles;
-
-var ListItem =
-/*#__PURE__*/
-function (_React$Component) {
-  (0, _inherits2.default)(ListItem, _React$Component);
-
-  function ListItem() {
-    (0, _classCallCheck2.default)(this, ListItem);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(ListItem).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(ListItem, [{
-    key: "getChildContext",
-    value: function getChildContext() {
-      return {
-        dense: this.props.dense || this.context.dense || false
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _this$props = this.props,
-          button = _this$props.button,
-          childrenProp = _this$props.children,
-          classes = _this$props.classes,
-          classNameProp = _this$props.className,
-          componentProp = _this$props.component,
-          ContainerComponent = _this$props.ContainerComponent,
-          _this$props$Container = _this$props.ContainerProps;
-      _this$props$Container = _this$props$Container === void 0 ? {} : _this$props$Container;
-      var ContainerClassName = _this$props$Container.className,
-          ContainerProps = (0, _objectWithoutProperties2.default)(_this$props$Container, ["className"]),
-          dense = _this$props.dense,
-          disabled = _this$props.disabled,
-          disableGutters = _this$props.disableGutters,
-          divider = _this$props.divider,
-          focusVisibleClassName = _this$props.focusVisibleClassName,
-          other = (0, _objectWithoutProperties2.default)(_this$props, ["button", "children", "classes", "className", "component", "ContainerComponent", "ContainerProps", "dense", "disabled", "disableGutters", "divider", "focusVisibleClassName"]);
-      var isDense = dense || this.context.dense || false;
-
-      var children = _react.default.Children.toArray(childrenProp);
-
-      var hasAvatar = children.some(function (value) {
-        return (0, _reactHelpers.isMuiElement)(value, ['ListItemAvatar']);
-      });
-      var hasSecondaryAction = children.length && (0, _reactHelpers.isMuiElement)(children[children.length - 1], ['ListItemSecondaryAction']);
-      var className = (0, _classnames.default)(classes.root, classes.default, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.dense, isDense || hasAvatar), (0, _defineProperty2.default)(_classNames, classes.gutters, !disableGutters), (0, _defineProperty2.default)(_classNames, classes.divider, divider), (0, _defineProperty2.default)(_classNames, classes.disabled, disabled), (0, _defineProperty2.default)(_classNames, classes.button, button), (0, _defineProperty2.default)(_classNames, classes.secondaryAction, hasSecondaryAction), _classNames), classNameProp);
-      var componentProps = (0, _extends2.default)({
-        className: className,
-        disabled: disabled
-      }, other);
-      var Component = componentProp || 'li';
-
-      if (button) {
-        componentProps.component = componentProp || 'div';
-        componentProps.focusVisibleClassName = (0, _classnames.default)(classes.focusVisible, focusVisibleClassName);
-        Component = _ButtonBase.default;
-      }
-
-      if (hasSecondaryAction) {
-        // Use div by default.
-        Component = !componentProps.component && !componentProp ? 'div' : Component; // Avoid nesting of li > li.
-
-        if (ContainerComponent === 'li') {
-          if (Component === 'li') {
-            Component = 'div';
-          } else if (componentProps.component === 'li') {
-            componentProps.component = 'div';
-          }
-        }
-
-        return _react.default.createElement(ContainerComponent, (0, _extends2.default)({
-          className: (0, _classnames.default)(classes.container, ContainerClassName)
-        }, ContainerProps), _react.default.createElement(Component, componentProps, children), children.pop());
-      }
-
-      return _react.default.createElement(Component, componentProps, children);
-    }
-  }]);
-  return ListItem;
-}(_react.default.Component);
-
-ListItem.propTypes =  true ? {
-  /**
-   * If `true`, the list item will be a button (using `ButtonBase`).
-   */
-  button: _propTypes.default.bool,
-
-  /**
-   * The content of the component.
-   */
-  children: _propTypes.default.node,
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
-  classes: _propTypes.default.object.isRequired,
-
-  /**
-   * @ignore
-   */
-  className: _propTypes.default.string,
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a DOM element or a component.
-   * By default, it's a `li` when `button` is `false` and a `div` when `button` is `true`.
-   */
-  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * The container component used when a `ListItemSecondaryAction` is rendered.
-   */
-  ContainerComponent: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-
-  /**
-   * Properties applied to the container element when the component
-   * is used to display a `ListItemSecondaryAction`.
-   */
-  ContainerProps: _propTypes.default.object,
-
-  /**
-   * If `true`, compact vertical padding designed for keyboard and mouse input will be used.
-   */
-  dense: _propTypes.default.bool,
-
-  /**
-   * If `true`, the list item will be disabled.
-   */
-  disabled: _propTypes.default.bool,
-
-  /**
-   * If `true`, the left and right padding is removed.
-   */
-  disableGutters: _propTypes.default.bool,
-
-  /**
-   * If `true`, a 1px light border is added to the bottom of the list item.
-   */
-  divider: _propTypes.default.bool,
-
-  /**
-   * @ignore
-   */
-  focusVisibleClassName: _propTypes.default.string
-} : {};
-ListItem.defaultProps = {
-  button: false,
-  ContainerComponent: 'li',
-  dense: false,
-  disabled: false,
-  disableGutters: false,
-  divider: false
-};
-ListItem.contextTypes = {
-  dense: _propTypes.default.bool
-};
-ListItem.childContextTypes = {
-  dense: _propTypes.default.bool
-};
-
-var _default = (0, _withStyles.default)(styles, {
-  name: 'MuiListItem'
-})(ListItem);
 
 exports.default = _default;
 

@@ -1,15 +1,10 @@
 import React , { Component } from 'react' ;
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
@@ -35,6 +30,15 @@ class LoginPanel extends Component {
 
         return (
             <div>
+
+                <div className="logo-div">
+                    <img className="logo" height={50} src="/img/password.png" />
+                </div>
+
+                <h5 className="website-name-login-panel">Password Pocket</h5>
+
+
+
 
                 <TextField
                     id="with-placeholder"

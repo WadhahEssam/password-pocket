@@ -8,6 +8,12 @@ html {
     height:100% ;
 }
 
+/* hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* edits to the material UI */
 .MuiInput-underline-145:after {
     border-bottom: 2px solid #617972 !important;
 }

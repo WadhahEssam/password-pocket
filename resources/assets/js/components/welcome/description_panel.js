@@ -8,14 +8,20 @@ class DescriptionPanel extends Component {
         return (
 
             <div>
+
                 <h1 className="website-name">Password Pocket</h1>
-                <h3 className="website-description">The most secure password keeper in the world , even owner can't access your information .</h3>
+
+                <h3 className="website-description">The most secure password keeper , even developers can't access your information .</h3>
+
                 <Button variant="contained" color="primary" className="documentation-button" size={'large'}>
                     Check why
-
                     <SecurityIcon className="description-button-icon" />
-
                 </Button>
+
+                <Button variant="contained" color="primary" className="create-account-button" size={'large'}>
+                    Create Account
+                </Button>
+
             </div>
 
         ) ;

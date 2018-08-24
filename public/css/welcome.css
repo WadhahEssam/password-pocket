@@ -33,13 +33,15 @@
 .login-panel {
     height: 100%;
     padding:30px;
+    min-width: 276px;
 }
 
 .website-description-panel {
     height: 100%;
-    padding:70px 20px ;
+    padding:20px 20px ;
     background-color: rgba(255, 255, 255, 0) !important;
     box-shadow: none !important;
+    overflow-y: scroll;
 }
 
 /* description panel */
@@ -47,6 +49,7 @@
 .website-name {
     width: 80%;
     margin: auto;
+    margin-top:10%;
     font-weight:400;
     color: #617972;
     font-family: 'Metamorphous', cursive;
@@ -58,17 +61,30 @@
     margin-top:20px;
     font-weight:300;
     color: #617972;
+
 }
 
 .documentation-button {
     left: 10%;
+    margin-right: 10px !important;
     margin-top: 30px !important;
     background-color: #5e8c7f !important;
     border-radius: 23px !important;
     width: 180px !important;
     height: 46px !important;
     font-family: 'Metamorphous', cursive;
-    font-weight:600 !important;
+    font-weight: 600 !important;
+}
+
+.create-account-button {
+    left: 10%;
+    margin-top: 30px !important;
+    background-color: rgba(143, 150, 148, 0.7490196078431373) !important;
+    border-radius: 23px !important;
+    width: 201px !important;
+    height: 46px !important;
+    font-family: 'Metamorphous', cursive;
+    font-weight: 600 !important;
 }
 
 .description-button-icon {
@@ -80,4 +96,26 @@
 
 .login-input {
     width: 100%;
+}
+
+.logo-div {
+    width: 100px !important;
+    height: 100px !important;
+    margin: auto;
+    border-radius: 50%;
+    margin-bottom:5px ;
+
+}
+
+.logo {
+    height:100px ;
+}
+
+.website-name-login-panel {
+    width: 200px;
+    margin: auto;
+    font-weight:400;
+    color: #617972;
+    font-family: 'Metamorphous', cursive;
+    margin-bottom:5px ;
 }
