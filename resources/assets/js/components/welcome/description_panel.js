@@ -11,7 +11,7 @@ class DescriptionPanel extends Component {
 
                 <h1 className="website-name">Password Pocket</h1>
 
-                <h3 className="website-description">The most secure password keeper , even developers can't access your information .</h3>
+                <h3 className="website-description">The most secure password keeper , even our developers can't access your information .</h3>
 
                 <Button variant="contained" color="primary" className="documentation-button" size={'large'}>
                     Check why

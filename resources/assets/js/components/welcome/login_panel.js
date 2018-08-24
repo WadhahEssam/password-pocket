@@ -7,6 +7,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from '@material-ui/core/Button' ;
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 class LoginPanel extends Component {
@@ -20,10 +24,10 @@ class LoginPanel extends Component {
             weight: '',
             weightRange: '',
             showPassword: false,
+            checkedA: true,
+            checkedB: true,
         };
     }
-
-
 
 
     render () {
@@ -35,9 +39,9 @@ class LoginPanel extends Component {
                     <img className="logo" height={50} src="/img/password.png" />
                 </div>
 
-                <h5 className="website-name-login-panel">Password Pocket</h5>
-
-
+                <div className="website-name-login-panel">
+                    <h4 >Password Pocket</h4>
+                </div>
 
 
                 <TextField
@@ -70,6 +74,48 @@ class LoginPanel extends Component {
                         }
                     />
                 </FormControl>
+
+
+                <div className="login-checkbox">
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={this.state.checkedB}
+                                onChange={ (e) => { this.setState( { checkedB : e.target.checked } ) } }
+                                value="checkedB"
+                                color="primary"
+                            />
+                        }
+                        label="Stay online "
+                        labelPlacement="start"
+                    />
+                </div>
+
+                <Button variant="contained" color="primary" className="sign-in-button" >
+                    Sign in
+                </Button>
+
+
+                <Button variant="contained" color="primary" className="sign-up-button" >
+                    Create Account
+                </Button>
+
+                <div className="logos-login-panel">
+                    <Tooltip title="visit github repository" placement="left" >
+                        <IconButton aria-label="Delete">
+                            <img height={30} src="img/github.svg" />
+                        </IconButton>
+                    </Tooltip>
+
+                    <Tooltip title="contact us on facebook" placement="right" >
+                        <IconButton aria-label="Delete">
+                            <img height={30} src="img/facebook-logo.svg" />
+                        </IconButton>
+                    </Tooltip>
+                </div>
+
+
+
 
             </div>
         ) ;
