@@ -1,0 +1,83 @@
+
+
+.background {
+    background-image: url('http://localhost:8000/img/background.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.centered {
+    position: absolute;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    min-width: 300px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.welcome-panel {
+    background-color: rgba(255, 255, 255, 0);
+    height: 70% ;
+    min-height:500px;
+}
+
+.welcome-grid {
+    height: 100%;
+}
+
+.login-panel {
+    height: 100%;
+    padding:30px;
+}
+
+.website-description-panel {
+    height: 100%;
+    padding:70px 20px ;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: none !important;
+}
+
+/* description panel */
+
+.website-name {
+    width: 80%;
+    margin: auto;
+    font-weight:400;
+    color: #617972;
+    font-family: 'Metamorphous', cursive;
+}
+
+.website-description {
+    width: 80%;
+    margin: auto;
+    margin-top:20px;
+    font-weight:300;
+    color: #617972;
+}
+
+.documentation-button {
+    left: 10%;
+    margin-top: 30px !important;
+    background-color: #5e8c7f !important;
+    border-radius: 23px !important;
+    width: 180px !important;
+    height: 46px !important;
+    font-family: 'Metamorphous', cursive;
+    font-weight:600 !important;
+}
+
+.description-button-icon {
+    margin-left:10px !important ;
+}
+
+
+/* login panel */
+
+.login-input {
+    width: 100%;
+}
