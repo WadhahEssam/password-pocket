@@ -18,24 +18,3 @@ h3 , h2 , h5 , h6 , p {
 ::-webkit-scrollbar {
     display: none;
 }
-
-/* over-ridding the material UI */
-.MuiInput-underline-145:after {
-    border-bottom: 2px solid #617972 !important;
-}
-
-.MuiFormLabel-focused-135 {
-    color: #617972 !important;
-}
-
-.MuiSwitch-checked-188 {
-   color: #617972 !important;
-}
-.MuiSwitch-colorPrimary-189.MuiSwitch-checked-188 + .MuiSwitch-bar-192 {
-    background-color: #617972 !important;
-}
-
-.MuiTypography-body1-206 {
-    color: rgb(99, 122, 114) !important;
-    font-size: 0.775rem !important;
-}

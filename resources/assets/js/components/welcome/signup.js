@@ -2,9 +2,9 @@ import React , { Component } from 'react' ;
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import LoginPanel from "./login_panel";
 import DescriptionPanel from "./description_panel";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import SignUpPanel from './signup_panel' ;
 
 class SignUp extends Component {
 
@@ -34,16 +34,16 @@ class SignUp extends Component {
 
 
 
-                <Grid item xs={12} sm={10} md={10} lg={10} xl={10}>
-                    <Paper className="paper website-description-panel">
+                <Grid item xs={12} sm={12} md={10} lg={10} xl={10}>
+                    <Paper className="paper signup-panel">
                         <CSSTransitionGroup { ... transitionOptions }>
-                            <DescriptionPanel/>
+                            <SignUpPanel/>
                         </CSSTransitionGroup>
                     </Paper>
                 </Grid>
 
 
-            <PaddingGrid/>
+                <PaddingGrid/>
 
         </Grid>
         );

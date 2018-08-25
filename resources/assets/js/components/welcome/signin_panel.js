@@ -1,6 +1,7 @@
 import React , { Component } from 'react' ;
 import { changeWelcomePage } from '../../actions/index' ;
 import { connect } from 'react-redux' ;
+import { Field , reduxForm } from 'redux-form' ;
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,20 +17,18 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Hidden from '@material-ui/core/Hidden';
 import Chip from '@material-ui/core/Chip';
 
+
+
 class LoginPanel extends Component {
 
     constructor ( props ) {
         super ( props ) ;
 
         this.state = {
-            amount: '',
-            password: '',
-            weight: '',
-            weightRange: '',
-            showPassword: false,
-            checkedA: true,
-            checkedB: true,
+            stayOnlineCheckBox: true,
         };
+
+        this.renderPasswordField = this.renderPasswordField.bind(this) ;
     }
 
     render () {
@@ -37,7 +36,7 @@ class LoginPanel extends Component {
         return (
             <div>
 
-                {/* For Mobiles */}
+                {/* Header For Mobiles */}
                 <Hidden only={['sm','lg','md','xl']}>
                     <div className="logo-div-mobile">
                         <img className="logo" height={50} src="/img/password.png" />
@@ -59,9 +58,9 @@ class LoginPanel extends Component {
                         />
                     </div>
 
-
                 </Hidden>
 
+                {/* Header For NotMobiles */}
                 <Hidden only="xs" >
                     <div className="logo-div">
                         <img className="logo" height={50} src="/img/password.png" />
@@ -72,61 +71,44 @@ class LoginPanel extends Component {
                     </div>
                 </Hidden>
 
-                <TextField
-                    id="with-placeholder"
-                    label="Email"
-                    placeholder="Enter Your Email ."
-                    className="login-input"
-                    margin="normal"
-                />
+                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
 
-                <FormControl
-                    className="login-input"
-                >
-                    <InputLabel htmlFor="adornment-password">Password</InputLabel>
-                    <Input
-                        id="adornment-password"
-                        type={this.state.showPassword ? 'text' : 'password'}
-                        value={this.state.password}
-                        onChange={(e)=>{ this.setState( { password:e.target.value}) } }
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="Toggle password visibility"
-                                    onClick={(e)=>{ e.preventDefault() }}
-                                    onMouseDown={ () => {this.setState( {showPassword : !this.state.showPassword } )} }
-                                >
-                                    {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
+                    <Field
+                        name="email"
+                        component={this.renderEmailField}
                     />
-                </FormControl>
 
-
-                <div className="login-checkbox">
-                    <FormControlLabel
-                        control={
-                            <Switch
-                                checked={this.state.checkedB}
-                                onChange={ (e) => { this.setState( { checkedB : e.target.checked } ) } }
-                                value="checkedB"
-                                color="primary"
-                            />
-                        }
-                        label="Stay online "
-                        labelPlacement="start"
+                    <Field
+                        name="password"
+                        component={this.renderPasswordField}
                     />
-                </div>
-
-                <Button variant="contained" color="primary" className="sign-in-button" >
-                    Sign in
-                </Button>
 
 
-                <Button variant="contained" color="primary" className="sign-up-button" onClick={()=>{this.props.changeWelcomePage('signup')}} >
-                    Create Account
-                </Button>
+                    <div className="login-checkbox">
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={this.state.stayOnlineCheckBox}
+                                    onChange={ (e) => { this.setState( { stayOnlineCheckBox : e.target.checked } ) } }
+                                    value="checkedB"
+                                    color="primary"
+                                />
+                            }
+                            label="Stay online "
+                            labelPlacement="start"
+                        />
+                    </div>
+
+                    <Button type="submit" variant="contained" color="primary" className="sign-in-button" >
+                        Sign in
+                    </Button>
+
+
+                    <Button variant="contained" color="primary" className="sign-up-button" onClick={()=>{this.props.changeWelcomePage('signup')}} >
+                        Create Account
+                    </Button>
+
+                </form>
 
                 <div className="logos-login-panel">
                     <Tooltip title="visit github repository" placement="left" >
@@ -142,13 +124,48 @@ class LoginPanel extends Component {
                     </Tooltip>
                 </div>
 
-
-
-
             </div>
         ) ;
     }
+
+    onSubmit ( values ) {
+    }
+
+    renderEmailField ( field ) {
+        return (
+            <div>
+                <TextField
+                    { ... field.input }
+                    id="with-placeholder"
+                    label="Email"
+                    placeholder="Enter Your Email ."
+                    className="login-input"
+                    margin="normal"
+                />
+            </div>
+        );
+    }
+
+    renderPasswordField ( field ) {
+        return (
+            <div>
+                <FormControl
+                    className="login-input"
+                >
+                    <InputLabel htmlFor="adornment-password">Password</InputLabel>
+                    <Input
+                        id="adornment-password"
+                        type="password"
+                        { ... field.input }
+                    />
+                </FormControl>
+            </div>
+        ) ;
+    }
+
 }
 
+function validate ( values ) {
+}
 
-export default connect ( null , {changeWelcomePage} ) ( LoginPanel ) ;
+export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , {changeWelcomePage} ) ( LoginPanel ) ) ;

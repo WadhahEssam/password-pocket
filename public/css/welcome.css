@@ -42,6 +42,18 @@
     background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
+.signup-panel {
+    position: relative;
+    top: calc(50% + -287px );
+    height: 600px;
+    padding: 40px;
+    bottom: 16px;
+    min-width: 300px;
+    max-width: 400px;
+    margin:auto;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
 .website-description-panel {
     padding:20px 20px ;
     background-color: rgba(255, 255, 255, 0) !important;
@@ -202,3 +214,47 @@
     left: calc(50% + -48px );
     opacity: 0.8;
 }
+
+
+/* Sign Up Panel */
+
+.signup-username-input {
+    margin:4px 0px !important ;
+}
+
+.signup-email-input {
+    margin:4px 0px !important ;
+}
+
+.signup-password-input {
+    margin:4px 0px !important ;
+}
+
+.signup-confirm-password-input {
+    margin:4px 0px !important ;
+}
+
+.signup-form {
+    margin-top:30px ;
+}
+
+.signup-button-signup-panel {
+    margin-right:4% !important;
+    margin-top: 62px !important;
+    background-color: #558175  !important;
+    width: 48%!important;
+    height: 41px !important;
+    font-weight: 600 !important;
+    font-size:13px !important;
+}
+
+.signin-button-signup-panel {
+    margin-top: 62px !important;
+    background-color: rgba(143, 150, 148, 0.7490196078431373) !important;
+    /*border-radius: 23px !important;*/
+    width: 48% !important;
+    height: 41px !important;
+    font-size:11px !important;
+    font-weight: 600 !important;
+}
+

@@ -12614,255 +12614,7 @@ Object.defineProperty(exports, "default", {
 var _Grid = _interopRequireDefault(__webpack_require__(503));
 
 /***/ }),
-/* 184 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions_index__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField__ = __webpack_require__(510);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_InputAdornment__ = __webpack_require__(559);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_InputAdornment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_InputAdornment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Input__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_Input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_InputLabel__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_InputLabel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_FormControl__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_FormControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_icons_Visibility__ = __webpack_require__(570);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_VisibilityOff__ = __webpack_require__(571);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_VisibilityOff__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Switch__ = __webpack_require__(572);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Switch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_Switch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_FormControlLabel__ = __webpack_require__(575);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_FormControlLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_FormControlLabel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Button__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Tooltip__ = __webpack_require__(578);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_Tooltip__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Hidden__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_core_Hidden__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Chip__ = __webpack_require__(583);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Chip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_Chip__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var LoginPanel = function (_Component) {
-    _inherits(LoginPanel, _Component);
-
-    function LoginPanel(props) {
-        _classCallCheck(this, LoginPanel);
-
-        var _this = _possibleConstructorReturn(this, (LoginPanel.__proto__ || Object.getPrototypeOf(LoginPanel)).call(this, props));
-
-        _this.state = {
-            amount: '',
-            password: '',
-            weight: '',
-            weightRange: '',
-            showPassword: false,
-            checkedA: true,
-            checkedB: true
-        };
-        return _this;
-    }
-
-    _createClass(LoginPanel, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Hidden___default.a,
-                    { only: ['sm', 'lg', 'md', 'xl'] },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'logo-div-mobile' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'website-name-login-panel-mobile' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h4',
-                            { style: { margin: "0px" } },
-                            'Password Pocket'
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'website-description-login-panel-mobile' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            null,
-                            'The most secure password keeper'
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'documentaion-button-login-panel-div' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_Chip___default.a, {
-                            label: 'WHY ?',
-                            onClick: function onClick() {
-                                console.log('check why');
-                            },
-                            className: 'documentaion-button-login-panel'
-                        })
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Hidden___default.a,
-                    { only: 'xs' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'logo-div' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'website-name-login-panel' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h4',
-                            { style: { margin: "0px" } },
-                            'Password Pocket'
-                        )
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField___default.a, {
-                    id: 'with-placeholder',
-                    label: 'Email',
-                    placeholder: 'Enter Your Email .',
-                    className: 'login-input',
-                    margin: 'normal'
-                }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core_FormControl___default.a,
-                    {
-                        className: 'login-input'
-                    },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core_InputLabel___default.a,
-                        { htmlFor: 'adornment-password' },
-                        'Password'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_Input___default.a, {
-                        id: 'adornment-password',
-                        type: this.state.showPassword ? 'text' : 'password',
-                        value: this.state.password,
-                        onChange: function onChange(e) {
-                            _this2.setState({ password: e.target.value });
-                        },
-                        endAdornment: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_4__material_ui_core_InputAdornment___default.a,
-                            { position: 'end' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default.a,
-                                {
-                                    'aria-label': 'Toggle password visibility',
-                                    onClick: function onClick(e) {
-                                        e.preventDefault();
-                                    },
-                                    onMouseDown: function onMouseDown() {
-                                        _this2.setState({ showPassword: !_this2.state.showPassword });
-                                    }
-                                },
-                                this.state.showPassword ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_VisibilityOff___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_icons_Visibility___default.a, null)
-                            )
-                        )
-                    })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'login-checkbox' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_FormControlLabel___default.a, {
-                        control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_Switch___default.a, {
-                            checked: this.state.checkedB,
-                            onChange: function onChange(e) {
-                                _this2.setState({ checkedB: e.target.checked });
-                            },
-                            value: 'checkedB',
-                            color: 'primary'
-                        }),
-                        label: 'Stay online ',
-                        labelPlacement: 'start'
-                    })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Button___default.a,
-                    { variant: 'contained', color: 'primary', className: 'sign-in-button' },
-                    'Sign in'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Button___default.a,
-                    { variant: 'contained', color: 'primary', className: 'sign-up-button', onClick: function onClick() {
-                            _this2.props.changeWelcomePage('signup');
-                        } },
-                    'Create Account'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'logos-login-panel' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Tooltip___default.a,
-                        { title: 'visit github repository', placement: 'left' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default.a,
-                            { 'aria-label': 'Delete' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Tooltip___default.a,
-                        { title: 'contact us on facebook', placement: 'right' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default.a,
-                            { 'aria-label': 'Delete' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return LoginPanel;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changeWelcomePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["b" /* changeWelcomePage */] })(LoginPanel));
-
-/***/ }),
+/* 184 */,
 /* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13654,11 +13406,13 @@ var _Button = _interopRequireDefault(__webpack_require__(577));
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_icons_Security__ = __webpack_require__(588);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_icons_Security___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_icons_Security__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_index__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_icons_Security__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_icons_Security___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_icons_Security__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_router_dom__ = __webpack_require__(89);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13666,6 +13420,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -13684,6 +13440,8 @@ var DescriptionPanel = function (_Component) {
     _createClass(DescriptionPanel, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -13698,14 +13456,16 @@ var DescriptionPanel = function (_Component) {
                     'The most secure password keeper , even our developers don\'t have access your information '
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button___default.a,
+                    __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button___default.a,
                     { variant: 'contained', color: 'primary', className: 'documentation-button', size: 'large' },
                     'Check why',
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_icons_Security___default.a, { className: 'description-button-icon' })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_icons_Security___default.a, { className: 'description-button-icon' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Button___default.a,
-                    { variant: 'contained', color: 'primary', className: 'create-account-button', size: 'large' },
+                    __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button___default.a,
+                    { variant: 'contained', color: 'primary', className: 'create-account-button', size: 'large', onClick: function onClick() {
+                            _this2.props.changeWelcomePage('signup');
+                        } },
                     'Create Account'
                 )
             );
@@ -13715,7 +13475,7 @@ var DescriptionPanel = function (_Component) {
     return DescriptionPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (DescriptionPanel);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changeWelcomePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["b" /* changeWelcomePage */] })(DescriptionPanel));
 
 /***/ }),
 /* 204 */
@@ -14944,6 +14704,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CssBaseline__ = __webpack_require__(601);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CssBaseline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_CssBaseline__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__snippit__ = __webpack_require__(603);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_styles__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_styles__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_purple__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_purple___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_purple__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button__);
 
 
 
@@ -14954,6 +14720,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
+
+
+
+var theme = Object(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_styles__["createMuiTheme"])({
+    palette: {
+        primary: { main: '#558175' },
+        secondary: { main: '#11cb5f' } // This is just green.A700 as hex.
+    }
+});
 
 var createStoreWithMiddleware = Object(__WEBPACK_IMPORTED_MODULE_3_redux__["a" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_6_redux_thunk__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_3_redux__["d" /* createStore */]);
 
@@ -14966,16 +14743,20 @@ if (document.getElementById('root')) {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_CssBaseline___default.a, null),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_5_react_router_dom__["a" /* BrowserRouter */],
-                null,
+                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_styles__["MuiThemeProvider"],
+                { theme: theme },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
+                    __WEBPACK_IMPORTED_MODULE_5_react_router_dom__["a" /* BrowserRouter */],
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_5_react_router_dom__["c" /* Switch */],
+                        'div',
                         null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_router_dom__["b" /* Route */], { path: '/hello', component: __WEBPACK_IMPORTED_MODULE_9__snippit__["a" /* default */] }),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_router_dom__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_7__welcome_welcome__["a" /* default */] })
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_5_react_router_dom__["c" /* Switch */],
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_router_dom__["b" /* Route */], { path: '/hello', component: __WEBPACK_IMPORTED_MODULE_9__snippit__["a" /* default */] }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_react_router_dom__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_7__welcome_welcome__["a" /* default */] })
+                        )
                     )
                 )
             )
@@ -35517,9 +35298,11 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 
 
 
+
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineReducers */])({
     test: __WEBPACK_IMPORTED_MODULE_2__test_reducer__["a" /* default */],
-    welcomePage: __WEBPACK_IMPORTED_MODULE_3__welcome_page_reducer__["a" /* default */]
+    welcomePage: __WEBPACK_IMPORTED_MODULE_3__welcome_page_reducer__["a" /* default */],
+    form: __WEBPACK_IMPORTED_MODULE_1_redux_form__["b" /* reducer */]
 }));
 
 /***/ }),
@@ -35589,7 +35372,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /* unused harmony reexport fieldArrayPropTypes */
 /* unused harmony reexport formPropTypes */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Field__ = __webpack_require__(260);
-/* unused harmony reexport Field */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_11__Field__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Fields__ = __webpack_require__(327);
 /* unused harmony reexport Fields */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__FieldArray__ = __webpack_require__(330);
@@ -35633,9 +35416,9 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__hasSubmitFailed__ = __webpack_require__(385);
 /* unused harmony reexport hasSubmitFailed */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__reduxForm__ = __webpack_require__(387);
-/* unused harmony reexport reduxForm */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_33__reduxForm__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__reducer__ = __webpack_require__(418);
-/* unused harmony reexport reducer */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_34__reducer__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__values__ = __webpack_require__(421);
 /* unused harmony reexport values */
 
@@ -36129,7 +35912,7 @@ var fieldArrayPropTypes = {
 
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Object(__WEBPACK_IMPORTED_MODULE_0__createField__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0__createField__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
 
 /***/ }),
 /* 261 */
@@ -41236,7 +41019,7 @@ var createHasSubmitFailed = function createHasSubmitFailed(_ref) {
 
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Object(__WEBPACK_IMPORTED_MODULE_0__createReduxForm__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0__createReduxForm__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
 
 /***/ }),
 /* 388 */
@@ -43346,7 +43129,7 @@ var getDisplayName = function getDisplayName(Comp) {
 
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Object(__WEBPACK_IMPORTED_MODULE_0__createReducer__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0__createReducer__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1__structure_plain__["a" /* default */]));
 
 /***/ }),
 /* 419 */
@@ -46037,8 +45820,6 @@ var Login = function (_Component) {
     _createClass(Login, [{
         key: 'render',
         value: function render() {
-
-            console.log(this.props);
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -64638,7 +64419,7 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grid__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_panel__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signin_panel__ = __webpack_require__(609);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__description_panel__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup__ = __webpack_require__(590);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup__);
@@ -64705,7 +64486,7 @@ var SignIn = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup___default.a,
                                 transitionOptions,
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__login_panel__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__signin_panel__["a" /* default */], null)
                             )
                         )
                     ),
@@ -65671,10 +65452,10 @@ module.exports = exports['default'];
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grid__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Hidden__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_panel__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__description_panel__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup__ = __webpack_require__(590);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__description_panel__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_transition_group_CSSTransitionGroup__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_transition_group_CSSTransitionGroup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_transition_group_CSSTransitionGroup__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_panel__ = __webpack_require__(610);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -65728,14 +65509,14 @@ var SignUp = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(PaddingGrid, null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Grid___default.a,
-                    { item: true, xs: 12, sm: 10, md: 10, lg: 10, xl: 10 },
+                    { item: true, xs: 12, sm: 12, md: 10, lg: 10, xl: 10 },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Paper___default.a,
-                        { className: 'paper website-description-panel' },
+                        { className: 'paper signup-panel' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_6_react_transition_group_CSSTransitionGroup___default.a,
+                            __WEBPACK_IMPORTED_MODULE_5_react_transition_group_CSSTransitionGroup___default.a,
                             transitionOptions,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__description_panel__["a" /* default */], null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__signup_panel__["a" /* default */], null)
                         )
                     )
                 ),
@@ -65931,6 +65712,545 @@ var Snippit = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 605 */,
+/* 606 */,
+/* 607 */,
+/* 608 */,
+/* 609 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions_index__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_form__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch__ = __webpack_require__(572);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel__ = __webpack_require__(575);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip__ = __webpack_require__(578);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var LoginPanel = function (_Component) {
+    _inherits(LoginPanel, _Component);
+
+    function LoginPanel(props) {
+        _classCallCheck(this, LoginPanel);
+
+        var _this = _possibleConstructorReturn(this, (LoginPanel.__proto__ || Object.getPrototypeOf(LoginPanel)).call(this, props));
+
+        _this.state = {
+            stayOnlineCheckBox: true
+        };
+
+        _this.renderPasswordField = _this.renderPasswordField.bind(_this);
+        return _this;
+    }
+
+    _createClass(LoginPanel, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default.a,
+                    { only: ['sm', 'lg', 'md', 'xl'] },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'logo-div-mobile' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'website-name-login-panel-mobile' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'h4',
+                            { style: { margin: "0px" } },
+                            'Password Pocket'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'website-description-login-panel-mobile' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'The most secure password keeper'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'documentaion-button-login-panel-div' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip___default.a, {
+                            label: 'WHY ?',
+                            onClick: function onClick() {
+                                console.log('check why');
+                            },
+                            className: 'documentaion-button-login-panel'
+                        })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default.a,
+                    { only: 'xs' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'logo-div' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'website-name-login-panel' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'h4',
+                            { style: { margin: "0px" } },
+                            'Password Pocket'
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'form',
+                    { onSubmit: this.props.handleSubmit(this.onSubmit.bind(this)) },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_redux_form__["a" /* Field */], {
+                        name: 'email',
+                        component: this.renderEmailField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_redux_form__["a" /* Field */], {
+                        name: 'password',
+                        component: this.renderPasswordField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'login-checkbox' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel___default.a, {
+                            control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch___default.a, {
+                                checked: this.state.stayOnlineCheckBox,
+                                onChange: function onChange(e) {
+                                    _this2.setState({ stayOnlineCheckBox: e.target.checked });
+                                },
+                                value: 'checkedB',
+                                color: 'primary'
+                            }),
+                            label: 'Stay online ',
+                            labelPlacement: 'start'
+                        })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default.a,
+                        { type: 'submit', variant: 'contained', color: 'primary', className: 'sign-in-button' },
+                        'Sign in'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default.a,
+                        { variant: 'contained', color: 'primary', className: 'sign-up-button', onClick: function onClick() {
+                                _this2.props.changeWelcomePage('signup');
+                            } },
+                        'Create Account'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'logos-login-panel' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default.a,
+                        { title: 'visit github repository', placement: 'left' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            { 'aria-label': 'Delete' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default.a,
+                        { title: 'contact us on facebook', placement: 'right' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            { 'aria-label': 'Delete' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(values) {}
+    }, {
+        key: 'renderEmailField',
+        value: function renderEmailField(field) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
+                    id: 'with-placeholder',
+                    label: 'Email',
+                    placeholder: 'Enter Your Email .',
+                    className: 'login-input',
+                    margin: 'normal'
+                }))
+            );
+        }
+    }, {
+        key: 'renderPasswordField',
+        value: function renderPasswordField(field) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    {
+                        className: 'login-input'
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        { htmlFor: 'adornment-password' },
+                        'Password'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                        id: 'adornment-password',
+                        type: 'password'
+                    }, field.input))
+                )
+            );
+        }
+    }]);
+
+    return LoginPanel;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+function validate(values) {}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changeWelcomePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["b" /* changeWelcomePage */] })(LoginPanel)));
+
+/***/ }),
+/* 610 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_form__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_index__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip__ = __webpack_require__(578);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Snippit = function (_Component) {
+    _inherits(Snippit, _Component);
+
+    function Snippit(props) {
+        _classCallCheck(this, Snippit);
+
+        var _this = _possibleConstructorReturn(this, (Snippit.__proto__ || Object.getPrototypeOf(Snippit)).call(this, props));
+
+        _this.state = {
+            password: '',
+            showPassword: false,
+            password2: '',
+            showPassword2: false,
+            checkedA: true,
+            checkedB: true
+        };
+
+        _this.renderConfirmPasswordField = _this.renderConfirmPasswordField.bind(_this);
+        _this.renderPasswordField = _this.renderPasswordField.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(Snippit, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'logo-div' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'logo', height: 50, src: '/img/password.png' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'website-name-login-panel' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h4',
+                        { style: { margin: "0px" } },
+                        'Password Pocket'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'form',
+                    { className: 'signup-form', onSubmit: this.props.handleSubmit(this.onSubmit.bind(this)) },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                        name: 'usernasme',
+                        component: this.renderUsernameField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                        name: 'email',
+                        component: this.renderEmailField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                        name: 'password',
+                        component: this.renderPasswordField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                        name: 'confirm-password',
+                        component: this.renderConfirmPasswordField
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button___default.a,
+                        { type: 'submit', variant: 'contained', color: 'primary', className: 'signup-button-signup-panel' },
+                        'Create Account'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button___default.a,
+                        { variant: 'contained', color: 'primary', className: 'signin-button-signup-panel', onClick: function onClick() {
+                                _this2.props.changeWelcomePage('signin');
+                            } },
+                        'have account ?'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'logos-login-panel' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
+                            { title: 'visit github repository', placement: 'left' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                                { 'aria-label': 'Delete' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
+                            { title: 'contact us on facebook', placement: 'right' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                                { 'aria-label': 'Delete' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'renderUsernameField',
+        value: function renderUsernameField(field) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
+                id: 'username',
+                label: 'Username',
+                placeholder: 'Choose a username',
+                className: 'login-input signup-username-input',
+                margin: 'normal'
+            }));
+        }
+    }, {
+        key: 'renderEmailField',
+        value: function renderEmailField(field) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
+                id: 'email',
+                label: 'Email',
+                placeholder: 'Enter Your Email .',
+                className: 'login-input signup-email-input',
+                margin: 'normal'
+            }));
+        }
+    }, {
+        key: 'renderPasswordField',
+        value: function renderPasswordField(field) {
+            var _this3 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                {
+                    className: 'login-input signup-password-input'
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                    { htmlFor: 'adornment-password' },
+                    'Password'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                    id: 'adornment-password',
+                    type: this.state.showPassword ? 'text' : 'password',
+                    value: this.state.password,
+                    onChange: function onChange(e) {
+                        _this3.setState({ password: e.target.value });
+                    }
+                }, field.input))
+            );
+        }
+    }, {
+        key: 'renderConfirmPasswordField',
+        value: function renderConfirmPasswordField(field) {
+            var _this4 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                {
+                    className: 'login-input signup-confirm-password-input'
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                    { htmlFor: 'adornment-password' },
+                    'Confirm Password'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                    id: 'adornment-confirmpassword-password',
+                    type: this.state.showPassword2 ? 'text' : 'password',
+                    value: this.state.password2,
+                    onChange: function onChange(e) {
+                        _this4.setState({ password2: e.target.value });
+                    }
+                }, field.input))
+            );
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(values) {}
+    }]);
+
+    return Snippit;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+function validate(values) {
+    var errors = {};
+    return errors;
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changeWelcomePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["b" /* changeWelcomePage */] })(Snippit)));
+
+/***/ }),
+/* 611 */,
+/* 612 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var purple = {
+  50: '#f3e5f5',
+  100: '#e1bee7',
+  200: '#ce93d8',
+  300: '#ba68c8',
+  400: '#ab47bc',
+  500: '#9c27b0',
+  600: '#8e24aa',
+  700: '#7b1fa2',
+  800: '#6a1b9a',
+  900: '#4a148c',
+  A100: '#ea80fc',
+  A200: '#e040fb',
+  A400: '#d500f9',
+  A700: '#aa00ff'
+};
+var _default = purple;
+exports.default = _default;
 
 /***/ })
 /******/ ]);

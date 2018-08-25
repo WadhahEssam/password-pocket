@@ -9,6 +9,19 @@ import Login from './welcome/welcome'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Snippit from './snippit' ;
 
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+import Button from '@material-ui/core/Button';
+
+const theme = createMuiTheme({
+    palette: {
+      primary: { main: '#558175' },
+      secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+    },
+  });
+
+
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 if (document.getElementById('root')) {
@@ -20,15 +33,18 @@ if (document.getElementById('root')) {
 
                 <CssBaseline />
 
-                <BrowserRouter>
+                <MuiThemeProvider theme={theme}>
 
-                    <div>
-                        <Switch>
-                            <Route path="/hello" component={Snippit} />
-                            <Route path="/" component={Login} />
-                        </Switch>
-                    </div>
-                </BrowserRouter>
+                    <BrowserRouter>
+                        <div>
+                            <Switch>
+                                <Route path="/hello" component={Snippit} />
+                                <Route path="/" component={Login} />
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+
+                </MuiThemeProvider>
 
             </React.Fragment>
 

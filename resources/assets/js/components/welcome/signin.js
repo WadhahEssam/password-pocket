@@ -2,7 +2,7 @@ import React , { Component } from 'react' ;
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import LoginPanel from "./login_panel";
+import LoginPanel from "./signin_panel";
 import DescriptionPanel from "./description_panel";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 

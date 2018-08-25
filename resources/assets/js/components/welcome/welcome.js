@@ -7,11 +7,6 @@ class Login extends Component {
 
     render() {
 
-        console.log(this.props) ;
-
-
-
-
         return (
             <div>
 
@@ -29,13 +24,9 @@ class Login extends Component {
     }
 }
 
-
-
-
 function mapStateToProps ( state ) {
     return { welcomePage : state.welcomePage  } ;
 }
-
 
 export default connect ( mapStateToProps ) ( Login )  ;
 
