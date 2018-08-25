@@ -22,8 +22,9 @@
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/welcome.css" rel="stylesheet" type="text/css">
 
-
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Metamorphous" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 

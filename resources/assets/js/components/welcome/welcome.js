@@ -35,7 +35,7 @@ class Login extends Component {
                         </Hidden>
 
                         <Grid item className="login-grid" xs={12} sm={5} md={3} lg={3} xl={2} >
-                            <Paper className="paper login-panel">
+                            <Paper elevation={5} className="paper login-panel">
                                 <LoginPanel/>
 
                             </Paper>

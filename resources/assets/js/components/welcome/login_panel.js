@@ -11,7 +11,10 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button' ;
 import Tooltip from '@material-ui/core/Tooltip';
-
+import Hidden from '@material-ui/core/Hidden';
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
+import FaceIcon from '@material-ui/icons/Face';
 
 class LoginPanel extends Component {
 
@@ -35,14 +38,40 @@ class LoginPanel extends Component {
         return (
             <div>
 
-                <div className="logo-div">
-                    <img className="logo" height={50} src="/img/password.png" />
-                </div>
+                {/* For Mobiles */}
+                <Hidden only={['sm','lg','md','xl']}>
+                    <div className="logo-div-mobile">
+                        <img className="logo" height={50} src="/img/password.png" />
+                    </div>
 
-                <div className="website-name-login-panel">
-                    <h4 >Password Pocket</h4>
-                </div>
+                    <div className="website-name-login-panel-mobile">
+                        <h4 >Password Pocket</h4>
+                    </div>
 
+                    <div className="website-description-login-panel-mobile" >
+                        <p>The most secure password keeper</p>
+                    </div>
+
+                    <div className="documentaion-button-login-panel-div" >
+                        <Chip
+                            label="WHY ?"
+                            onClick={ ()=>{console.log('check why')} }
+                            className="documentaion-button-login-panel"
+                        />
+                    </div>
+
+
+                </Hidden>
+
+                <Hidden only="xs" >
+                    <div className="logo-div">
+                        <img className="logo" height={50} src="/img/password.png" />
+                    </div>
+
+                    <div className="website-name-login-panel">
+                        <h4 >Password Pocket</h4>
+                    </div>
+                </Hidden>
 
                 <TextField
                     id="with-placeholder"
