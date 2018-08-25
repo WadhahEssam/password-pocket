@@ -1,4 +1,6 @@
 import React , { Component } from 'react' ;
+import { changeWelcomePage } from '../../actions/index' ;
+import { connect } from 'react-redux' ;
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,9 +14,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button' ;
 import Tooltip from '@material-ui/core/Tooltip';
 import Hidden from '@material-ui/core/Hidden';
-import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
 
 class LoginPanel extends Component {
 
@@ -32,7 +32,6 @@ class LoginPanel extends Component {
         };
     }
 
-
     render () {
 
         return (
@@ -45,7 +44,7 @@ class LoginPanel extends Component {
                     </div>
 
                     <div className="website-name-login-panel-mobile">
-                        <h4 >Password Pocket</h4>
+                        <h4 style={ { margin:"0px" } } >Password Pocket</h4>
                     </div>
 
                     <div className="website-description-login-panel-mobile" >
@@ -69,7 +68,7 @@ class LoginPanel extends Component {
                     </div>
 
                     <div className="website-name-login-panel">
-                        <h4 >Password Pocket</h4>
+                        <h4 style={ { margin:"0px" } } >Password Pocket</h4>
                     </div>
                 </Hidden>
 
@@ -125,7 +124,7 @@ class LoginPanel extends Component {
                 </Button>
 
 
-                <Button variant="contained" color="primary" className="sign-up-button" >
+                <Button variant="contained" color="primary" className="sign-up-button" onClick={()=>{this.props.changeWelcomePage('signup')}} >
                     Create Account
                 </Button>
 
@@ -152,4 +151,4 @@ class LoginPanel extends Component {
 }
 
 
-export default LoginPanel ;
+export default connect ( null , {changeWelcomePage} ) ( LoginPanel ) ;

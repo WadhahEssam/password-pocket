@@ -7,7 +7,7 @@ import { BrowserRouter , Route , Switch } from 'react-router-dom' ;
 import thunk from 'redux-thunk';
 import Login from './welcome/welcome'
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import Snippit from './snippit' ;
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -24,7 +24,7 @@ if (document.getElementById('root')) {
 
                     <div>
                         <Switch>
-                            <Route path="/hello" component={Login} />
+                            <Route path="/hello" component={Snippit} />
                             <Route path="/" component={Login} />
                         </Switch>
                     </div>

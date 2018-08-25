@@ -8,6 +8,12 @@ html {
     height:100% ;
 }
 
+h3 , h2 , h5 , h6 , p {
+    margin: 0px ;
+    font-family: 'Abel', sans-serif;
+    font-weight:200 ;
+}
+
 /* hide scrollbar */
 ::-webkit-scrollbar {
     display: none;

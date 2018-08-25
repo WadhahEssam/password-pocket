@@ -127,26 +127,30 @@
     width: 176px;
     margin: auto;
     font-weight: 400;
-    color: #1e745f;
+    color: rgb(135, 150, 139);
     font-family: 'Unica One', cursive;
     margin-bottom: -5px;
+    font-size: 24px;
 }
 
 .website-name-login-panel-mobile {
     width: 176px;
     margin: auto;
     font-weight: 400;
-    color: #1e745f;
-    font-family: 'Unica One', cursive;
+    color: rgb(135, 150, 139);
+    font-family: 'Unica One', cursive !important;
     margin-bottom: 24px;
+    margin-top:0px;
+    font-size: 24px;
+
 }
 
 .website-description-login-panel-mobile {
-    width: 242px;
+    width: 209px;
     margin: auto;
     font-weight: 400;
     color: #abb0af;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .documentaion-button-login-panel-div {
