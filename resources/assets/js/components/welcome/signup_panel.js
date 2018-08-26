@@ -1,7 +1,7 @@
 import React , { Component } from 'react' ;
 import { connect } from 'react-redux' ;
 import { Field , reduxForm } from 'redux-form' ;
-import { changeWelcomePage } from '../../actions/index' ;
+import { changeWelcomePage , signup } from '../../actions/index' ;
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -51,7 +51,7 @@ class Snippit extends Component {
                 <form className="signup-form" onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} >
 
                     <Field
-                        name="username"
+                        name="name"
                         component={this.renderUsernameField}
                     />
 
@@ -172,7 +172,7 @@ class Snippit extends Component {
     }
 
     onSubmit ( values ) {
-        console.log('submitted') ;
+        this.props.signup( values ) ;
     }
 
 }
@@ -186,10 +186,10 @@ function validate ( values ) {
         errors.email = "Email is not valid" ;
     }
 
-    if ( !values.username ) {
-        errors.username = "Username is required" ;
-    } else if ( values.username.length < 3 ) {
-        errors.username = "Username should be atleast 3 characters" ;
+    if ( !values.name ) {
+        errors.name = "Username is required" ;
+    } else if ( values.name.length < 3 ) {
+        errors.name = "Username should be atleast 3 characters" ;
     }
 
     if ( !values.password ) {
@@ -207,4 +207,4 @@ function validate ( values ) {
     return errors ;
 }
 
-export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( null , {changeWelcomePage} ) (Snippit) ) ;
+export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( null , { changeWelcomePage , signup } ) (Snippit) ) ;

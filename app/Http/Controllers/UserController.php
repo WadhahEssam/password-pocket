@@ -1,54 +1,30 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\Auth;
-use App\User ;
+use Validator;
 
 
 class UserController extends Controller
 {
-    public function test () {
-
-        return User::all() ;
-    }
-
     public function signup ( Request $request ) {
-
-
-        $validator = Validator::make( $request->all() ,[
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'c_password' => 'required|same:password',
         ]);
-
-
-        $response = array('response' => '', 'success'=>false);
-
         if ($validator->fails()) {
-            return 'there is an error' ;
-        }else{
-            $newUser = new User () ;
-            $newUser->name = $request->username ;
-            $newUser->email = $request->email ;
-            $newUser->password = Hash::make( $request->password ) ;
-            $newUser->save() ;
-
-            $credentials = $request->only('email', 'password');
-
-            if (Auth::attempt($credentials)) {
-                // Authentication passed...
-                return 'created and auth' ;
-            }
-
-            return $newUser ;
-
+            return response()->json(['error'=>$validator->errors()], 401);
         }
 
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
 
+        return response()->json(['success'=>$success], $this-> successStatus);
     }
-
 }
