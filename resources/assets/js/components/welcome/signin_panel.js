@@ -16,8 +16,8 @@ import Button from '@material-ui/core/Button' ;
 import Tooltip from '@material-ui/core/Tooltip';
 import Hidden from '@material-ui/core/Hidden';
 import Chip from '@material-ui/core/Chip';
-
-
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { validateEmail }  from '../../helpers/index' ;
 
 class LoginPanel extends Component {
 
@@ -129,19 +129,23 @@ class LoginPanel extends Component {
     }
 
     onSubmit ( values ) {
+        console.log('submitted');
     }
 
     renderEmailField ( field ) {
+
+
         return (
             <div>
-                <TextField
-                    { ... field.input }
-                    id="with-placeholder"
-                    label="Email"
-                    placeholder="Enter Your Email ."
-                    className="login-input"
-                    margin="normal"
-                />
+                <FormControl className="login-input" { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) } aria-describedby="name-error-text">
+                    <InputLabel htmlFor="name-error">Email</InputLabel>
+                    <Input
+                        id="email"
+                        placeholder="Enter Your Email ."
+                        { ... field.input }
+                         />
+                    <FormHelperText id="name-error-text">{ field.meta.touched ? field.meta.error  : ''}</FormHelperText>
+                </FormControl>
             </div>
         );
     }
@@ -150,7 +154,8 @@ class LoginPanel extends Component {
         return (
             <div>
                 <FormControl
-                    className="login-input"
+                    className="login-input password-input-signin-panel"
+                    { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) }
                 >
                     <InputLabel htmlFor="adornment-password">Password</InputLabel>
                     <Input
@@ -158,6 +163,7 @@ class LoginPanel extends Component {
                         type="password"
                         { ... field.input }
                     />
+                    <FormHelperText id="name-error-text">{ field.meta.touched ? field.meta.error  : ''}</FormHelperText>
                 </FormControl>
             </div>
         ) ;
@@ -165,7 +171,26 @@ class LoginPanel extends Component {
 
 }
 
+
 function validate ( values ) {
+    let errors = {} ;
+
+    if ( !values.email ) {
+        errors.email = "Email is required" ;
+    } else if ( !validateEmail(values.email) ) {
+            errors.email = "Email is not valid" ;
+    }
+
+
+    if ( !values.password ) {
+        errors.password = "Password is required" ;
+    } else if ( values.password.length < 6 ) {
+        errors.password = "Password is too short" ;
+    }
+
+    return errors ;
 }
 
 export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , {changeWelcomePage} ) ( LoginPanel ) ) ;
+
+

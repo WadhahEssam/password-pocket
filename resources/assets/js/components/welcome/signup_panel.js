@@ -12,6 +12,8 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Button from '@material-ui/core/Button' ;
 import Tooltip from '@material-ui/core/Tooltip';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { validateEmail }  from '../../helpers/index' ;
 
 class Snippit extends Component {
 
@@ -42,14 +44,14 @@ class Snippit extends Component {
                     <img className="logo" height={50} src="/img/password.png" />
                 </div>
 
-                <div className="website-name-login-panel">
+                <div className="website-name-signup-panel">
                     <h4 style={ { margin:"0px" } } >Password Pocket</h4>
                 </div>
 
                 <form className="signup-form" onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} >
 
                     <Field
-                        name="usernasme"
+                        name="username"
                         component={this.renderUsernameField}
                     />
 
@@ -65,7 +67,7 @@ class Snippit extends Component {
                     />
 
                     <Field
-                        name="confirm-password"
+                        name="confirmPassword"
                         component={this.renderConfirmPasswordField}
                     />
 
@@ -78,21 +80,21 @@ class Snippit extends Component {
                         have account ?
                     </Button>
 
-                    <div className="logos-login-panel">
-                        <Tooltip title="visit github repository" placement="left" >
-                            <IconButton aria-label="Delete">
-                                <img height={30} src="img/github.svg" />
-                            </IconButton>
-                        </Tooltip>
-
-                        <Tooltip title="contact us on facebook" placement="right" >
-                            <IconButton aria-label="Delete">
-                                <img height={30} src="img/facebook-logo.svg" />
-                            </IconButton>
-                        </Tooltip>
-                    </div>
-
                 </form>
+
+                <div className="logos-login-panel">
+                    <Tooltip title="visit github repository" placement="left" >
+                        <IconButton aria-label="Delete">
+                            <img height={30} src="img/github.svg" />
+                        </IconButton>
+                    </Tooltip>
+
+                    <Tooltip title="contact us on facebook" placement="right" >
+                        <IconButton aria-label="Delete">
+                            <img height={30} src="img/facebook-logo.svg" />
+                        </IconButton>
+                    </Tooltip>
+                </div>
 
 
             </div>
@@ -102,27 +104,33 @@ class Snippit extends Component {
 
     renderUsernameField ( field ) {
         return (
-            <TextField
-                { ...field.input }
-                id="username"
-                label="Username"
-                placeholder="Choose a username"
-                className="login-input signup-username-input"
-                margin="normal"
-            />
+            <div>
+                <FormControl className="login-input signup-username-input" { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) } aria-describedby="name-error-text">
+                    <InputLabel htmlFor="name-error">Username</InputLabel>
+                    <Input
+                        id="username"
+                        placeholder="Choose a username"
+                        { ... field.input }
+                    />
+                    <FormHelperText id="name-error-text">{ field.meta.touched ? field.meta.error  : ''}</FormHelperText>
+                </FormControl>
+            </div>
         ) ;
     }
 
     renderEmailField ( field ) {
         return (
-            <TextField
-                { ...field.input }
-                id="email"
-                label="Email"
-                placeholder="Enter Your Email ."
-                className="login-input signup-email-input"
-                margin="normal"
-            />
+            <div>
+                <FormControl className="login-input signup-email-input" { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) } aria-describedby="name-error-text">
+                    <InputLabel htmlFor="name-error">Email</InputLabel>
+                    <Input
+                        id="email"
+                        placeholder="Enter your email"
+                        { ... field.input }
+                    />
+                    <FormHelperText id="name-error-text"> { field.meta.touched ? field.meta.error  : ''}</FormHelperText>
+                </FormControl>
+            </div>
         ) ;
     }
 
@@ -130,16 +138,16 @@ class Snippit extends Component {
         return (
             <FormControl
                 className="login-input signup-password-input"
+                { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) }
             >
                 <InputLabel htmlFor="adornment-password">Password</InputLabel>
                 <Input
-                    id="adornment-password"
                     type={this.state.showPassword ? 'text' : 'password'}
                     value={this.state.password}
                     onChange={(e)=>{ this.setState( { password:e.target.value}) } }
                     { ...field.input }
-
                 />
+                <FormHelperText id="name-error-text"> { field.meta.touched ? field.meta.error  : ''}</FormHelperText>
             </FormControl>
         ) ;
     }
@@ -148,6 +156,7 @@ class Snippit extends Component {
         return (
             <FormControl
                 className="login-input signup-confirm-password-input"
+                { ... ( field.meta.touched && field.meta.error ) ? (  {error : true} ) : ( {} ) }
             >
                 <InputLabel htmlFor="adornment-password">Confirm Password</InputLabel>
                 <Input
@@ -156,20 +165,45 @@ class Snippit extends Component {
                     value={this.state.password2}
                     onChange={(e)=>{ this.setState( { password2:e.target.value}) } }
                     { ...field.input }
-
-                />
+            />
+                <FormHelperText id="name-error-text"> { field.meta.touched ? field.meta.error  : ''}</FormHelperText>
             </FormControl>
         ) ;
     }
 
     onSubmit ( values ) {
-
+        console.log('submitted') ;
     }
 
 }
 
 function validate ( values ) {
-    let errors ={} ;
+    let errors = {} ;
+
+    if ( !values.email ) {
+        errors.email = "Email is required" ;
+    } else if ( !validateEmail(values.email) ) {
+        errors.email = "Email is not valid" ;
+    }
+
+    if ( !values.username ) {
+        errors.username = "Username is required" ;
+    } else if ( values.username.length < 3 ) {
+        errors.username = "Username should be atleast 3 characters" ;
+    }
+
+    if ( !values.password ) {
+        errors.password = "Password is required" ;
+    } else if ( values.password < 6 ) {
+        errors.password = "Password is too short" ;
+    }
+
+    if ( !values.confirmPassword ) {
+        errors.confirmPassword = "Password confirmation is required" ;
+    } else if ( values.password !== values.confirmPassword ) {
+        errors.confirmPassword = "Passwords don't match" ;
+    }
+
     return errors ;
 }
 

@@ -111,6 +111,7 @@
 
 .login-input {
     width: 100%;
+    margin-bottom: 3px !important;
 }
 
 .logo-div {
@@ -118,7 +119,8 @@
     height: 100px !important;
     margin: auto;
     border-radius: 50%;
-    margin-bottom: -2px;
+    margin-bottom: -5px;
+    margin-top: -15px;
 }
 
 .logo-div-mobile {
@@ -141,7 +143,7 @@
     font-weight: 400;
     color: rgb(135, 150, 139);
     font-family: 'Unica One', cursive;
-    margin-bottom: -5px;
+    margin-bottom: 20px;
     font-size: 24px;
 }
 
@@ -169,7 +171,7 @@
     width: 55px;
     margin: auto;
     margin-top: -12px;
-    margin-bottom: -11px;
+    margin-bottom: -5px;
 }
 
 .documentaion-button-login-panel {
@@ -178,6 +180,10 @@
     background-color: #abb0af !important;
     color: white !important;
     font-size: 10px !important;
+}
+
+.password-input-signin-panel {
+    margin-bottom: -14px !important ;
 }
 
 .login-checkbox {
@@ -227,11 +233,11 @@
 }
 
 .signup-password-input {
-    margin:4px 0px !important ;
+    margin:0px 0px !important ;
 }
 
 .signup-confirm-password-input {
-    margin:4px 0px !important ;
+    margin:0px 0px !important ;
 }
 
 .signup-form {
@@ -240,21 +246,31 @@
 
 .signup-button-signup-panel {
     margin-right:4% !important;
-    margin-top: 62px !important;
+    margin-top: 20px !important;
     background-color: #558175  !important;
     width: 48%!important;
     height: 41px !important;
     font-weight: 600 !important;
-    font-size:13px !important;
+    font-size:11px !important;
 }
 
 .signin-button-signup-panel {
-    margin-top: 62px !important;
+    margin-top: 20px !important;
     background-color: rgba(143, 150, 148, 0.7490196078431373) !important;
     /*border-radius: 23px !important;*/
     width: 48% !important;
     height: 41px !important;
     font-size:11px !important;
     font-weight: 600 !important;
+}
+
+.website-name-signup-panel {
+    width: 176px;
+    margin: auto;
+    font-weight: 400;
+    color: rgb(135, 150, 139);
+    font-family: 'Unica One', cursive;
+    margin-bottom: -15px;
+    font-size: 24px;
 }
 

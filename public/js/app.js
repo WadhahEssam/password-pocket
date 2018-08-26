@@ -10808,14 +10808,30 @@ var silenceEvent = function silenceEvent(event) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_WELCOME_PAGE; });
+/* unused harmony export SIGN_UP */
 /* harmony export (immutable) */ __webpack_exports__["b"] = changeWelcomePage;
+/* unused harmony export signup */
 
 var CHANGE_WELCOME_PAGE = "change_welcome_page";
+var SIGN_UP = 'sign_up';
 
 function changeWelcomePage(page) {
-    return {
-        type: CHANGE_WELCOME_PAGE,
-        payload: page
+
+    return function (dispatch) {
+        dispatch({
+            type: CHANGE_WELCOME_PAGE,
+            payload: page
+        });
+    };
+}
+
+function signup(userInfo) {
+
+    return function (dispatch) {
+        $.post('/api/signup', userInfo, function (response) {
+            console.log(response);
+            dispatch({ type: CREATE_POST, payload: userInfo });
+        });
     };
 }
 
@@ -13453,7 +13469,7 @@ var DescriptionPanel = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'h3',
                     { className: 'website-description' },
-                    'The most secure password keeper , even our developers don\'t have access your information '
+                    'Extremly secure password keeper , even our developers don\'t have access to your information '
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Button___default.a,
@@ -65755,6 +65771,9 @@ var Snippit = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__ = __webpack_require__(583);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__helpers_index__ = __webpack_require__(613);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -65764,6 +65783,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -65930,20 +65951,34 @@ var LoginPanel = function (_Component) {
         }
     }, {
         key: 'onSubmit',
-        value: function onSubmit(values) {}
+        value: function onSubmit(values) {
+            console.log('submitted');
+        }
     }, {
         key: 'renderEmailField',
         value: function renderEmailField(field) {
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
-                    id: 'with-placeholder',
-                    label: 'Email',
-                    placeholder: 'Enter Your Email .',
-                    className: 'login-input',
-                    margin: 'normal'
-                }))
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    _extends({ className: 'login-input' }, field.meta.touched && field.meta.error ? { error: true } : {}, { 'aria-describedby': 'name-error-text' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        { htmlFor: 'name-error' },
+                        'Email'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                        id: 'email',
+                        placeholder: 'Enter Your Email .'
+                    }, field.input)),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default.a,
+                        { id: 'name-error-text' },
+                        field.meta.touched ? field.meta.error : ''
+                    )
+                )
             );
         }
     }, {
@@ -65954,9 +65989,9 @@ var LoginPanel = function (_Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
-                    {
-                        className: 'login-input'
-                    },
+                    _extends({
+                        className: 'login-input password-input-signin-panel'
+                    }, field.meta.touched && field.meta.error ? { error: true } : {}),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
                         { htmlFor: 'adornment-password' },
@@ -65965,7 +66000,12 @@ var LoginPanel = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
                         id: 'adornment-password',
                         type: 'password'
-                    }, field.input))
+                    }, field.input)),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default.a,
+                        { id: 'name-error-text' },
+                        field.meta.touched ? field.meta.error : ''
+                    )
                 )
             );
         }
@@ -65974,7 +66014,23 @@ var LoginPanel = function (_Component) {
     return LoginPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-function validate(values) {}
+function validate(values) {
+    var errors = {};
+
+    if (!values.email) {
+        errors.email = "Email is required";
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_19__helpers_index__["a" /* validateEmail */])(values.email)) {
+        errors.email = "Email is not valid";
+    }
+
+    if (!values.password) {
+        errors.password = "Password is required";
+    } else if (values.password.length < 6) {
+        errors.password = "Password is too short";
+    }
+
+    return errors;
+}
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changeWelcomePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["b" /* changeWelcomePage */] })(LoginPanel)));
 
@@ -66008,6 +66064,9 @@ function validate(values) {}
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Button__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip__ = __webpack_require__(578);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__helpers_index__ = __webpack_require__(613);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -66017,6 +66076,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -66071,7 +66132,7 @@ var Snippit = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'website-name-login-panel' },
+                    { className: 'website-name-signup-panel' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'h4',
                         { style: { margin: "0px" } },
@@ -66082,7 +66143,7 @@ var Snippit = function (_Component) {
                     'form',
                     { className: 'signup-form', onSubmit: this.props.handleSubmit(this.onSubmit.bind(this)) },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
-                        name: 'usernasme',
+                        name: 'username',
                         component: this.renderUsernameField
                     }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
@@ -66094,7 +66155,7 @@ var Snippit = function (_Component) {
                         component: this.renderPasswordField
                     }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
-                        name: 'confirm-password',
+                        name: 'confirmPassword',
                         component: this.renderConfirmPasswordField
                     }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66108,27 +66169,27 @@ var Snippit = function (_Component) {
                                 _this2.props.changeWelcomePage('signin');
                             } },
                         'have account ?'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'logos-login-panel' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
+                        { title: 'visit github repository', placement: 'left' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            { 'aria-label': 'Delete' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
+                        )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'logos-login-panel' },
+                        __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
+                        { title: 'contact us on facebook', placement: 'right' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
-                            { title: 'visit github repository', placement: 'left' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
-                                { 'aria-label': 'Delete' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Tooltip___default.a,
-                            { title: 'contact us on facebook', placement: 'right' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
-                                { 'aria-label': 'Delete' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
-                            )
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            { 'aria-label': 'Delete' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
                         )
                     )
                 )
@@ -66137,24 +66198,55 @@ var Snippit = function (_Component) {
     }, {
         key: 'renderUsernameField',
         value: function renderUsernameField(field) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
-                id: 'username',
-                label: 'Username',
-                placeholder: 'Choose a username',
-                className: 'login-input signup-username-input',
-                margin: 'normal'
-            }));
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    _extends({ className: 'login-input signup-username-input' }, field.meta.touched && field.meta.error ? { error: true } : {}, { 'aria-describedby': 'name-error-text' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        { htmlFor: 'name-error' },
+                        'Username'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                        id: 'username',
+                        placeholder: 'Choose a username'
+                    }, field.input)),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
+                        { id: 'name-error-text' },
+                        field.meta.touched ? field.meta.error : ''
+                    )
+                )
+            );
         }
     }, {
         key: 'renderEmailField',
         value: function renderEmailField(field) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default.a, _extends({}, field.input, {
-                id: 'email',
-                label: 'Email',
-                placeholder: 'Enter Your Email .',
-                className: 'login-input signup-email-input',
-                margin: 'normal'
-            }));
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    _extends({ className: 'login-input signup-email-input' }, field.meta.touched && field.meta.error ? { error: true } : {}, { 'aria-describedby': 'name-error-text' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        { htmlFor: 'name-error' },
+                        'Email'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                        id: 'email',
+                        placeholder: 'Enter your email'
+                    }, field.input)),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
+                        { id: 'name-error-text' },
+                        ' ',
+                        field.meta.touched ? field.meta.error : ''
+                    )
+                )
+            );
         }
     }, {
         key: 'renderPasswordField',
@@ -66163,22 +66255,27 @@ var Snippit = function (_Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
-                {
+                _extends({
                     className: 'login-input signup-password-input'
-                },
+                }, field.meta.touched && field.meta.error ? { error: true } : {}),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
                     { htmlFor: 'adornment-password' },
                     'Password'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
-                    id: 'adornment-password',
                     type: this.state.showPassword ? 'text' : 'password',
                     value: this.state.password,
                     onChange: function onChange(e) {
                         _this3.setState({ password: e.target.value });
                     }
-                }, field.input))
+                }, field.input)),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
+                    { id: 'name-error-text' },
+                    ' ',
+                    field.meta.touched ? field.meta.error : ''
+                )
             );
         }
     }, {
@@ -66188,9 +66285,9 @@ var Snippit = function (_Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
-                {
+                _extends({
                     className: 'login-input signup-confirm-password-input'
-                },
+                }, field.meta.touched && field.meta.error ? { error: true } : {}),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
                     { htmlFor: 'adornment-password' },
@@ -66203,12 +66300,20 @@ var Snippit = function (_Component) {
                     onChange: function onChange(e) {
                         _this4.setState({ password2: e.target.value });
                     }
-                }, field.input))
+                }, field.input)),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
+                    { id: 'name-error-text' },
+                    ' ',
+                    field.meta.touched ? field.meta.error : ''
+                )
             );
         }
     }, {
         key: 'onSubmit',
-        value: function onSubmit(values) {}
+        value: function onSubmit(values) {
+            console.log('submitted');
+        }
     }]);
 
     return Snippit;
@@ -66216,6 +66321,31 @@ var Snippit = function (_Component) {
 
 function validate(values) {
     var errors = {};
+
+    if (!values.email) {
+        errors.email = "Email is required";
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["a" /* validateEmail */])(values.email)) {
+        errors.email = "Email is not valid";
+    }
+
+    if (!values.username) {
+        errors.username = "Username is required";
+    } else if (values.username.length < 3) {
+        errors.username = "Username should be atleast 3 characters";
+    }
+
+    if (!values.password) {
+        errors.password = "Password is required";
+    } else if (values.password < 6) {
+        errors.password = "Password is too short";
+    }
+
+    if (!values.confirmPassword) {
+        errors.confirmPassword = "Password confirmation is required";
+    } else if (values.password !== values.confirmPassword) {
+        errors.confirmPassword = "Passwords don't match";
+    }
+
     return errors;
 }
 
@@ -66251,6 +66381,17 @@ var purple = {
 };
 var _default = purple;
 exports.default = _default;
+
+/***/ }),
+/* 613 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = validateEmail;
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 /***/ })
 /******/ ]);
