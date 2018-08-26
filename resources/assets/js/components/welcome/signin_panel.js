@@ -1,5 +1,5 @@
 import React , { Component } from 'react' ;
-import { changeWelcomePage } from '../../actions/index' ;
+import { changePage } from '../../actions/index' ;
 import { connect } from 'react-redux' ;
 import { Field , reduxForm } from 'redux-form' ;
 import TextField from '@material-ui/core/TextField';
@@ -33,6 +33,8 @@ class LoginPanel extends Component {
 
     render () {
 
+
+
         return (
             <div>
 
@@ -47,7 +49,7 @@ class LoginPanel extends Component {
                     </div>
 
                     <div className="website-description-login-panel-mobile" >
-                        <p>The most secure password keeper</p>
+                        <p>Extremly secure password keeper</p>
                     </div>
 
                     <div className="documentaion-button-login-panel-div" >
@@ -104,7 +106,7 @@ class LoginPanel extends Component {
                     </Button>
 
 
-                    <Button variant="contained" color="primary" className="sign-up-button" onClick={()=>{this.props.changeWelcomePage('signup')}} >
+                    <Button variant="contained" color="primary" className="sign-up-button" onClick={()=>{this.props.changePage('signup')}} >
                         Create Account
                     </Button>
 
@@ -191,6 +193,6 @@ function validate ( values ) {
     return errors ;
 }
 
-export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , {changeWelcomePage} ) ( LoginPanel ) ) ;
+export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , {changePage} ) ( LoginPanel ) ) ;
 
 

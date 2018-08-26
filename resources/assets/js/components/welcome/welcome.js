@@ -3,9 +3,15 @@ import { connect } from 'react-redux' ;
 import SignIn from './signin' ;
 import SignUp from './signup' ;
 
+
 class Login extends Component {
 
+    constructor ( props ) {
+        super ( props ) ;
+    }
+
     render() {
+
 
         return (
             <div>
@@ -15,7 +21,7 @@ class Login extends Component {
 
                 <div  className="centered welcome-panel" >
 
-                    { (this.props.welcomePage === "signin" ) ?  <SignIn/> : <SignUp/>  }
+                    { (this.props.page === "signin" ) ?  <SignIn /> : <SignUp history={this.props.history}/>  }
 
                 </div>
 
@@ -25,7 +31,7 @@ class Login extends Component {
 }
 
 function mapStateToProps ( state ) {
-    return { welcomePage : state.welcomePage  } ;
+    return { page : state.page  } ;
 }
 
 export default connect ( mapStateToProps ) ( Login )  ;

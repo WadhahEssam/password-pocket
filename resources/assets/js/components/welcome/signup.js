@@ -37,7 +37,7 @@ class SignUp extends Component {
                 <Grid item xs={12} sm={12} md={10} lg={10} xl={10}>
                     <Paper className="paper signup-panel">
                         <CSSTransitionGroup { ... transitionOptions }>
-                            <SignUpPanel/>
+                            <SignUpPanel history={this.props.history} />
                         </CSSTransitionGroup>
                     </Paper>
                 </Grid>

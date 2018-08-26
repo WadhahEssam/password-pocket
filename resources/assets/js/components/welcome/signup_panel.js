@@ -1,7 +1,7 @@
 import React , { Component } from 'react' ;
 import { connect } from 'react-redux' ;
 import { Field , reduxForm } from 'redux-form' ;
-import { changeWelcomePage , signup } from '../../actions/index' ;
+import { changePage , signup  } from '../../actions/index' ;
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,14 +27,17 @@ class Snippit extends Component {
             showPassword2: false,
             checkedA: true,
             checkedB: true,
+            password: props.password
         };
 
         this.renderConfirmPasswordField = this.renderConfirmPasswordField.bind(this) ;
         this.renderPasswordField = this.renderPasswordField.bind(this) ;
+        this.onSubmit = this.onSubmit.bind(this) ;
 
     }
 
     render () {
+
         return (
 
             <div>
@@ -76,7 +79,7 @@ class Snippit extends Component {
                     </Button>
 
 
-                    <Button variant="contained" color="primary" className="signin-button-signup-panel" onClick={()=>{this.props.changeWelcomePage('signin')}} >
+                    <Button variant="contained" color="primary" className="signin-button-signup-panel" onClick={()=>{this.props.changePage('signin')}} >
                         have account ?
                     </Button>
 
@@ -172,7 +175,7 @@ class Snippit extends Component {
     }
 
     onSubmit ( values ) {
-        this.props.signup( values ) ;
+        this.props.signup ( values , () => { this.props.history.push('/home') } ) ;
     }
 
 }
@@ -194,7 +197,7 @@ function validate ( values ) {
 
     if ( !values.password ) {
         errors.password = "Password is required" ;
-    } else if ( values.password < 6 ) {
+    } else if ( values.password.length < 6 ) {
         errors.password = "Password is too short" ;
     }
 
@@ -207,4 +210,10 @@ function validate ( values ) {
     return errors ;
 }
 
-export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( null , { changeWelcomePage , signup } ) (Snippit) ) ;
+
+function mapStateToProps ( state ) {
+    return { state : state } ;
+}
+
+
+export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( mapStateToProps , { changePage , signup } ) (Snippit) ) ;

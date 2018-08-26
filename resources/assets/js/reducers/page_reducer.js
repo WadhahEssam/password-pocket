@@ -1,10 +1,15 @@
-import { CHANGE_WELCOME_PAGE } from '../actions/index' ;
+import { CHANGE_PAGE  , SIGN_UP } from '../actions' ;
 
 export default function ( state = 'signin' , action ) {
 
     switch ( action.type ) {
-        case CHANGE_WELCOME_PAGE :
+
+        case SIGN_UP :
+            return 'home';
+
+        case CHANGE_PAGE :
             return action.payload ;
+
         default :
             return state ;
     }

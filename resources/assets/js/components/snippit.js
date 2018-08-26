@@ -1,6 +1,5 @@
 import React , { Component } from 'react' ;
 
-
 class Snippit extends Component {
 
     render () {
@@ -12,4 +11,4 @@ class Snippit extends Component {
     }
 }
 
-export default Snippit ; 
+export default Snippit ;

@@ -1,6 +1,6 @@
 import React , { Component } from 'react' ;
 import { connect } from 'react-redux' ;
-import { changeWelcomePage } from '../../actions/index' ;
+import { changePage } from '../../actions/index' ;
 import Button from '@material-ui/core/Button' ;
 import SecurityIcon from '@material-ui/icons/Security';
 import { Link } from 'react-router-dom' ;
@@ -21,7 +21,7 @@ class DescriptionPanel extends Component {
                     <SecurityIcon className="description-button-icon" />
                 </Button>
 
-                <Button variant="contained" color="primary" className="create-account-button" size={'large'} onClick={ ()=>{this.props.changeWelcomePage('signup')}} >
+                <Button variant="contained" color="primary" className="create-account-button" size={'large'} onClick={ ()=>{this.props.changePage('signup')}} >
                     Create Account
                 </Button>
 
@@ -32,4 +32,4 @@ class DescriptionPanel extends Component {
     }
 }
 
-export default connect ( null , {changeWelcomePage}) (DescriptionPanel) ;
+export default connect ( null , {changePage}) (DescriptionPanel) ;

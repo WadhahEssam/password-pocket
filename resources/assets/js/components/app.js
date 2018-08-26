@@ -13,6 +13,7 @@ import Snippit from './snippit' ;
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import Button from '@material-ui/core/Button';
+import Home from './home/home';
 
 const theme = createMuiTheme({
     palette: {
@@ -20,7 +21,6 @@ const theme = createMuiTheme({
       secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
     },
   });
-
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -38,7 +38,7 @@ if (document.getElementById('root')) {
                     <BrowserRouter>
                         <div>
                             <Switch>
-                                <Route path="/hello" component={Snippit} />
+                                <Route path="/home" component={Home} />
                                 <Route path="/" component={Login} />
                             </Switch>
                         </div>

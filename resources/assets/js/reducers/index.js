@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form' ;
-import TestReducer from './test_reducer' ;
-import WelcomePage from './welcome_page_reducer' ;
+import pageReducer from './page_reducer' ;
 import { reducer as FormReducer } from 'redux-form' ;
+import UserDataReducer from './user_data_reducer';
 
 export default combineReducers({
-    test : TestReducer ,
-    welcomePage : WelcomePage ,
+    page : pageReducer ,
+    userData : UserDataReducer ,
     form : formReducer
 });
 
