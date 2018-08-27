@@ -2,7 +2,7 @@ import React , { Component } from 'react' ;
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import LoginPanel from "./signin_panel";
+import SignInPanel from "./signin_panel";
 import DescriptionPanel from "./description_panel";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
@@ -38,7 +38,7 @@ class SignIn extends Component {
                         <Paper elevation={5} className="paper login-panel">
 
                             <CSSTransitionGroup { ... transitionOptions }>
-                                <LoginPanel/>
+                                <SignInPanel  history={this.props.history} />
                             </CSSTransitionGroup>
 
                         </Paper>

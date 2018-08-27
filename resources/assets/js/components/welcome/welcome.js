@@ -21,7 +21,7 @@ class Login extends Component {
 
                 <div  className="centered welcome-panel" >
 
-                    { (this.props.page === "signin" ) ?  <SignIn /> : <SignUp history={this.props.history}/>  }
+                    { (this.props.page === "signin" ) ?  <SignIn  history={this.props.history}/> : <SignUp history={this.props.history}/>  }
 
                 </div>
 

@@ -15,7 +15,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { validateEmail }  from '../../helpers/index' ;
 
-class Snippit extends Component {
+class SignIn extends Component {
 
     constructor ( props ) {
         super ( props ) ;
@@ -37,6 +37,8 @@ class Snippit extends Component {
     }
 
     render () {
+
+        console.log(this.props.state) ;
 
         return (
 
@@ -216,4 +218,4 @@ function mapStateToProps ( state ) {
 }
 
 
-export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( mapStateToProps , { changePage , signup } ) (Snippit) ) ;
+export default reduxForm( { validate : validate , form : 'SignUpForm' }) ( connect ( mapStateToProps , { changePage , signup } ) (SignIn) ) ;

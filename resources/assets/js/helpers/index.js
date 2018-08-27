@@ -30,3 +30,14 @@ export function saveToken ( token ) {
 export function getToken () {
     return localStorage.getItem( 'token' );
 }
+
+export function savePassword ( hashedPassword ) {
+    localStorage.setItem( 'password', hashedPassword );
+}
+
+export function getPassword () {
+    return localStorage.getItem( 'password' );
+}
+
+
+

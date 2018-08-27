@@ -1,5 +1,5 @@
 import React , { Component } from 'react' ;
-import { changePage } from '../../actions/index' ;
+import { changePage , signin } from '../../actions/index' ;
 import { connect } from 'react-redux' ;
 import { Field , reduxForm } from 'redux-form' ;
 import TextField from '@material-ui/core/TextField';
@@ -32,8 +32,6 @@ class LoginPanel extends Component {
     }
 
     render () {
-
-
 
         return (
             <div>
@@ -131,7 +129,7 @@ class LoginPanel extends Component {
     }
 
     onSubmit ( values ) {
-        console.log('submitted');
+        this.props.signin ( values , ()=>{ this.props.history.push('/home') } ) ;
     }
 
     renderEmailField ( field ) {
@@ -193,6 +191,6 @@ function validate ( values ) {
     return errors ;
 }
 
-export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , {changePage} ) ( LoginPanel ) ) ;
+export default reduxForm ( { validate : validate , form : 'SignInForm' } ) ( connect ( null , { changePage , signin } ) ( LoginPanel ) ) ;
 
 
