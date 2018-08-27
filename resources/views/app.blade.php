@@ -19,6 +19,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/welcome.css" rel="stylesheet" type="text/css">
         <link href="css/animation.css" rel="stylesheet" type="text/css">
+        <link href="css/home.css" rel="stylesheet" type="text/css">
 
         <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">

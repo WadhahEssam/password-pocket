@@ -31,6 +31,10 @@ export function getToken () {
     return localStorage.getItem( 'token' );
 }
 
+export function checkPasswordAndToken () {
+    return ( ( localStorage.getItem('token') != null ) && ( localStorage.getItem('password') != null ) ) ;
+}
+
 export function savePassword ( hashedPassword ) {
     localStorage.setItem( 'password', hashedPassword );
 }

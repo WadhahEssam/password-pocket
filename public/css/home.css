@@ -1,0 +1,37 @@
+
+.app-bar {
+    z-index: 1217 !important ;
+}
+
+.content {
+    margin-top: 10px;
+    margin-left: 237px;
+    width: calc( 100% - 248px);
+}
+
+/* NavBar */
+
+.navbar-title {
+    font-family: 'Unica One', cursive;
+    font-size: 30px;
+    margin-left:10px ;
+}
+
+.logout-button {
+    position: absolute !important;
+    right: 13px;
+    background-color: rgb(197, 85, 85) !important;
+    color: white !important;
+}
+
+
+/* SideBar */
+.sidebar-title {
+    font-family: 'Unica One', cursive;
+}
+
+.sidebar-first-button {
+    margin-top : 15px !important ;
+}
+
+
