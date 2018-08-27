@@ -34,4 +34,14 @@
     margin-top : 15px !important ;
 }
 
+.collapse-item {
+    padding-left: 36px !important;
+}
 
+.small-icon {
+    height: 16px !important;
+}
+
+.large-icon {
+    height: 21px !important;
+}
