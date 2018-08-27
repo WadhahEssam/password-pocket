@@ -77,6 +77,8 @@ class SideBar extends Component {
                             </List>
                         </Collapse>
 
+                        <Divider />
+
                         <ListItem button onClick={ ()=>{ this.setState( { menu2 : !this.state.menu2 } ) } }>
                             <ListItemIcon>
                                 <ViewIcon />
