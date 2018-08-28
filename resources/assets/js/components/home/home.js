@@ -3,6 +3,8 @@ import { connect } from 'react-redux' ;
 import NavBar from './nav_bar';
 import SideBar from './side_bar';
 import PasswordsPanel from './passwords_panel' ;
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
 
 class Home extends Component {
 
@@ -37,6 +39,10 @@ class Home extends Component {
                 <SideBar />
 
                 <PasswordsPanel />
+
+                <Button variant="fab" color="primary" aria-label="Add" className="fixed-add-button" >
+                    <AddIcon />
+                </Button>
 
             </div>
         );

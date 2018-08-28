@@ -21,3 +21,12 @@ h3 , h2 , h5 , h6 , p {
 
 /*  overriding the material ui */
 
+.MuiTypography-body2-123 {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.175rem !important;
+    font-weight: 500;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.71429em;
+}
+
+

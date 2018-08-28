@@ -18,6 +18,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Chip from '@material-ui/core/Chip';
+import FaceIcon from '@material-ui/icons/Face';
+import LockIcon from '@material-ui/icons/Lock';
+import ShowOnIcon from '@material-ui/icons/Visibility';
+import ShowOffIcon from '@material-ui/icons/VisibilityOff';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 
 
 const styles = theme => ({
@@ -53,6 +60,9 @@ const styles = theme => ({
     },
     starIcon : {
         color:'#c1c16d',
+    },
+    chip: {
+        margin: theme.spacing.unit,
     }
   });
 
@@ -60,7 +70,12 @@ class PasswordCard extends Component {
 
     constructor ( props ) {
         super ( props ) ;
-        this.state = { expanded : false } ;
+        this.state = {
+            expanded : false ,
+            password : '112233' ,
+            username : 'wadah-wleed@hotmail.com' ,
+            hideCred : true ,
+        } ;
     }
 
 
@@ -71,57 +86,98 @@ class PasswordCard extends Component {
         return (
             <div>
 
-                <Card>
+                <Paper elevation={4} className="">
 
-                    <CardHeader
-                        avatar={
-                            <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
-                                FA
-                            </Avatar>
-                        }
-                        title="Facebook"
-                    />
+                    <Card >
 
-                    <CardContent>
-                        <Typography component="p">
-                            This will be the desction , his impressive paella is a perfect .
-                        </Typography>
-                    </CardContent>
+                        <CardHeader
+                            className="card-header"
+                            avatar={
+                                <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
+                                    FA
+                                </Avatar>
+                            }
+                            title="Facebook"
+                        />
 
-                    <CardActions disableActionSpacing>
+                        <Divider />
 
-                        <IconButton aria-label="Add to favorites" className={classes.starIcon} >
-                            <StarBorder />
-                        </IconButton>
+                        <CardContent className="card-content" >
 
-                        <IconButton
-                            onClick={ ()=>{ this.setState( { expanded:!this.state.expanded} ) } }
-                            className={classnames(classes.expand, {
-                                [classes.expandOpen]: this.state.expanded,
-                            })}
-                            aria-expanded={this.state.expanded}
-                            aria-label="Show more"
-                        >
-                            <ExpandMoreIcon />
-                        </IconButton>
+                        <div className="chip-div" >
+                            <Chip
+                                avatar={
+                                    <Avatar>
+                                        <FaceIcon />
+                                    </Avatar>
+                                }
+                                onClick={ () => {} }
+                                label={this.state.username}
+                                // onClick={handleClick}
+                                // onDelete={handleDelete}
+                                className={classes.chip}
+                            />
+                        </div>
 
+                        <div className="chip-div" >
+                            <Chip
+                                avatar={
+                                <Avatar>
+                                    <LockIcon />
+                                </Avatar>
+                                }
+                                onClick={ () => {} }
+                                label={(this.state.hideCred) ? ('Copy Password') : (this.state.password) }
+                                // onClick={handleClick}
+                                // onDelete={handleDelete}
+                                className={classes.chip}
+                            />
+                        </div>
 
-                        <IconButton aria-label="Add to favorites" className={classes.deleteIcon} >
-                            <DeleteIcon />
-                        </IconButton>
-
-
-                    </CardActions>
-
-                    <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography paragraph>
-                            password for the facebook website.
-                            </Typography>
                         </CardContent>
-                    </Collapse>
 
-                </Card>
+                        <Divider />
+
+                        <CardActions disableActionSpacing className="card-footer" >
+
+                            <IconButton aria-label="Add to favorites" className={classes.starIcon} >
+                                <StarBorder />
+                            </IconButton>
+
+                            <IconButton aria-label="Add to favorites" onClick={ ()=>{this.setState({hideCred:!this.state.hideCred})} } >
+                                { (this.state.hideCred) ? <ShowOnIcon/> : <ShowOffIcon/> }
+                            </IconButton>
+
+                            <IconButton
+                                onClick={ ()=>{ this.setState( { expanded:!this.state.expanded} ) } }
+                                className={classnames(classes.expand, {
+                                    [classes.expandOpen]: this.state.expanded,
+                                })}
+                                aria-expanded={this.state.expanded}
+                                aria-label="Show more"
+                            >
+                                <ExpandMoreIcon />
+                            </IconButton>
+
+
+                            <IconButton aria-label="Add to favorites" className={classes.deleteIcon} >
+                                <DeleteIcon />
+                            </IconButton>
+
+
+                        </CardActions>
+
+                        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                            <CardContent>
+                                <Typography paragraph>
+                                password for the facebook website.
+                                </Typography>
+                            </CardContent>
+                        </Collapse>
+
+                    </Card>
+
+                </Paper>
 
             </div>
         ) ;

@@ -5,8 +5,18 @@
 
 .content {
     margin-top: 20px;
-    margin-left: 237px;
-    width: calc( 100% - 248px);
+    margin-left: 246px;
+    width: calc( 100% - 270px);
+}
+
+.search-box-div {
+    width: 295px;
+    margin: auto;
+    margin-bottom: 17px;
+}
+
+.search-box {
+
 }
 
 /* NavBar */
@@ -44,5 +54,38 @@
 
 .large-icon {
     height: 21px !important;
+}
+
+/* PasswordCard */
+.chip-div {
+    align-content: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.password-card {
+    width:auto ;
+    min-width: 300px !important ;
+}
+
+.fixed-add-button {
+    position: fixed !important;
+    z-index: 100000000 !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    background-color: #6fb996 !important;
+}
+
+.card-content {
+    padding: 6px 16px !important ;
+}
+
+.card-header {
+    padding: 16px 16px !important ;
+    padding-top:16px !important;
+}
+
+.card-footer {
+    padding: 2px 16px !important ;
 }
 
