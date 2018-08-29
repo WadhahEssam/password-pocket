@@ -90,7 +90,7 @@ class PasswordCard extends Component {
 
                     <Card >
 
-                        <CardHeader
+                        {/* <CardHeader
                             className="card-header"
                             avatar={
                                 <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
@@ -98,7 +98,16 @@ class PasswordCard extends Component {
                                 </Avatar>
                             }
                             title="Facebook"
-                        />
+                        /> */}
+
+                        <CardContent className="" >
+                            <div className="card-header-div" >
+                                <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
+                                    FA
+                                </Avatar>
+                                <h2 className="card-title" >Facebook</h2>
+                            </div>
+                        </CardContent>
 
                         <Divider />
 
@@ -106,8 +115,11 @@ class PasswordCard extends Component {
 
                         <div className="chip-div" >
                             <Chip
+                                style={ { backgroundColor : '#fbfbfb' , color:"#949494"  } }
                                 avatar={
-                                    <Avatar>
+                                    <Avatar
+                                        style={ { backgroundColor : '#6868ad' , color:"white"  } }
+                                    >
                                         <FaceIcon />
                                     </Avatar>
                                 }
@@ -121,8 +133,11 @@ class PasswordCard extends Component {
 
                         <div className="chip-div" >
                             <Chip
+                                style={ { backgroundColor : '#fbfbfb' , color:"#949494"  } }
                                 avatar={
-                                <Avatar>
+                                <Avatar
+                                    style={ { backgroundColor : '#6868ad' , color:"white"  } }
+                                >
                                     <LockIcon />
                                 </Avatar>
                                 }

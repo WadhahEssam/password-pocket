@@ -51915,37 +51915,29 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions_index__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_form__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_TextField__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_InputAdornment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_VisibilityOff__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch__ = __webpack_require__(588);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel__ = __webpack_require__(591);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__helpers_index__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_IconButton__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Input__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_InputLabel__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_InputLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_InputLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_FormControl__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_FormControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_FormControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Switch__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Switch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Switch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControlLabel__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControlLabel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControlLabel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Button__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Tooltip__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Tooltip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_Tooltip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Hidden__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Hidden__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Chip__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Chip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Chip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__helpers_index__ = __webpack_require__(104);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -51955,10 +51947,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 
 
@@ -52002,7 +51990,7 @@ var LoginPanel = function (_Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default.a,
+                    __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Hidden___default.a,
                     { only: ['sm', 'lg', 'md', 'xl'] },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
@@ -52030,7 +52018,7 @@ var LoginPanel = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'documentaion-button-login-panel-div' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_core_Chip___default.a, {
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Chip___default.a, {
                             label: 'WHY ?',
                             onClick: function onClick() {
                                 console.log('check why');
@@ -52040,7 +52028,7 @@ var LoginPanel = function (_Component) {
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_16__material_ui_core_Hidden___default.a,
+                    __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Hidden___default.a,
                     { only: 'xs' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
@@ -52071,8 +52059,8 @@ var LoginPanel = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'login-checkbox' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_FormControlLabel___default.a, {
-                            control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Switch___default.a, {
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControlLabel___default.a, {
+                            control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Switch___default.a, {
                                 checked: this.state.stayOnlineCheckBox,
                                 onChange: function onChange(e) {
                                     _this2.setState({ stayOnlineCheckBox: e.target.checked });
@@ -52085,12 +52073,12 @@ var LoginPanel = function (_Component) {
                         })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default.a,
+                        __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Button___default.a,
                         { type: 'submit', variant: 'contained', color: 'primary', className: 'sign-in-button' },
                         'Sign in'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_Button___default.a,
+                        __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Button___default.a,
                         { variant: 'contained', color: 'primary', className: 'sign-up-button', onClick: function onClick() {
                                 _this2.props.changePage('signup');
                             } },
@@ -52101,19 +52089,19 @@ var LoginPanel = function (_Component) {
                     'div',
                     { className: 'logos-login-panel' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default.a,
+                        __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Tooltip___default.a,
                         { title: 'visit github repository', placement: 'left' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            __WEBPACK_IMPORTED_MODULE_4__material_ui_core_IconButton___default.a,
                             { 'aria-label': 'Delete' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/github.svg' })
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Tooltip___default.a,
+                        __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Tooltip___default.a,
                         { title: 'contact us on facebook', placement: 'right' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
+                            __WEBPACK_IMPORTED_MODULE_4__material_ui_core_IconButton___default.a,
                             { 'aria-label': 'Delete' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { height: 30, src: 'img/facebook-logo.svg' })
                         )
@@ -52138,19 +52126,19 @@ var LoginPanel = function (_Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_FormControl___default.a,
                     _extends({ className: 'login-input' }, field.meta.touched && field.meta.error ? { error: true } : {}, { 'aria-describedby': 'name-error-text' }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        __WEBPACK_IMPORTED_MODULE_6__material_ui_core_InputLabel___default.a,
                         { htmlFor: 'name-error' },
                         'Email'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Input___default.a, _extends({
                         id: 'email',
                         placeholder: 'Enter Your Email .'
                     }, field.input)),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default.a,
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
                         { id: 'name-error-text' },
                         field.meta.touched ? field.meta.error : ''
                     )
@@ -52164,21 +52152,21 @@ var LoginPanel = function (_Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_FormControl___default.a,
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_FormControl___default.a,
                     _extends({
                         className: 'login-input password-input-signin-panel'
                     }, field.meta.touched && field.meta.error ? { error: true } : {}),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_InputLabel___default.a,
+                        __WEBPACK_IMPORTED_MODULE_6__material_ui_core_InputLabel___default.a,
                         { htmlFor: 'adornment-password' },
                         'Password'
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Input___default.a, _extends({
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Input___default.a, _extends({
                         id: 'adornment-password',
                         type: 'password'
                     }, field.input)),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_18__material_ui_core_FormHelperText___default.a,
+                        __WEBPACK_IMPORTED_MODULE_14__material_ui_core_FormHelperText___default.a,
                         { id: 'name-error-text' },
                         field.meta.touched ? field.meta.error : ''
                     )
@@ -52195,7 +52183,7 @@ function validate(values) {
 
     if (!values.email) {
         errors.email = "Email is required";
-    } else if (!Object(__WEBPACK_IMPORTED_MODULE_19__helpers_index__["h" /* validateEmail */])(values.email)) {
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["h" /* validateEmail */])(values.email)) {
         errors.email = "Email is not valid";
     }
 
@@ -66918,6 +66906,18 @@ var Snippit = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_icons_Add___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_icons_Add__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Button__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_BottomNavigation__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_BottomNavigation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_BottomNavigation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_GridOn__ = __webpack_require__(643);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_GridOn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_GridOn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep__ = __webpack_require__(645);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66925,6 +66925,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
 
 
 
@@ -66942,7 +66948,7 @@ var Home = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
-        _this.state = { open: false };
+        _this.state = { open: false, value: 0 };
         return _this;
     }
 
@@ -66967,13 +66973,56 @@ var Home = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var value = this.state.value;
+
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__side_bar__["a" /* default */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__passwords_panel__["a" /* default */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { xsDown: true },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'normal' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { only: ['sm', 'lg', 'md', 'xl'] },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'mobile' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { only: ['lg', 'md', 'xl'] },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_8__material_ui_core_BottomNavigation___default.a,
+                        {
+                            value: value,
+                            onChange: function onChange(event, value) {
+                                _this2.setState({ value: value });
+                            },
+                            showLabels: true
+                        },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction___default.a, { label: 'All', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_GridOn___default.a, null) }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction___default.a, { label: 'Starred', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder___default.a, null) }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_BottomNavigationAction___default.a, { label: 'Deleted', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep___default.a, null) })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { xsDown: true, smDown: true },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__side_bar__["a" /* default */], null)
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { xsDown: true, smDown: true },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__passwords_panel__["a" /* default */], { view: 'normal' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
+                    { only: ['lg', 'md', 'xl'] },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__passwords_panel__["a" /* default */], { view: 'mobile' })
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Button___default.a,
                     { variant: 'fab', color: 'primary', 'aria-label': 'Add', className: 'fixed-add-button' },
@@ -67042,10 +67091,10 @@ var NavBar = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Toolbar___default.a,
                         null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/img/password-navbar.png', height: 50 }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/img/password-navbar.png', height: this.props.view === 'mobile' ? 40 : 50 }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'h2',
-                            { className: 'navbar-title' },
+                            { className: this.props.view === 'mobile' ? "navbar-title-mobile" : "navbar-title" },
                             'Password Pocket'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -69700,6 +69749,7 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__password_card__ = __webpack_require__(654);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar__ = __webpack_require__(658);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__add_password_panel__ = __webpack_require__(690);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -69709,6 +69759,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -69767,7 +69818,7 @@ var PasswordsPanel = function (_Component) {
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'content' },
+                        { className: this.props.view === 'mobile' ? "content-mobile" : "content" },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'search-box-div' },
@@ -69815,7 +69866,8 @@ var PasswordsPanel = function (_Component) {
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
                             )
-                        )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_23__add_password_panel__["a" /* default */], null)
                     )
                 )
             );
@@ -70548,15 +70600,24 @@ var PasswordCard = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Card___default.a,
                         null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardHeader___default.a, {
-                            className: 'card-header',
-                            avatar: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Avatar___default.a,
-                                { style: { backgroundColor: '#6868ad' }, 'aria-label': 'Recipe' },
-                                'FA'
-                            ),
-                            title: 'Facebook'
-                        }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardContent___default.a,
+                            { className: '' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'card-header-div' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Avatar___default.a,
+                                    { style: { backgroundColor: '#6868ad' }, 'aria-label': 'Recipe' },
+                                    'FA'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'h2',
+                                    { className: 'card-title' },
+                                    'Facebook'
+                                )
+                            )
+                        ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_26__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardContent___default.a,
@@ -70565,9 +70626,12 @@ var PasswordCard = function (_Component) {
                                 'div',
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Chip___default.a, {
+                                    style: { backgroundColor: '#fbfbfb', color: "#949494" },
                                     avatar: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Avatar___default.a,
-                                        null,
+                                        {
+                                            style: { backgroundColor: '#6868ad', color: "white" }
+                                        },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__material_ui_icons_Face___default.a, null)
                                     ),
                                     onClick: function onClick() {},
@@ -70581,9 +70645,12 @@ var PasswordCard = function (_Component) {
                                 'div',
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Chip___default.a, {
+                                    style: { backgroundColor: '#fbfbfb', color: "#949494" },
                                     avatar: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Avatar___default.a,
-                                        null,
+                                        {
+                                            style: { backgroundColor: '#6868ad', color: "white" }
+                                        },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_22__material_ui_icons_Lock___default.a, null)
                                     ),
                                     onClick: function onClick() {},
@@ -71736,6 +71803,585 @@ exports.default = _default;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
+/* 684 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _BottomNavigation.default;
+  }
+});
+
+var _BottomNavigation = _interopRequireDefault(__webpack_require__(685));
+
+/***/ }),
+/* 685 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(3));
+
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(4));
+
+var _react = _interopRequireDefault(__webpack_require__(1));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(2));
+
+var _classnames = _interopRequireDefault(__webpack_require__(5));
+
+var _warning = _interopRequireDefault(__webpack_require__(14));
+
+var _withStyles = _interopRequireDefault(__webpack_require__(6));
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'flex',
+      justifyContent: 'center',
+      height: 56,
+      backgroundColor: theme.palette.background.paper
+    }
+  };
+};
+
+exports.styles = styles;
+
+function BottomNavigation(props) {
+  var childrenProp = props.children,
+      classes = props.classes,
+      classNameProp = props.className,
+      onChange = props.onChange,
+      showLabels = props.showLabels,
+      value = props.value,
+      other = (0, _objectWithoutProperties2.default)(props, ["children", "classes", "className", "onChange", "showLabels", "value"]);
+  var className = (0, _classnames.default)(classes.root, classNameProp);
+
+  var children = _react.default.Children.map(childrenProp, function (child, childIndex) {
+    if (!_react.default.isValidElement(child)) {
+      return null;
+    }
+
+     true ? (0, _warning.default)(child.type !== _react.default.Fragment, ["Material-UI: the BottomNavigation component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n')) : void 0;
+    var childValue = child.props.value === undefined ? childIndex : child.props.value;
+    return _react.default.cloneElement(child, {
+      selected: childValue === value,
+      showLabel: child.props.showLabel !== undefined ? child.props.showLabel : showLabels,
+      value: childValue,
+      onChange: onChange
+    });
+  });
+
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: className
+  }, other), children);
+}
+
+BottomNavigation.propTypes =  true ? {
+  /**
+   * The content of the component.
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback
+   * @param {any} value We default to the index of the child
+   */
+  onChange: _propTypes.default.func,
+
+  /**
+   * If `true`, all `BottomNavigationAction`s will show their labels.
+   * By default, only the selected `BottomNavigationAction` will show its label.
+   */
+  showLabels: _propTypes.default.bool,
+
+  /**
+   * The value of the currently selected `BottomNavigationAction`.
+   */
+  value: _propTypes.default.any
+} : {};
+BottomNavigation.defaultProps = {
+  showLabels: false
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiBottomNavigation'
+})(BottomNavigation);
+
+exports.default = _default;
+
+/***/ }),
+/* 686 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _BottomNavigationAction.default;
+  }
+});
+
+var _BottomNavigationAction = _interopRequireDefault(__webpack_require__(687));
+
+/***/ }),
+/* 687 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(3));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(7));
+
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(4));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(9));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(10));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(11));
+
+var _getPrototypeOf3 = _interopRequireDefault(__webpack_require__(12));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(13));
+
+var _react = _interopRequireDefault(__webpack_require__(1));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(2));
+
+var _classnames = _interopRequireDefault(__webpack_require__(5));
+
+var _withStyles = _interopRequireDefault(__webpack_require__(6));
+
+var _ButtonBase = _interopRequireDefault(__webpack_require__(126));
+
+var _unsupportedProp = _interopRequireDefault(__webpack_require__(600));
+
+// @inheritedComponent ButtonBase
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      transition: theme.transitions.create(['color', 'padding-top'], {
+        duration: theme.transitions.duration.short
+      }),
+      paddingTop: 8,
+      paddingBottom: 10,
+      paddingLeft: 12,
+      paddingRight: 12,
+      minWidth: 80,
+      maxWidth: 168,
+      color: theme.palette.text.secondary,
+      flex: '1',
+      '&$iconOnly': {
+        paddingTop: 16
+      },
+      '&$selected': {
+        paddingTop: 6,
+        color: theme.palette.primary.main
+      }
+    },
+
+    /* Styles applied to the root element if selected. */
+    selected: {},
+
+    /* Styles applied to the root element if `showLabel={false}` and not selected. */
+    iconOnly: {},
+
+    /* Styles applied to the span element that wraps the icon and label. */
+    wrapper: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      flexDirection: 'column'
+    },
+
+    /* Styles applied to the label's span element. */
+    label: {
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.pxToRem(12),
+      opacity: 1,
+      transition: 'font-size 0.2s, opacity 0.2s',
+      transitionDelay: '0.1s',
+      '&$iconOnly': {
+        opacity: 0,
+        transitionDelay: '0s'
+      },
+      '&$selected': {
+        fontSize: theme.typography.pxToRem(14)
+      }
+    }
+  };
+};
+
+exports.styles = styles;
+
+var BottomNavigationAction =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2.default)(BottomNavigationAction, _React$Component);
+
+  function BottomNavigationAction() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, BottomNavigationAction);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(BottomNavigationAction)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _this.handleChange = function (event) {
+      var _this$props = _this.props,
+          onChange = _this$props.onChange,
+          value = _this$props.value,
+          onClick = _this$props.onClick;
+
+      if (onChange) {
+        onChange(event, value);
+      }
+
+      if (onClick) {
+        onClick(event);
+      }
+    };
+
+    return _this;
+  }
+
+  (0, _createClass2.default)(BottomNavigationAction, [{
+    key: "render",
+    value: function render() {
+      var _classNames, _classNames2;
+
+      var _this$props2 = this.props,
+          classes = _this$props2.classes,
+          classNameProp = _this$props2.className,
+          icon = _this$props2.icon,
+          label = _this$props2.label,
+          onChange = _this$props2.onChange,
+          onClick = _this$props2.onClick,
+          selected = _this$props2.selected,
+          showLabelProp = _this$props2.showLabel,
+          value = _this$props2.value,
+          other = (0, _objectWithoutProperties2.default)(_this$props2, ["classes", "className", "icon", "label", "onChange", "onClick", "selected", "showLabel", "value"]);
+      var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.selected, selected), (0, _defineProperty2.default)(_classNames, classes.iconOnly, !showLabelProp && !selected), _classNames), classNameProp);
+      var labelClassName = (0, _classnames.default)(classes.label, (_classNames2 = {}, (0, _defineProperty2.default)(_classNames2, classes.selected, selected), (0, _defineProperty2.default)(_classNames2, classes.iconOnly, !showLabelProp && !selected), _classNames2));
+      return _react.default.createElement(_ButtonBase.default, (0, _extends2.default)({
+        className: className,
+        focusRipple: true,
+        onClick: this.handleChange
+      }, other), _react.default.createElement("span", {
+        className: classes.wrapper
+      }, icon, _react.default.createElement("span", {
+        className: labelClassName
+      }, label)));
+    }
+  }]);
+  return BottomNavigationAction;
+}(_react.default.Component);
+
+BottomNavigationAction.propTypes =  true ? {
+  /**
+   * This property isn't supported.
+   * Use the `component` property if you need to change the children structure.
+   */
+  children: _unsupportedProp.default,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The icon element.
+   */
+  icon: _propTypes.default.node,
+
+  /**
+   * The label element.
+   */
+  label: _propTypes.default.node,
+
+  /**
+   * @ignore
+   */
+  onChange: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onClick: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  selected: _propTypes.default.bool,
+
+  /**
+   * If `true`, the `BottomNavigationAction` will show its label.
+   * By default, only the selected `BottomNavigationAction`
+   * inside `BottomNavigation` will show its label.
+   */
+  showLabel: _propTypes.default.bool,
+
+  /**
+   * You can provide your own value. Otherwise, we fallback to the child position index.
+   */
+  value: _propTypes.default.any
+} : {};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiBottomNavigationAction'
+})(BottomNavigationAction);
+
+exports.default = _default;
+
+/***/ }),
+/* 688 */,
+/* 689 */,
+/* 690 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Divider__ = __webpack_require__(630);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Divider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_form__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__(19);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var AddPasswordPanel = function (_Component) {
+    _inherits(AddPasswordPanel, _Component);
+
+    function AddPasswordPanel() {
+        _classCallCheck(this, AddPasswordPanel);
+
+        return _possibleConstructorReturn(this, (AddPasswordPanel.__proto__ || Object.getPrototypeOf(AddPasswordPanel)).apply(this, arguments));
+    }
+
+    _createClass(AddPasswordPanel, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'overlay' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'add-password-modal-div' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'add-password-modal' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'add-password-modal-title' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'h1',
+                                    null,
+                                    'Add New Password'
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Divider___default.a, null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'add-password-modal-form-div' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'form',
+                                    { onSubmit: this.props.handleSubmit(this.onSubmit.bind(this)) },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_redux_form__["a" /* Field */], {
+                                        name: 'name',
+                                        component: this.renderNameField
+                                    }),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { placeholder: 'Login Data ( Username Or Email )', className: 'add-password-modal-form-input', type: 'text' }),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { placeholder: 'Password', className: 'add-password-modal-form-input', type: 'password' }),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { placeholder: 'Description ( optional ) ', className: 'add-password-modal-form-textarea' }),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'add-password-modal-form-color-picker' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'red', value: 'red' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'red' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'red' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'green' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'green' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'green' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'yellow' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'yellow' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'yellow' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'olive' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'olive' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'olive' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'orange' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'orange' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'orange' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'teal' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'teal' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'teal' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'blue' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'blue' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'blue' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'violet' }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'violet' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'violet' })
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button___default.a,
+                                        { type: 'submit', variant: 'contained', color: 'primary', className: 'add-password-modal-form-add-button' },
+                                        'Add'
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button___default.a,
+                                        { variant: 'contained', color: 'primary', className: 'add-password-modal-form-close-button', onClick: function onClick() {} },
+                                        'Close'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(values) {
+            console.log(values);
+        }
+    }, {
+        key: 'renderNameField',
+        value: function renderNameField(field) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', _extends({
+                    placeholder: 'Name ( Name of the site or app )',
+                    className: 'add-password-modal-form-input',
+                    type: 'text'
+                }, field.input))
+            );
+        }
+    }]);
+
+    return AddPasswordPanel;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+function validate(values) {
+
+    var errors = {};
+    console.log(values);
+    return errors;
+}
+
+function mapStateToProps(state) {
+    return { state: state };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(AddPasswordPanel));
 
 /***/ })
 /******/ ]);

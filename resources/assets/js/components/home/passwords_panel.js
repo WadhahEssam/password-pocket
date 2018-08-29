@@ -21,6 +21,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PasswordCard from './password_card';
 import SearchBar from 'material-ui-search-bar'
+import AddPasswordPanel from './add_password_panel';
 
 class PasswordsPanel extends Component {
 
@@ -42,7 +43,7 @@ class PasswordsPanel extends Component {
         return (
             <div>
                 <main >
-                    <div className="content" >
+                    <div className={ (this.props.view === 'mobile') ? "content-mobile" : "content" } >
                         {/* <div className="search-box-div">
                             <input className="search-box" placeholder="Search"/>
                         </div> */}
@@ -99,7 +100,7 @@ class PasswordsPanel extends Component {
 
                         </Grid>
 
-
+                        <AddPasswordPanel/>
 
                     </div>
                 </main>

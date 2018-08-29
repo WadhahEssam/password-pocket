@@ -9,6 +9,12 @@
     width: calc( 100% - 270px);
 }
 
+.content-mobile {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 16px;
+}
+
 .search-box-div {
     width: 295px;
     margin: auto;
@@ -25,6 +31,12 @@
     font-family: 'Unica One', cursive;
     font-size: 30px;
     margin-left:10px ;
+}
+
+.navbar-title-mobile {
+    font-family: 'Unica One', cursive;
+    font-size: 25px;
+    margin-left:5px ;
 }
 
 .logout-button {
@@ -70,7 +82,7 @@
 
 .fixed-add-button {
     position: fixed !important;
-    z-index: 100000000 !important;
+    z-index: 1999 !important;
     right: 20px !important;
     bottom: 20px !important;
     background-color: #6fb996 !important;
@@ -85,7 +97,110 @@
     padding-top:16px !important;
 }
 
+.card-header-div {
+    display:flex ;
+}
+
+.card-title {
+    font-size: 25px;
+    font-weight: 400 !important;
+    position: relative;
+    left: 17px;
+    top: 5px;
+}
+
 .card-footer {
     padding: 2px 16px !important ;
 }
 
+/* Password Modal */
+
+.add-password-modal {
+    height: 442px;
+    width: 330px;
+    position: fixed;
+    top: calc( 50% + -220px);
+    right: calc( 50% + -165px );
+    color: white;
+    background: rgb(255, 255, 255);
+    border-radius: 7px;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    /* top: calc( 10% + -68px); */
+    /* right: calc( 19% + -165px ); */
+    color: white;
+    background: rgba(0, 0, 0, 0.54);
+    border-radius: 7px;
+    z-index: 2000;
+}
+
+.add-password-modal-title {
+    width: fit-content;
+    margin: auto;
+    color: #273b35;
+    margin-top: 16px;
+    margin-bottom: 15px;
+}
+
+.add-password-modal-form-div {
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.add-password-modal-form-input {
+    display: block;
+    width: 300px;
+    margin: 10px 0px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1;
+    padding: 0px 10px;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.add-password-modal-form-textarea {
+    display: block;
+    width: 300px;
+    margin: 10px 0px;
+    height: 90px;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1;
+    padding: 5px 10px;
+    font-size: 14px;
+    resize: none;
+    font-family: monospace;
+}
+
+.add-password-modal-form-add-button {
+    margin-top:10px !important;
+    margin-right:4% !important;
+    background-color: #558175  !important;
+    /*border-radius: 23px !important;*/
+    width: 48% !important;
+    height: 41px !important;
+    font-weight: 600 !important;
+}
+
+.add-password-modal-form-close-button {
+    margin-top: 10px !important;
+    background-color: rgba(143, 150, 148, 0.7490196078431373) !important;
+    /*border-radius: 23px !important;*/
+    width: 48%!important;
+    height: 41px !important;
+    font-weight: 600 !important;
+}
+
+.add-password-modal-form-color-picker {
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
