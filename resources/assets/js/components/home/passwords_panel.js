@@ -7,7 +7,10 @@ import { connect } from 'react-redux'
 import _ from 'lodash' ;
 import Paper from '@material-ui/core/Paper';
 import { MuiThemeProvider } from '@material-ui/core';
-import { showAddPasswordPanel } from '../../actions/index'
+import { showAddPasswordPanel , showSnackBar , hideSnackBar } from '../../actions/index'
+import Snackbar from '@material-ui/core/Snackbar';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 
 class PasswordsPanel extends Component {
 
@@ -75,6 +78,33 @@ class PasswordsPanel extends Component {
 
                     </div>
                 </main>
+
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    className="snackbar"
+                    variant="error"
+                    open={this.props.snackBar.open}
+                    autoHideDuration={this.props.snackBar.time}
+                    onClose={ ( event , reason ) => { if ( reason === 'clickaway') { return } ; this.props.hideSnackBar() } }
+                    ContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    message={<span id="message-id">{this.props.snackBar.message}</span>}
+                    action={[
+                        <IconButton
+                            key="close"
+                            aria-label="Close"
+                            color="inherit"
+                            onClick={ ( event , reason ) => { if ( reason === 'clickaway') { return } ; this.props.hideSnackBar() } }
+                        >
+                            <CloseIcon />
+                        </IconButton>,
+                    ]}
+                />
+
             </div>
         ) ;
     }
@@ -84,7 +114,8 @@ function mapStateToProps ( state ) {
     return {
         isAddPasswordPanelOpened : state.isAddPasswordPanelOpened ,
         passwords : state.passwords,
+        snackBar : state.snackBar
     } ;
 }
 
-export default connect ( mapStateToProps , {showAddPasswordPanel} ) ( PasswordsPanel ) ;
+export default connect ( mapStateToProps , {showAddPasswordPanel , hideSnackBar , showSnackBar} ) ( PasswordsPanel ) ;

@@ -10,6 +10,8 @@ export const SHOW_ADD_PASSWORD_PANEL = 'SHOW_ADD_PASSWORD_PANEL';
 export const HIDE_ADD_PASSWORD_PANEL = 'HIDE_ADD_PASSWORD_PANEL';
 export const ADD_PASSWORD = 'ADD_PASSWORD'
 export const GET_PASSWORDS = 'GET_PASSWORDS'
+export const SHOW_SNACKBAR = 'SHOW_SNACKBAR'
+export const HIDE_SNACKBAR = 'HIDE_SNACKBAR'
 
 export function signup ( userInfo , callback ) {
 
@@ -219,6 +221,24 @@ export function hideAddPasswordPanel () {
         dispatch ({
             type : HIDE_ADD_PASSWORD_PANEL ,
             payload : false
+        });
+    }
+}
+
+export function showSnackBar ( message , time ) {
+    return ( dispatch ) => {
+        dispatch ({
+            type : SHOW_SNACKBAR ,
+            payload : { open : true , message , time }
+        });
+    }
+}
+
+export function hideSnackBar () {
+    return ( dispatch ) => {
+        dispatch ({
+            type : HIDE_SNACKBAR ,
+            payload : { open : false , message : '' , time : 3000 }
         });
     }
 }

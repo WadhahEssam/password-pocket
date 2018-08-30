@@ -3,10 +3,12 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button' ;
 import { Field , reduxForm } from 'redux-form' ;
 import {connect} from 'react-redux' ;
-import {showAddPasswordPanel , hideAddPasswordPanel , addPassword } from '../../actions/index'
+import {showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar } from '../../actions/index'
 import IconButton from '@material-ui/core/IconButton';
 import ShowPasswordIcon from '@material-ui/icons/Visibility';
 import HidePasswordIcon from '@material-ui/icons/VisibilityOff';
+import Snackbar from '@material-ui/core/Snackbar';
+import CloseIcon from '@material-ui/icons/Close';
 
 class AddPasswordPanel extends Component {
 
@@ -15,6 +17,9 @@ class AddPasswordPanel extends Component {
         this.state = {
             color : 'red' ,
             showPassword : false ,
+            open : false ,
+            message : '' ,
+            time : 6000 ,
         }
 
     }
@@ -116,14 +121,14 @@ class AddPasswordPanel extends Component {
                         </div>
                     </div>
                 </div>
+
             </div>
         );
     }
 
     onSubmit ( values ) {
         values.color = this.state.color ;
-
-        this.props.addPassword( values , () => { this.props.hideAddPasswordPanel() } ) ;
+        this.props.addPassword( values , () => { this.props.hideAddPasswordPanel() ; this.props.showSnackBar('Successfully Added' , 1500) } ) ;
     }
 
     renderInputField ( field )  {
@@ -159,14 +164,20 @@ function validate ( values ) {
 
     if ( !values.name ) {
         errors.name = "name is required" ;
+    } else if ( values.name.length > 30 ) {
+        errors.name = "can't be more than 30 chars" ;
     }
 
     if ( !values.login_cred ) {
         errors.login_cred = "this field is required" ;
+    } else if ( values.login_cred.length > 80 ) {
+        errors.login_cred = "can't be more than 80 chars" ;
     }
 
     if ( !values.password ) {
         errors.password = "password is required" ;
+    } else if ( values.password.length > 180 ) {
+        errors.password = "password can't be more than 180 chars" ;
     }
 
     return errors ;
@@ -174,5 +185,5 @@ function validate ( values ) {
 }
 
 
-export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } ) ( connect ( null , { showAddPasswordPanel , hideAddPasswordPanel , addPassword } )  ( AddPasswordPanel) ) ;
+export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } ) ( connect ( null , {  showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar} )  ( AddPasswordPanel) ) ;
 
