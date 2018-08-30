@@ -4,6 +4,7 @@ import PasswordCard from './password_card';
 import SearchBar from 'material-ui-search-bar'
 import AddPasswordPanel from './add_password_panel';
 import { connect } from 'react-redux'
+import _ from 'lodash' ;
 
 class PasswordsPanel extends Component {
 
@@ -13,6 +14,9 @@ class PasswordsPanel extends Component {
             value : ''
         }
     }
+
+
+
     render () {
 
         const gridOptions = {
@@ -21,7 +25,14 @@ class PasswordsPanel extends Component {
             alignItems : "stretch" ,
         }
 
-        console.log(this.props) ;
+        const passwordCards = _.map(this.props.passwords , ( password )=>{
+            return (
+                <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
+                    <PasswordCard password={password} />
+                </Grid>
+            );
+        });
+
         return (
             <div>
                 <main >
@@ -40,45 +51,9 @@ class PasswordsPanel extends Component {
                         </div>
 
 
-
                         <Grid container { ... gridOptions } >
 
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                                <PasswordCard/>
-
-                            </Grid>
-
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                            <PasswordCard/>
-
-                            </Grid>
-
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                            <PasswordCard/>
-
-                            </Grid>
-
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                                <PasswordCard/>
-
-                            </Grid>
-
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                                <PasswordCard/>
-
-                            </Grid>
-
-
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
-
-                                <PasswordCard/>
-
-                            </Grid>
+                            {passwordCards}
 
                         </Grid>
 
@@ -95,7 +70,10 @@ class PasswordsPanel extends Component {
 }
 
 function mapStateToProps ( state ) {
-    return { isAddPasswordPanelOpened : state.isAddPasswordPanelOpened } ;
+    return {
+        isAddPasswordPanelOpened : state.isAddPasswordPanelOpened ,
+        passwords : state.passwords,
+    } ;
 }
 
 export default connect ( mapStateToProps ) ( PasswordsPanel ) ;

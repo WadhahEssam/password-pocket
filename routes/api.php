@@ -13,3 +13,6 @@ Route::group([
     Route::post('signup', 'AuthController@signup');
 });
 
+
+Route::post('createPassword' , 'PasswordController@createPassword' ) ;
+Route::post('getPasswords' , 'PasswordController@getPasswords') ;

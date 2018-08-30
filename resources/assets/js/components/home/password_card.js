@@ -1,10 +1,8 @@
 import React , { Component } from 'react' ;
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -12,10 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Chip from '@material-ui/core/Chip';
@@ -25,7 +20,6 @@ import ShowOnIcon from '@material-ui/icons/Visibility';
 import ShowOffIcon from '@material-ui/icons/VisibilityOff';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
-
 
 const styles = theme => ({
     card: {
@@ -72,8 +66,8 @@ class PasswordCard extends Component {
         super ( props ) ;
         this.state = {
             expanded : false ,
-            password : '112233' ,
-            username : 'wadah-wleed@hotmail.com' ,
+            password : props.password.password ,
+            username : props.password.login_cred ,
             hideCred : true ,
         } ;
     }
@@ -83,29 +77,20 @@ class PasswordCard extends Component {
 
         const { classes } = this.props;
 
-        return (
-            <div>
 
+        return (
+
+            <div>
                 <Paper elevation={4} className="">
 
                     <Card >
 
-                        {/* <CardHeader
-                            className="card-header"
-                            avatar={
-                                <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
-                                    FA
-                                </Avatar>
-                            }
-                            title="Facebook"
-                        /> */}
-
                         <CardContent className="" >
                             <div className="card-header-div" >
                                 <Avatar style={ { backgroundColor : '#6868ad'  } } aria-label="Recipe" >
-                                    FA
+                                    { ( this.props.password.name.charAt(0) + this.props.password.name.charAt(1) + "").toUpperCase()  }
                                 </Avatar>
-                                <h2 className="card-title" >Facebook</h2>
+                                <h2 className="card-title" >{this.props.password.name}</h2>
                             </div>
                         </CardContent>
 
@@ -185,7 +170,7 @@ class PasswordCard extends Component {
                         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Typography paragraph>
-                                password for the facebook website.
+                                    {this.props.password.description}
                                 </Typography>
                             </CardContent>
                         </Collapse>
@@ -199,4 +184,6 @@ class PasswordCard extends Component {
     }
 }
 
-export default withStyles(styles) (PasswordCard);
+
+
+export default withStyles(styles)  (PasswordCard)  ;

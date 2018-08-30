@@ -11,7 +11,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AllIcon from '@material-ui/icons/GridOn';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeletedIcon from '@material-ui/icons/DeleteSweep';
-import { showAddPasswordPanel } from '../../actions/index'
+import { showAddPasswordPanel , getPasswords } from '../../actions/index'
 
 class Home extends Component {
 
@@ -33,6 +33,8 @@ class Home extends Component {
         // checking if user is logged in or not
         if ( this.props.userData.name === '' ) {
             this.props.history.push('/') ;
+        } else {
+            this.props.getPasswords() ;
         }
     }
 
@@ -58,9 +60,9 @@ class Home extends Component {
                             onChange={ ( event , value )=>{ this.setState({ value }); } }
                             showLabels
                         >
-                            <BottomNavigationAction label="All" icon={<AllIcon />} />
-                            <BottomNavigationAction label="Starred" icon={<StarBorder />} />
-                            <BottomNavigationAction label="Deleted" icon={<DeletedIcon />} />
+                        <BottomNavigationAction label="All" icon={<AllIcon />} />
+                        <BottomNavigationAction label="Starred" icon={<StarBorder />} />
+                        <BottomNavigationAction label="Deleted" icon={<DeletedIcon />} />
                     </BottomNavigation>
                 </Hidden>
 
@@ -93,4 +95,4 @@ function mapStateToFunction ( state ) {
     return { userData : state.userData } ;
 }
 
-export default connect ( mapStateToFunction , {showAddPasswordPanel} ) ( Home ) ;
+export default connect ( mapStateToFunction , { showAddPasswordPanel , getPasswords } ) ( Home ) ;

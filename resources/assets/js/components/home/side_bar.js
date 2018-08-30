@@ -81,32 +81,7 @@ class SideBar extends Component {
 
                         <Divider />
 
-                        <ListItem button onClick={ ()=>{ this.setState( { menu2 : !this.state.menu2 } ) } }>
-                            <ListItemIcon>
-                                <ViewIcon />
-                            </ListItemIcon>
-                            <ListItemText inset primary="View" />
-                            {this.state.menu2 ? <ExpandLess /> : <ExpandMore />}
-                        </ListItem>
-                        <Collapse className="collapse" in={this.state.menu2} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
 
-                                <ListItem className="collapse-item" button >
-                                    <ListItemIcon>
-                                        <ViewInsideIcon className="large-icon" />
-                                    </ListItemIcon>
-                                    <ListItemText inset primary="Large" />
-                                </ListItem>
-
-                                <ListItem className="collapse-item" button >
-                                    <ListItemIcon>
-                                        <ViewInsideIcon className="small-icon" />
-                                    </ListItemIcon>
-                                    <ListItemText inset primary="Small" />
-                                </ListItem>
-
-                            </List>
-                        </Collapse>
 
                         <Divider />
 

@@ -8,6 +8,8 @@ export const CHECK_AUTH = ' check_auth' ;
 export const SIGN_OUT = 'SIGNOUT'
 export const SHOW_ADD_PASSWORD_PANEL = 'SHOW_ADD_PASSWORD_PANEL';
 export const HIDE_ADD_PASSWORD_PANEL = 'HIDE_ADD_PASSWORD_PANEL';
+export const ADD_PASSWORD = 'ADD_PASSWORD'
+export const GET_PASSWORDS = 'GET_PASSWORDS'
 
 export function signup ( userInfo , callback ) {
 
@@ -150,6 +152,46 @@ export function signout ( callback ) {
     }
 }
 
+export function addPassword ( newPassword , callback ) {
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        newPassword.token = token ;
+
+        axios.post('/api/createPassword',  newPassword )
+        .then ( function ( response ) {
+            dispatch ({
+                type : ADD_PASSWORD ,
+                payload : response
+            });
+
+            callback () ;
+        })
+        .catch( function ( error ) {
+            console.log(error) ;
+        });
+
+
+    }
+}
+
+export function getPasswords () {
+    return ( dispatch ) => {
+        const token = getToken() ;
+        axios.post('api/getPasswords' , {token})
+        .then( function (passwords) {
+            dispatch ({
+                type : GET_PASSWORDS ,
+                payload : passwords.data
+            })
+        })
+        .catch ( function (error) {
+            console.log(error) ;
+        }) ;
+    }
+}
+
 export function changePage ( page ) {
 
     return ( dispatch ) => {
@@ -160,7 +202,6 @@ export function changePage ( page ) {
     }
 
 }
-
 
 export function showAddPasswordPanel () {
     return ( dispatch ) => {

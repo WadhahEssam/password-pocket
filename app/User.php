@@ -28,6 +28,10 @@ class User extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
+    public function passwords () {
+        return $this->hasMany('App\Password') ;
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
