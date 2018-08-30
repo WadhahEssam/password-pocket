@@ -18,6 +18,7 @@ import ShowOnIcon from '@material-ui/icons/Visibility';
 import ShowOffIcon from '@material-ui/icons/VisibilityOff';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const styles = theme => ({
     card: {
@@ -58,6 +59,7 @@ const styles = theme => ({
     }
   });
 
+
 class PasswordCard extends Component {
 
     constructor ( props ) {
@@ -70,6 +72,33 @@ class PasswordCard extends Component {
         } ;
     }
 
+    copyToClipboard( text ) {
+        console.log('cool') ;
+        if (window.clipboardData && window.clipboardData.setData) {
+            // IE specific code path to preve"nt textarea being shown while dialog is visible.
+            console.log(text + 'is copied') ;
+            return clipboardData.setData("Text", text);
+
+        } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+            var textarea = document.createElement("textarea");
+            textarea.textContent = text;
+            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+            } catch (ex) {
+                console.warn("Copy to clipboard failed.", ex);
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    }
+
+    copyToClipboard2 ( text ) {
+        console.log('damn') ;
+    }
 
     render () {
 
@@ -98,18 +127,25 @@ class PasswordCard extends Component {
 
                         <div className="chip-div" >
 
-                            <input type={ ( this.state.hideCred ) ? ('password') : ('text') } className="card-text-input" value={this.props.password.login_cred} onChange={ () => {} } ></input>
-                            <IconButton aria-label="Delete" className="copy-button" onClick={ () => {  } } >
-                                <CopyIcon />
-                            </IconButton>
+                            <input type="text" className="card-text-input" value={this.state.username} onChange={ () => { } } ></input>
+
+                            <CopyToClipboard text={this.state.username} onCopy={ ()=>{ console.log('username is copied') } }>
+                                    <IconButton aria-label="Delete" className="copy-button" >
+                                        <CopyIcon />
+                                    </IconButton>
+                            </CopyToClipboard>
+
                         </div>
 
                         <div className="chip-div" >
 
-                            <input type={ ( this.state.hideCred ) ? ('password') : ('text') } className="card-text-input" value={this.props.password.password}  onChange={ () => {} } ></input>
-                            <IconButton aria-label="Delete" className="copy-button" onClick={ () => {  } } >
-                                <CopyIcon />
-                            </IconButton>
+                            <input type={ ( this.state.hideCred ) ? ('password') : ('text') } className="card-text-input" value={this.state.password}  onChange={ () => { this.copyToClipboard(this.state.password) } } ></input>
+                            <CopyToClipboard text={this.state.password} onCopy={ ()=>{ console.log('password is copied') } }>
+                                <IconButton aria-label="Delete" className="copy-button" onClick={ () => {  } } >
+                                    <CopyIcon />
+                                </IconButton>
+                            </CopyToClipboard>
+
                         </div>
 
                         </CardContent>
