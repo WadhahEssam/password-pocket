@@ -3,7 +3,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
+import {connect} from 'react-redux' ;
+import {signout} from '../../actions/index' ;
 
 class NavBar extends Component {
 
@@ -17,7 +18,9 @@ class NavBar extends Component {
 
                         <h2 className={ ( this.props.view === 'mobile' ) ? "navbar-title-mobile" : "navbar-title" } >Password Pocket</h2>
 
-                        <Button variant="contained" color="secondary" className="logout-button" >
+
+
+                        <Button variant="contained" color="secondary" className="logout-button" onClick={ () => { this.props.signout( ()=>{ this.props.history.push('/') } ) }  } >
                             <img src="/img/logout.svg" height={20} />
                         </Button>
 
@@ -29,4 +32,4 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar ;
+export default connect ( null , {signout} ) ( NavBar ) ;

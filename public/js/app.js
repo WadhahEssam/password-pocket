@@ -1935,13 +1935,19 @@ function baseGetTag(value) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SIGN_UP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SIGN_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SIGN_UP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SIGN_IN; });
 /* unused harmony export CHECK_AUTH */
-/* harmony export (immutable) */ __webpack_exports__["g"] = signup;
-/* harmony export (immutable) */ __webpack_exports__["f"] = signin;
-/* harmony export (immutable) */ __webpack_exports__["e"] = checkAuth;
-/* harmony export (immutable) */ __webpack_exports__["d"] = changePage;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return SIGN_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SHOW_ADD_PASSWORD_PANEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return HIDE_ADD_PASSWORD_PANEL; });
+/* harmony export (immutable) */ __webpack_exports__["m"] = signup;
+/* harmony export (immutable) */ __webpack_exports__["k"] = signin;
+/* harmony export (immutable) */ __webpack_exports__["h"] = checkAuth;
+/* harmony export (immutable) */ __webpack_exports__["l"] = signout;
+/* harmony export (immutable) */ __webpack_exports__["g"] = changePage;
+/* harmony export (immutable) */ __webpack_exports__["j"] = showAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["i"] = hideAddPasswordPanel;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_index__ = __webpack_require__(106);
@@ -1952,6 +1958,9 @@ var CHANGE_PAGE = "change_page";
 var SIGN_UP = 'sign_up';
 var SIGN_IN = 'sign_in';
 var CHECK_AUTH = ' check_auth';
+var SIGN_OUT = 'SIGNOUT';
+var SHOW_ADD_PASSWORD_PANEL = 'SHOW_ADD_PASSWORD_PANEL';
+var HIDE_ADD_PASSWORD_PANEL = 'HIDE_ADD_PASSWORD_PANEL';
 
 function signup(userInfo, callback) {
 
@@ -2057,12 +2066,54 @@ function checkAuth(callback) {
     };
 }
 
+function signout(callback) {
+
+    return function (dispatch) {
+
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+
+        console.log('Trying to sign you out with this token of yours : ');
+        console.log('Token : ' + token);
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/logout', { token: token }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+        dispatch({
+            type: SIGN_OUT,
+            payload: {}
+        });
+
+        callback();
+    };
+}
+
 function changePage(page) {
 
     return function (dispatch) {
         dispatch({
             type: CHANGE_PAGE,
             payload: page
+        });
+    };
+}
+
+function showAddPasswordPanel() {
+    return function (dispatch) {
+        dispatch({
+            type: SHOW_ADD_PASSWORD_PANEL,
+            payload: true
+        });
+    };
+}
+
+function hideAddPasswordPanel() {
+    return function (dispatch) {
+        dispatch({
+            type: HIDE_ADD_PASSWORD_PANEL,
+            payload: false
         });
     };
 }
@@ -13901,7 +13952,7 @@ var DescriptionPanel = function (_Component) {
     return DescriptionPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["d" /* changePage */] })(DescriptionPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["g" /* changePage */] })(DescriptionPanel));
 
 /***/ }),
 /* 215 */
@@ -36759,6 +36810,8 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_form__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page_reducer__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_data_reducer__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__is_add_password_panel_open__ = __webpack_require__(689);
+
 
 
 
@@ -36768,6 +36821,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineReducers */])({
     page: __WEBPACK_IMPORTED_MODULE_2__page_reducer__["a" /* default */],
     userData: __WEBPACK_IMPORTED_MODULE_3__user_data_reducer__["a" /* default */],
+    isAddPasswordPanelOpened: __WEBPACK_IMPORTED_MODULE_4__is_add_password_panel_open__["a" /* default */],
     form: __WEBPACK_IMPORTED_MODULE_1_redux_form__["b" /* reducer */]
 }));
 
@@ -45199,7 +45253,7 @@ var createValues = function createValues(_ref) {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["f" /* SIGN_UP */]:
             return 'home';
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["a" /* CHANGE_PAGE */]:
@@ -45225,11 +45279,15 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["b" /* SIGN_IN */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["d" /* SIGN_IN */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["c" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["f" /* SIGN_UP */]:
             return action.payload;
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["e" /* SIGN_OUT */]:
+            var emptyUserState = { name: '', email: '', password: '', token: '' };
+            return emptyUserState;
 
         default:
             return state;
@@ -47150,7 +47208,7 @@ function mapStateToProps(state) {
     return { page: state.page };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["e" /* checkAuth */] })(Login));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["h" /* checkAuth */] })(Login));
 
 /***/ }),
 /* 483 */
@@ -52280,7 +52338,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["d" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["f" /* signin */] })(LoginPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["g" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["k" /* signin */] })(LoginPanel)));
 
 /***/ }),
 /* 537 */
@@ -62646,7 +62704,7 @@ function mapStateToProps(state) {
     return { state: state };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["d" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["g" /* signup */] })(SignIn)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["g" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["m" /* signup */] })(SignIn)));
 
 /***/ }),
 /* 588 */
@@ -66993,6 +67051,7 @@ var Snippit = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_icons_StarBorder__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_DeleteSweep__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__actions_index__ = __webpack_require__(34);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67000,6 +67059,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -67038,9 +67098,9 @@ var Home = function (_Component) {
             this.setState({ open: false });
         }
     }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            console.log(this.props.userData);
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            // checking if user is logged in or not
             if (this.props.userData.name === '') {
                 this.props.history.push('/');
             }
@@ -67059,12 +67119,12 @@ var Home = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
                     { xsDown: true },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'normal' })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'normal', history: this.props.history })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
                     { only: ['sm', 'lg', 'md', 'xl'] },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'mobile' })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__nav_bar__["a" /* default */], { view: 'mobile', history: this.props.history })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
@@ -67086,7 +67146,7 @@ var Home = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
                     { xsDown: true, smDown: true },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__side_bar__["a" /* default */], null)
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__side_bar__["a" /* default */], { history: this.props.history })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Hidden___default.a,
@@ -67100,7 +67160,9 @@ var Home = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_6__material_ui_core_Button___default.a,
-                    { variant: 'fab', color: 'primary', 'aria-label': 'Add', className: 'fixed-add-button' },
+                    { variant: 'fab', color: 'primary', 'aria-label': 'Add', className: 'fixed-add-button', onClick: function onClick() {
+                            _this2.props.showAddPasswordPanel();
+                        } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_icons_Add___default.a, null)
                 )
             );
@@ -67114,7 +67176,7 @@ function mapStateToFunction(state) {
     return { userData: state.userData };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction)(Home));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["j" /* showAddPasswordPanel */] })(Home));
 
 /***/ }),
 /* 623 */
@@ -67131,6 +67193,8 @@ function mapStateToFunction(state) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Typography___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Typography__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Button__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__actions_index__ = __webpack_require__(34);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67138,6 +67202,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -67157,6 +67223,8 @@ var NavBar = function (_Component) {
     _createClass(NavBar, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -67174,7 +67242,11 @@ var NavBar = function (_Component) {
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Button___default.a,
-                            { variant: 'contained', color: 'secondary', className: 'logout-button' },
+                            { variant: 'contained', color: 'secondary', className: 'logout-button', onClick: function onClick() {
+                                    _this2.props.signout(function () {
+                                        _this2.props.history.push('/');
+                                    });
+                                } },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/img/logout.svg', height: 20 })
                         )
                     )
@@ -67186,7 +67258,7 @@ var NavBar = function (_Component) {
     return NavBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (NavBar);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["l" /* signout */] })(NavBar));
 
 /***/ }),
 /* 624 */
@@ -67532,6 +67604,8 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_AddCircle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_AddCircle__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_ExitToApp__ = __webpack_require__(647);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_ExitToApp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_ExitToApp__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__actions_index__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_react_redux__ = __webpack_require__(18);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67539,6 +67613,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -67697,7 +67773,9 @@ var SideBar = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_4__material_ui_core_ListItem___default.a,
-                            { button: true },
+                            { button: true, onClick: function onClick() {
+                                    _this2.props.showAddPasswordPanel();
+                                } },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_5__material_ui_core_ListItemIcon___default.a,
                                 null,
@@ -67708,7 +67786,11 @@ var SideBar = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_4__material_ui_core_ListItem___default.a,
-                            { button: true, className: '' },
+                            { button: true, className: '', onClick: function onClick() {
+                                    _this2.props.signout(function () {
+                                        _this2.props.history.push('/');
+                                    });
+                                } },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_5__material_ui_core_ListItemIcon___default.a,
                                 null,
@@ -67725,7 +67807,7 @@ var SideBar = function (_Component) {
     return SideBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (SideBar);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_20_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_19__actions_index__["j" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_19__actions_index__["l" /* signout */] })(SideBar));
 
 /***/ }),
 /* 629 */
@@ -69708,48 +69790,11 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Paper__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Paper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_Paper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_TextField__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_styles__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_classnames__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Card__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Card__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardHeader__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardHeader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardHeader__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_CardMedia__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_CardMedia___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_CardMedia__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_CardContent__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_CardContent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_CardContent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_CardActions__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_CardActions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_CardActions__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Collapse__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_Collapse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_Collapse__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Avatar__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_core_Avatar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_core_Avatar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_IconButton__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Typography__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_core_Typography___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_core_Typography__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_colors_red__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_core_colors_red___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_core_colors_red__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Favorite__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Favorite___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Favorite__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Share__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Share__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_icons_ExpandMore__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_icons_ExpandMore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__material_ui_icons_ExpandMore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_icons_MoreVert__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_icons_MoreVert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__material_ui_icons_MoreVert__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__password_card__ = __webpack_require__(654);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar__ = __webpack_require__(658);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__add_password_panel__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password_card__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_material_ui_search_bar__ = __webpack_require__(658);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_material_ui_search_bar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_material_ui_search_bar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_password_panel__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux__ = __webpack_require__(18);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -69759,24 +69804,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -69810,6 +69837,7 @@ var PasswordsPanel = function (_Component) {
                 alignItems: "stretch"
             };
 
+            console.log(this.props);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -69822,7 +69850,7 @@ var PasswordsPanel = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'search-box-div' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_22_material_ui_search_bar___default.a, {
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_search_bar___default.a, {
                                 className: 'search-box',
                                 value: this.state.value,
                                 onChange: function onChange(newValue) {
@@ -69839,35 +69867,35 @@ var PasswordsPanel = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__password_card__["a" /* default */], null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], null)
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_23__add_password_panel__["a" /* default */], null)
+                        this.props.isAddPasswordPanelOpened ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__add_password_panel__["a" /* default */], null) : ""
                     )
                 )
             );
@@ -69877,7 +69905,11 @@ var PasswordsPanel = function (_Component) {
     return PasswordsPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (PasswordsPanel);
+function mapStateToProps(state) {
+    return { isAddPasswordPanelOpened: state.isAddPasswordPanelOpened };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps)(PasswordsPanel));
 
 /***/ }),
 /* 649 */
@@ -71784,12 +71816,13 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_form__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Visibility__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_VisibilityOff__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_index__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -71799,6 +71832,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -71876,11 +71910,11 @@ var AddPasswordPanel = function (_Component) {
                                         type: this.state.showPassword ? 'text' : 'password'
                                     }),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_5__material_ui_core_IconButton___default.a,
+                                        __WEBPACK_IMPORTED_MODULE_6__material_ui_core_IconButton___default.a,
                                         { 'aria-label': 'Delete', className: 'add-password-modal-form-show-password-button', onClick: function onClick() {
                                                 _this2.setState({ showPassword: !_this2.state.showPassword });
                                             } },
-                                        this.state.showPassword ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_VisibilityOff___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Visibility___default.a, null)
+                                        this.state.showPassword ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility___default.a, null)
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_redux_form__["a" /* Field */], {
                                         name: 'description',
@@ -71961,7 +71995,9 @@ var AddPasswordPanel = function (_Component) {
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_2__material_ui_core_Button___default.a,
-                                        { variant: 'contained', color: 'primary', className: 'add-password-modal-form-close-button', onClick: function onClick() {} },
+                                        { variant: 'contained', color: 'primary', className: 'add-password-modal-form-close-button', onClick: function onClick() {
+                                                _this2.props.hideAddPasswordPanel();
+                                            } },
                                         'Close'
                                     )
                                 )
@@ -71976,6 +72012,8 @@ var AddPasswordPanel = function (_Component) {
         value: function onSubmit(values) {
             values.color = this.state.color;
             console.log(values);
+
+            this.props.showAddPasswordPanel();
         }
     }, {
         key: 'renderInputField',
@@ -72026,11 +72064,7 @@ function validate(values) {
     return errors;
 }
 
-function mapStateToProps(state) {
-    return { state: state };
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(AddPasswordPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["j" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["i" /* hideAddPasswordPanel */] })(AddPasswordPanel)));
 
 /***/ }),
 /* 679 */
@@ -72456,6 +72490,37 @@ exports.default = _default;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 685 */,
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(34);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var action = arguments[1];
+
+
+    switch (action.type) {
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* SHOW_ADD_PASSWORD_PANEL */]:
+            return true;
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["b" /* HIDE_ADD_PASSWORD_PANEL */]:
+            return false;
+
+        default:
+            return state;
+
+    }
+});
 
 /***/ })
 /******/ ]);

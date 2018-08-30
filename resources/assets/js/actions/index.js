@@ -5,7 +5,9 @@ export const CHANGE_PAGE = "change_page" ;
 export const SIGN_UP = 'sign_up' ;
 export const SIGN_IN = 'sign_in' ;
 export const CHECK_AUTH = ' check_auth' ;
-
+export const SIGN_OUT = 'SIGNOUT'
+export const SHOW_ADD_PASSWORD_PANEL = 'SHOW_ADD_PASSWORD_PANEL';
+export const HIDE_ADD_PASSWORD_PANEL = 'HIDE_ADD_PASSWORD_PANEL';
 
 export function signup ( userInfo , callback ) {
 
@@ -118,6 +120,32 @@ export function checkAuth ( callback ) {
                 payload : 'nothing'
             })
         }
+    }
+}
+
+export function signout ( callback ) {
+
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        console.log('Trying to sign you out with this token of yours : ');
+        console.log('Token : ' + token ) ;
+
+        axios.post('/api/auth/logout' , { token } )
+        .then ( function (response) {
+            console.log(response)
+        })
+        .catch (function (error) {
+            console.log(error)
+        });
+
+        dispatch ( {
+            type : SIGN_OUT ,
+            payload : {}
+        });
+
+        callback() ;
 
     }
 }
@@ -133,3 +161,22 @@ export function changePage ( page ) {
 
 }
 
+
+export function showAddPasswordPanel () {
+    return ( dispatch ) => {
+        dispatch ({
+            type : SHOW_ADD_PASSWORD_PANEL ,
+            payload : true
+        });
+    }
+}
+
+
+export function hideAddPasswordPanel () {
+    return ( dispatch ) => {
+        dispatch ({
+            type : HIDE_ADD_PASSWORD_PANEL ,
+            payload : false
+        });
+    }
+}

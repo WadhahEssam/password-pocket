@@ -17,6 +17,8 @@ import ViewInsideIcon from '@material-ui/icons/ChromeReaderMode';
 import DeletedIcon from '@material-ui/icons/DeleteSweep';
 import AddIcon from '@material-ui/icons/AddCircle';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
+import {showAddPasswordPanel , signout} from '../../actions/index'
+import {connect} from 'react-redux'
 
 class SideBar extends Component {
 
@@ -108,7 +110,7 @@ class SideBar extends Component {
 
                         <Divider />
 
-                        <ListItem button >
+                        <ListItem button onClick={ () => { this.props.showAddPasswordPanel() } } >
                             <ListItemIcon>
                                 <AddIcon />
                             </ListItemIcon>
@@ -117,7 +119,7 @@ class SideBar extends Component {
 
                         <Divider />
 
-                        <ListItem button className="">
+                        <ListItem button className="" onClick={ () => { this.props.signout( ()=>{ this.props.history.push('/') } ) }  }  >
                             <ListItemIcon>
                                 <LogoutIcon />
                             </ListItemIcon>
@@ -132,4 +134,4 @@ class SideBar extends Component {
     }
 }
 
-export default SideBar ;
+export default connect ( null , { showAddPasswordPanel , signout } ) ( SideBar ) ;

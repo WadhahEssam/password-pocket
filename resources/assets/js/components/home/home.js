@@ -11,6 +11,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AllIcon from '@material-ui/icons/GridOn';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeletedIcon from '@material-ui/icons/DeleteSweep';
+import { showAddPasswordPanel } from '../../actions/index'
 
 class Home extends Component {
 
@@ -27,15 +28,15 @@ class Home extends Component {
         this.setState({ open: false });
     };
 
-    componentDidMount () {
-        console.log(this.props.userData) ;
+
+    componentWillMount () {
+        // checking if user is logged in or not
         if ( this.props.userData.name === '' ) {
             this.props.history.push('/') ;
         }
     }
 
     render () {
-
         const { value } = this.state;
 
         return (
@@ -43,11 +44,11 @@ class Home extends Component {
 
                 {/* Nav Bar */}
                 <Hidden xsDown>
-                    <NavBar view="normal" />
+                    <NavBar view="normal" history={this.props.history} />
                 </Hidden>
 
                 <Hidden only={['sm','lg','md','xl']}>
-                    <NavBar view="mobile" />
+                    <NavBar view="mobile"  history={this.props.history}  />
                 </Hidden>
 
                 {/* Navigation Buttons for mobile */}
@@ -66,7 +67,7 @@ class Home extends Component {
 
                 {/* Side Bar */}
                 <Hidden xsDown smDown>
-                    <SideBar />
+                    <SideBar  history={this.props.history} />
                 </Hidden>
 
                 {/* Passwords Panel */}
@@ -79,7 +80,7 @@ class Home extends Component {
                 </Hidden>
 
                 {/* Add Password Button */}
-                <Button variant="fab" color="primary" aria-label="Add" className="fixed-add-button" >
+                <Button variant="fab" color="primary" aria-label="Add" className="fixed-add-button" onClick={ () => { this.props.showAddPasswordPanel() } } >
                     <AddIcon />
                 </Button>
 
@@ -92,4 +93,4 @@ function mapStateToFunction ( state ) {
     return { userData : state.userData } ;
 }
 
-export default connect ( mapStateToFunction ) ( Home ) ;
+export default connect ( mapStateToFunction , {showAddPasswordPanel} ) ( Home ) ;

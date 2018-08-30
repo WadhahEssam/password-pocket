@@ -3,6 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button' ;
 import { Field , reduxForm } from 'redux-form' ;
 import {connect} from 'react-redux' ;
+import {showAddPasswordPanel , hideAddPasswordPanel} from '../../actions/index'
 import IconButton from '@material-ui/core/IconButton';
 import ShowPasswordIcon from '@material-ui/icons/Visibility';
 import HidePasswordIcon from '@material-ui/icons/VisibilityOff';
@@ -99,7 +100,7 @@ class AddPasswordPanel extends Component {
                                         Add
                                     </Button>
 
-                                    <Button variant="contained" color="primary" className="add-password-modal-form-close-button" onClick={()=>{}} >
+                                    <Button variant="contained" color="primary" className="add-password-modal-form-close-button" onClick={ ()=>{ this.props.hideAddPasswordPanel() }} >
                                         Close
                                     </Button>
                                 </form>
@@ -121,6 +122,8 @@ class AddPasswordPanel extends Component {
     onSubmit ( values ) {
         values.color = this.state.color ;
         console.log(values);
+
+        this.props.showAddPasswordPanel() ;
     }
 
     renderInputField ( field )  {
@@ -170,9 +173,6 @@ function validate ( values ) {
 
 }
 
-function mapStateToProps ( state ) {
-    return { state : state } ;
-}
 
-export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } )  ( AddPasswordPanel)  ;
+export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } ) ( connect ( null , { showAddPasswordPanel , hideAddPasswordPanel } )  ( AddPasswordPanel) ) ;
 
