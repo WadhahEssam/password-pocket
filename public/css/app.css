@@ -47,7 +47,7 @@ input[type="radio"]:checked + label .pink {
   border: 2px solid #851554;
 }
 
-label {
+.radio-label {
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -55,12 +55,12 @@ label {
   cursor: pointer;
 }
 
-label:hover span {
+.radio-label:hover span {
   -webkit-transform: scale(1.25);
           transform: scale(1.25);
 }
 
-label span {
+.radio-label span {
   display: block;
   width: 100%;
   height: 100%;
@@ -70,43 +70,43 @@ label span {
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-label span.red {
+.radio-label span.red {
   background: #DB2828;
 }
 
-label span.orange {
+.radio-label span.orange {
   background: #F2711C;
 }
 
-label span.yellow {
+.radio-label span.yellow {
   background: #FBBD08;
 }
 
-label span.olive {
+.radio-label span.olive {
   background: #B5CC18;
 }
 
-label span.green {
+.radio-label span.green {
   background: #21BA45;
 }
 
-label span.teal {
+.radio-label span.teal {
   background: #00B5AD;
 }
 
-label span.blue {
+.radio-label span.blue {
   background: #2185D0;
 }
 
-label span.violet {
+.radio-label span.violet {
   background: #6435C9;
 }
 
-label span.purple {
+.radio-label span.purple {
   background: #A333C8;
 }
 
-label span.pink {
+.radio-label span.pink {
   background: #E03997;
 }
 

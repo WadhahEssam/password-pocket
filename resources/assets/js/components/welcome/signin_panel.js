@@ -174,7 +174,7 @@ function validate ( values ) {
     if ( !values.email ) {
         errors.email = "Email is required" ;
     } else if ( !validateEmail(values.email) ) {
-            errors.email = "Email is not valid" ;
+        errors.email = "Email is not valid" ;
     }
 
 

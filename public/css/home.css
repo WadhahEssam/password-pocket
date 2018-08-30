@@ -204,3 +204,17 @@
     margin-bottom: 12px;
     padding-left: 10px;
 }
+
+.color-radio-container {
+    display: inline-block;
+}
+
+.error-input {
+    border-color: #ff6464;
+}
+
+.add-password-modal-form-show-password-button {
+    position: absolute !important ;
+    top: 178px !important ;
+    right: 11px !important ;
+}
