@@ -77,7 +77,7 @@
 
 .password-card {
     width:auto ;
-    min-width: 300px !important ;
+    min-width: 280px !important ;
 }
 
 .fixed-add-button {
@@ -112,6 +112,48 @@
 .card-footer {
     padding: 2px 16px !important ;
 }
+
+.copy-button {
+    position: relative !important;
+    left: 10px;
+}
+
+.card-text-input {
+    margin: 10px 0px;
+    height: 29px;
+    border-radius: 6px;
+    border: 1px solid darkgrey;
+    padding: 0px 10px;
+    font-family: monospace;
+    position: relative;
+    left:10px;
+}
+
+.add-password-card {
+    height: 235px;
+    padding: 20px;
+    position: relative;
+    opacity: 0.8;
+    transition:0.3s ;
+}
+
+.add-password-card:hover {
+    opacity: 1;
+}
+
+.add-password-icon {
+    position: absolute;
+    left: calc(50% - 40px );
+    top: calc(50% - 45px );
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.add-password-icon:hover {
+    opacity: 1;
+}
+
 
 /* Password Modal */
 

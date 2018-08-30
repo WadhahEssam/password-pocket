@@ -13,9 +13,7 @@ import red from '@material-ui/core/colors/red';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
-import LockIcon from '@material-ui/icons/Lock';
+import CopyIcon from '@material-ui/icons/FileCopy';
 import ShowOnIcon from '@material-ui/icons/Visibility';
 import ShowOffIcon from '@material-ui/icons/VisibilityOff';
 import Paper from '@material-ui/core/Paper';
@@ -99,39 +97,19 @@ class PasswordCard extends Component {
                         <CardContent className="card-content" >
 
                         <div className="chip-div" >
-                            <Chip
-                                style={ { backgroundColor : '#fbfbfb' , color:"#949494"  } }
-                                avatar={
-                                    <Avatar
-                                        style={ { backgroundColor : '#6868ad' , color:"white"  } }
-                                    >
-                                        <FaceIcon />
-                                    </Avatar>
-                                }
-                                onClick={ () => {} }
-                                label={this.state.username}
-                                // onClick={handleClick}
-                                // onDelete={handleDelete}
-                                className={classes.chip}
-                            />
+
+                            <input type={ ( this.state.hideCred ) ? ('password') : ('text') } className="card-text-input" value={this.props.password.login_cred} onChange={ () => {} } ></input>
+                            <IconButton aria-label="Delete" className="copy-button" onClick={ () => {  } } >
+                                <CopyIcon />
+                            </IconButton>
                         </div>
 
                         <div className="chip-div" >
-                            <Chip
-                                style={ { backgroundColor : '#fbfbfb' , color:"#949494"  } }
-                                avatar={
-                                <Avatar
-                                    style={ { backgroundColor : '#6868ad' , color:"white"  } }
-                                >
-                                    <LockIcon />
-                                </Avatar>
-                                }
-                                onClick={ () => {} }
-                                label={(this.state.hideCred) ? ('Copy Password') : (this.state.password) }
-                                // onClick={handleClick}
-                                // onDelete={handleDelete}
-                                className={classes.chip}
-                            />
+
+                            <input type={ ( this.state.hideCred ) ? ('password') : ('text') } className="card-text-input" value={this.props.password.password}  onChange={ () => {} } ></input>
+                            <IconButton aria-label="Delete" className="copy-button" onClick={ () => {  } } >
+                                <CopyIcon />
+                            </IconButton>
                         </div>
 
                         </CardContent>

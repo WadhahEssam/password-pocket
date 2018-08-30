@@ -161,9 +161,10 @@ export function addPassword ( newPassword , callback ) {
 
         axios.post('/api/createPassword',  newPassword )
         .then ( function ( response ) {
+            console.log(response) ;
             dispatch ({
                 type : ADD_PASSWORD ,
-                payload : response
+                payload : response.data
             });
 
             callback () ;

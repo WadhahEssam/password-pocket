@@ -5,6 +5,9 @@ import SearchBar from 'material-ui-search-bar'
 import AddPasswordPanel from './add_password_panel';
 import { connect } from 'react-redux'
 import _ from 'lodash' ;
+import Paper from '@material-ui/core/Paper';
+import { MuiThemeProvider } from '@material-ui/core';
+import { showAddPasswordPanel } from '../../actions/index'
 
 class PasswordsPanel extends Component {
 
@@ -30,6 +33,8 @@ class PasswordsPanel extends Component {
                 <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
                     <PasswordCard password={password} />
                 </Grid>
+
+
             );
         });
 
@@ -55,6 +60,12 @@ class PasswordsPanel extends Component {
 
                             {passwordCards}
 
+                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
+                                <Paper elevation={4}  className="add-password-card" >
+                                    <img className="add-password-icon" src="/img/add-icon.svg" height="80" onClick={ () => { this.props.showAddPasswordPanel()  } } />
+                                </Paper>
+                            </Grid>
+
                         </Grid>
 
 
@@ -76,4 +87,4 @@ function mapStateToProps ( state ) {
     } ;
 }
 
-export default connect ( mapStateToProps ) ( PasswordsPanel ) ;
+export default connect ( mapStateToProps , {showAddPasswordPanel} ) ( PasswordsPanel ) ;
