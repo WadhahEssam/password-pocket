@@ -1,7 +1,9 @@
-import { GET_PASSWORDS, ADD_PASSWORD, SIGN_OUT, DELETE_PASSWORD } from "../actions";
+import { GET_PASSWORDS, ADD_PASSWORD, SIGN_OUT, DELETE_PASSWORD, STAR_PASSWORD, RESTORE_PASSWORD, UNSTAR_PASSWORD } from "../actions";
 import _ from 'lodash' ;
 
 export default ( state = {} , action ) => {
+
+    let newPasswords = {} ;
 
     switch ( action.type ) {
 
@@ -12,10 +14,16 @@ export default ( state = {} , action ) => {
             return _.mapKeys( action.payload , 'id' )  ;
 
         case DELETE_PASSWORD :
-            let newPasswords = _.clone(state) ;
-            const id = action.payload.id ;
-            newPasswords[id].is_deleted = 1 ;
-            return  newPasswords ;
+            return { ...state  , [action.payload.id]: action.payload } ;
+
+        case STAR_PASSWORD :
+            return { ...state  , [action.payload.id]: action.payload } ;
+
+        case RESTORE_PASSWORD :
+            return { ...state  , [action.payload.id]: action.payload } ;
+
+        case UNSTAR_PASSWORD :
+            return { ...state  , [action.payload.id]: action.payload } ;
 
         case SIGN_OUT :
             return {} ;

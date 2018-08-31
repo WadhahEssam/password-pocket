@@ -13,6 +13,9 @@ export const GET_PASSWORDS = 'GET_PASSWORDS'
 export const SHOW_SNACKBAR = 'SHOW_SNACKBAR'
 export const HIDE_SNACKBAR = 'HIDE_SNACKBAR'
 export const DELETE_PASSWORD = 'DELETE_PASSWORD'
+export const RESTORE_PASSWORD = 'RESTORE_PASSWORD'
+export const STAR_PASSWORD = 'STAR_PASSWORD'
+export const UNSTAR_PASSWORD = 'UNSTAR_PASSWORD'
 
 export function signup ( userInfo , callback ) {
 
@@ -85,7 +88,6 @@ export function signin ( userInfo , callback ) {
             console.log('error with auth') ;
         });
     }
-
 }
 
 export function checkAuth ( callback ) {
@@ -197,6 +199,62 @@ export function deletePassword ( password_id ) {
         });
     }
 }
+
+export function restorePassword ( password_id ) {
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        axios.post('api/restorePassword', { token , password_id } )
+        .then ( function ( password ) {
+            dispatch ({
+                type : RESTORE_PASSWORD ,
+                payload : password.data
+            });
+        })
+        .catch ( function (error) {
+            console.log(error);
+        });
+    }
+}
+
+export function starPassword ( password_id ) {
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        axios.post('api/starPassword', { token , password_id } )
+        .then ( function ( password ) {
+            dispatch ({
+                type : STAR_PASSWORD ,
+                payload : password.data
+            });
+        })
+        .catch ( function (error) {
+            console.log(error);
+        });
+    }
+}
+
+export function unstarPassword ( password_id ) {
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        axios.post('api/unstarPassword', { token , password_id } )
+        .then ( function ( password ) {
+            dispatch ({
+                type : UNSTAR_PASSWORD ,
+                payload : password.data
+            });
+        })
+        .catch ( function (error) {
+            console.log(error);
+        });
+    }
+}
+
+
 
 export function getPasswords () {
     return ( dispatch ) => {

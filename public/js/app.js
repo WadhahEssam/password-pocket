@@ -1128,29 +1128,35 @@ var _SvgIcon = _interopRequireDefault(__webpack_require__(606));
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CHANGE_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return SIGN_UP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SIGN_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return SIGN_UP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return SIGN_IN; });
 /* unused harmony export CHECK_AUTH */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return SIGN_OUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SHOW_ADD_PASSWORD_PANEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return SIGN_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SHOW_ADD_PASSWORD_PANEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return HIDE_ADD_PASSWORD_PANEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ADD_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return GET_PASSWORDS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SHOW_SNACKBAR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SHOW_SNACKBAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return HIDE_SNACKBAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DELETE_PASSWORD; });
-/* harmony export (immutable) */ __webpack_exports__["w"] = signup;
-/* harmony export (immutable) */ __webpack_exports__["u"] = signin;
-/* harmony export (immutable) */ __webpack_exports__["n"] = checkAuth;
-/* harmony export (immutable) */ __webpack_exports__["v"] = signout;
-/* harmony export (immutable) */ __webpack_exports__["l"] = addPassword;
-/* harmony export (immutable) */ __webpack_exports__["o"] = deletePassword;
-/* harmony export (immutable) */ __webpack_exports__["p"] = getPasswords;
-/* harmony export (immutable) */ __webpack_exports__["m"] = changePage;
-/* harmony export (immutable) */ __webpack_exports__["s"] = showAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["q"] = hideAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["t"] = showSnackBar;
-/* harmony export (immutable) */ __webpack_exports__["r"] = hideSnackBar;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return RESTORE_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return STAR_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return UNSTAR_PASSWORD; });
+/* harmony export (immutable) */ __webpack_exports__["z"] = signup;
+/* harmony export (immutable) */ __webpack_exports__["x"] = signin;
+/* harmony export (immutable) */ __webpack_exports__["q"] = checkAuth;
+/* harmony export (immutable) */ __webpack_exports__["y"] = signout;
+/* harmony export (immutable) */ __webpack_exports__["o"] = addPassword;
+/* harmony export (immutable) */ __webpack_exports__["r"] = deletePassword;
+/* unused harmony export restorePassword */
+/* harmony export (immutable) */ __webpack_exports__["A"] = starPassword;
+/* harmony export (immutable) */ __webpack_exports__["B"] = unstarPassword;
+/* harmony export (immutable) */ __webpack_exports__["s"] = getPasswords;
+/* harmony export (immutable) */ __webpack_exports__["p"] = changePage;
+/* harmony export (immutable) */ __webpack_exports__["v"] = showAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["t"] = hideAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["w"] = showSnackBar;
+/* harmony export (immutable) */ __webpack_exports__["u"] = hideSnackBar;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_index__ = __webpack_require__(116);
@@ -1169,6 +1175,9 @@ var GET_PASSWORDS = 'GET_PASSWORDS';
 var SHOW_SNACKBAR = 'SHOW_SNACKBAR';
 var HIDE_SNACKBAR = 'HIDE_SNACKBAR';
 var DELETE_PASSWORD = 'DELETE_PASSWORD';
+var RESTORE_PASSWORD = 'RESTORE_PASSWORD';
+var STAR_PASSWORD = 'STAR_PASSWORD';
+var UNSTAR_PASSWORD = 'UNSTAR_PASSWORD';
 
 function signup(userInfo, callback) {
 
@@ -1327,6 +1336,54 @@ function deletePassword(password_id) {
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/deletePassword', { token: token, password_id: password_id }).then(function (password) {
             dispatch({
                 type: DELETE_PASSWORD,
+                payload: password.data
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+}
+
+function restorePassword(password_id) {
+    return function (dispatch) {
+
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/restorePassword', { token: token, password_id: password_id }).then(function (password) {
+            dispatch({
+                type: RESTORE_PASSWORD,
+                payload: password.data
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+}
+
+function starPassword(password_id) {
+    return function (dispatch) {
+
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/starPassword', { token: token, password_id: password_id }).then(function (password) {
+            dispatch({
+                type: STAR_PASSWORD,
+                payload: password.data
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+}
+
+function unstarPassword(password_id) {
+    return function (dispatch) {
+
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/unstarPassword', { token: token, password_id: password_id }).then(function (password) {
+            dispatch({
+                type: UNSTAR_PASSWORD,
                 payload: password.data
             });
         }).catch(function (error) {
@@ -32116,7 +32173,7 @@ var DescriptionPanel = function (_Component) {
     return DescriptionPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["m" /* changePage */] })(DescriptionPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["p" /* changePage */] })(DescriptionPanel));
 
 /***/ }),
 /* 231 */
@@ -64404,7 +64461,7 @@ var createValues = function createValues(_ref) {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["k" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["l" /* SIGN_UP */]:
             return 'home';
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["b" /* CHANGE_PAGE */]:
@@ -64430,13 +64487,13 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["i" /* SIGN_IN */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["j" /* SIGN_IN */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["k" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["l" /* SIGN_UP */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["j" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["k" /* SIGN_OUT */]:
             var emptyUserState = { name: '', email: '', password: '', token: '' };
             return emptyUserState;
 
@@ -64461,7 +64518,7 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["g" /* SHOW_ADD_PASSWORD_PANEL */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* SHOW_ADD_PASSWORD_PANEL */]:
             return true;
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["e" /* HIDE_ADD_PASSWORD_PANEL */]:
@@ -64493,6 +64550,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var action = arguments[1];
 
 
+    var newPasswords = {};
+
     switch (action.type) {
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["a" /* ADD_PASSWORD */]:
@@ -64502,12 +64561,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             return __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.mapKeys(action.payload, 'id');
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* DELETE_PASSWORD */]:
-            var newPasswords = __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.clone(state);
-            var id = action.payload.id;
-            newPasswords[id].is_deleted = 1;
-            return newPasswords;
+            return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["j" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["m" /* STAR_PASSWORD */]:
+            return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["g" /* RESTORE_PASSWORD */]:
+            return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* UNSTAR_PASSWORD */]:
+            return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["k" /* SIGN_OUT */]:
             return {};
 
         default:
@@ -66456,7 +66521,7 @@ function mapStateToProps(state) {
     return { page: state.page };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["n" /* checkAuth */] })(Login));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["q" /* checkAuth */] })(Login));
 
 /***/ }),
 /* 521 */
@@ -71553,7 +71618,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["m" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["u" /* signin */] })(LoginPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["p" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["x" /* signin */] })(LoginPanel)));
 
 /***/ }),
 /* 574 */
@@ -81503,7 +81568,7 @@ function mapStateToProps(state) {
     return { state: state };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["m" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["w" /* signup */] })(SignIn)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["p" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["z" /* signup */] })(SignIn)));
 
 /***/ }),
 /* 620 */
@@ -85356,7 +85421,7 @@ function mapStateToFunction(state) {
     return { userData: state.userData };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["s" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["p" /* getPasswords */] })(Home));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["v" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["s" /* getPasswords */] })(Home));
 
 /***/ }),
 /* 646 */
@@ -85438,7 +85503,7 @@ var NavBar = function (_Component) {
     return NavBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["v" /* signout */] })(NavBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["y" /* signout */] })(NavBar));
 
 /***/ }),
 /* 647 */
@@ -85904,7 +85969,7 @@ var SideBar = function (_Component) {
     return SideBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_20_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_19__actions_index__["s" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_19__actions_index__["v" /* signout */] })(SideBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_20_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_19__actions_index__["v" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_19__actions_index__["y" /* signout */] })(SideBar));
 
 /***/ }),
 /* 650 */
@@ -87614,7 +87679,7 @@ function mapStateToProps(state) {
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_9__actions_index__["s" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["r" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["t" /* showSnackBar */] })(PasswordsPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_9__actions_index__["v" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["u" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["w" /* showSnackBar */] })(PasswordsPanel));
 
 /***/ }),
 /* 664 */
@@ -87649,26 +87714,28 @@ function mapStateToProps(state) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Star__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Star___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Star__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Delete__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Delete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Delete__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_FileCopy__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_FileCopy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_FileCopy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Visibility__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_icons_VisibilityOff__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Paper__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Paper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Paper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__material_ui_core_Divider__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__material_ui_core_Divider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_react_copy_to_clipboard__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_react_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_react_copy_to_clipboard__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_core_Snackbar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__material_ui_core_Snackbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_icons_Close__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__material_ui_icons_Close__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__material_ui_core_Button__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__material_ui_core_Button__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87678,6 +87745,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -87780,7 +87848,7 @@ var PasswordCard = function (_Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper___default.a,
+                    __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Paper___default.a,
                     { elevation: 4, className: '' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Card___default.a,
@@ -87803,7 +87871,7 @@ var PasswordCard = function (_Component) {
                                 )
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default.a, null),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default.a,
                             { className: 'card-content' },
@@ -87812,14 +87880,14 @@ var PasswordCard = function (_Component) {
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'card-text-input', value: this.state.username, onChange: function onChange() {} }),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__["CopyToClipboard"],
+                                    __WEBPACK_IMPORTED_MODULE_22_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.username, onCopy: function onCopy() {
                                             _this2.setState({ open: true, message: 'User copied !', time: 1500 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                         { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default.a, null)
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
                             ),
@@ -87828,33 +87896,39 @@ var PasswordCard = function (_Component) {
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: this.state.hideCred ? 'password' : 'text', className: 'card-text-input', value: this.state.password, onChange: function onChange() {} }),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__["CopyToClipboard"],
+                                    __WEBPACK_IMPORTED_MODULE_22_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.password, onCopy: function onCopy() {
                                             _this2.setState({ open: true, message: 'Password copied !', time: 1500 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                         { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button', onClick: function onClick() {} },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default.a, null)
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default.a, null),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardActions___default.a,
                             { disableActionSpacing: true, className: 'card-footer' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
-                                { 'aria-label': 'Add to favorites', className: classes.starIcon },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder___default.a, null)
+                                {
+                                    'aria-label': 'Add to favorites',
+                                    className: classes.starIcon,
+                                    onClick: function onClick() {
+                                        !_this2.props.password.is_starred ? _this2.props.starPassword(_this2.props.password.id) : _this2.props.unstarPassword(_this2.props.password.id);
+                                    }
+                                },
+                                this.props.password.is_starred ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Star___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder___default.a, null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                 { 'aria-label': 'Add to favorites', onClick: function onClick() {
                                         _this2.setState({ hideCred: !_this2.state.hideCred });
                                     } },
-                                this.state.hideCred ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff___default.a, null)
+                                this.state.hideCred ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_Visibility___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_19__material_ui_icons_VisibilityOff___default.a, null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
@@ -87873,7 +87947,7 @@ var PasswordCard = function (_Component) {
                                 { 'aria-label': 'Add to favorites', className: classes.deleteIcon, onClick: function onClick() {
                                         _this2.props.deletePassword(_this2.props.password.id);
                                     } },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete___default.a, null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Delete___default.a, null)
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -87890,7 +87964,7 @@ var PasswordCard = function (_Component) {
                             )
                         )
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar___default.a, {
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_23__material_ui_core_Snackbar___default.a, {
                         anchorOrigin: {
                             vertical: 'bottom',
                             horizontal: 'left'
@@ -87924,7 +87998,7 @@ var PasswordCard = function (_Component) {
                                     };_this2.setState({ open: false });
                                 }
                             },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close___default.a, null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_24__material_ui_icons_Close___default.a, null)
                         )]
                     })
                 )
@@ -87935,7 +88009,7 @@ var PasswordCard = function (_Component) {
     return PasswordCard;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { deletePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["o" /* deletePassword */] })(PasswordCard)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { deletePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["r" /* deletePassword */], starPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["A" /* starPassword */], unstarPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["B" /* unstarPassword */] })(PasswordCard)));
 
 /***/ }),
 /* 665 */
@@ -90352,7 +90426,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["s" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["q" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["l" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["t" /* showSnackBar */] })(AddPasswordPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["v" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["t" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["o" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["w" /* showSnackBar */] })(AddPasswordPanel)));
 
 /***/ }),
 /* 698 */
@@ -101599,7 +101673,7 @@ exports.default = _default;
 
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { open: false, message: '', time: 4000 };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { open: false, message: '', time: 1500 };
     var action = arguments[1];
 
 
@@ -101608,16 +101682,55 @@ exports.default = _default;
         case __WEBPACK_IMPORTED_MODULE_0__actions__["f" /* HIDE_SNACKBAR */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* SHOW_SNACKBAR */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["i" /* SHOW_SNACKBAR */]:
             return action.payload;
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* DELETE_PASSWORD */]:
-            return { open: true, message: action.payload.name + ' is moved to trash ! ', time: 3000 };
+            return { open: true, message: action.payload.name + ' is moved to trash ! ', time: 1500 };
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["g" /* RESTORE_PASSWORD */]:
+            return { open: true, message: action.payload.name + ' is restored from trash ! ', time: 1500 };
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["m" /* STAR_PASSWORD */]:
+            return { open: true, message: action.payload.name + ' is starred ! ', time: 1500 };
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* UNSTAR_PASSWORD */]:
+            return { open: true, message: action.payload.name + ' is unstarred ! ', time: 1500 };
 
         default:
             return state;
     }
 });
+
+/***/ }),
+/* 814 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(1));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(16));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+}), _react.default.createElement("path", {
+  d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+}), _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+})), 'Star');
+
+exports.default = _default;
 
 /***/ })
 /******/ ]);

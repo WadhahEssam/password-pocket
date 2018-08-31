@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import {deletePassword} from '../../actions/index'
+import { deletePassword , starPassword , unstarPassword } from '../../actions/index'
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
+import Star from '@material-ui/icons/Star';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import ShowOnIcon from '@material-ui/icons/Visibility';
@@ -136,8 +137,13 @@ class PasswordCard extends Component {
 
                         <CardActions disableActionSpacing className="card-footer" >
 
-                            <IconButton aria-label="Add to favorites" className={classes.starIcon} >
-                                <StarBorder />
+                            <IconButton
+                                aria-label="Add to favorites"
+                                className={classes.starIcon}
+                                onClick={ () => { ( !this.props.password.is_starred ) ? this.props.starPassword(this.props.password.id) : this.props.unstarPassword(this.props.password.id) } }
+                            >
+
+                                { ( this.props.password.is_starred ) ? <Star /> : <StarBorder /> }
                             </IconButton>
 
                             <IconButton aria-label="Add to favorites" onClick={() => { this.setState({ hideCred: !this.state.hideCred }) }} >
@@ -210,4 +216,4 @@ class PasswordCard extends Component {
 
 
 
-export default withStyles(styles) ( connect ( null , { deletePassword } ) ( PasswordCard ) ) ;
+export default withStyles(styles) ( connect ( null , { deletePassword , starPassword , unstarPassword } ) ( PasswordCard ) ) ;
