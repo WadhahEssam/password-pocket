@@ -16,3 +16,8 @@ Route::group([
 
 Route::post('createPassword' , 'PasswordController@createPassword' ) ;
 Route::post('getPasswords' , 'PasswordController@getPasswords') ;
+Route::post('deletePassword' , 'PasswordController@deletePassword') ;
+Route::post('restorePassword' , 'PasswordController@restorePassword') ;
+Route::post('starPassword' , 'PasswordController@starPassword') ;
+Route::post('unstarPassword' , 'PasswordController@unstarPassword') ;
+

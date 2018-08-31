@@ -15,7 +15,7 @@ class AddPasswordPanel extends Component {
     constructor ( props ) {
         super ( props ) ;
         this.state = {
-            color : 'red' ,
+            color : '#de5d5d' ,
             showPassword : false ,
             open : false ,
             message : '' ,
@@ -75,28 +75,28 @@ class AddPasswordPanel extends Component {
 
                                     <div className="add-password-modal-form-color-picker" >
 
-                                        <input type="radio" name="color" id="red" value="red" defaultChecked  onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="red" value="#c56e6e" defaultChecked  onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="red"><span className="red"></span></label>
 
-                                        <input type="radio" name="color" id="green" value="green" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="green" value="#83b383" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="green"><span className="green"></span></label>
 
-                                        <input type="radio" name="color" id="yellow" value="yellow" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="yellow" value="#d4d43a" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="yellow"><span className="yellow"></span></label>
 
-                                        <input type="radio" name="color" id="olive" value="olive" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="olive" value="#9e9e63" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="olive"><span className="olive"></span></label>
 
-                                        <input type="radio" name="color" id="orange" value="orange" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="orange" value="#e2b053" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="orange"><span className="orange"></span></label>
 
-                                        <input type="radio" name="color" id="teal" value="teal" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="teal" value="#3f8686" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="teal"><span className="teal"></span></label>
 
-                                        <input type="radio" name="color" id="blue" value="blue" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="blue" value="#7272b5" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="blue"><span className="blue"></span></label>
 
-                                        <input type="radio" name="color" id="violet" value="violet" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="violet" value="#bd8abd" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="violet"><span className="violet"></span></label>
 
                                     </div>

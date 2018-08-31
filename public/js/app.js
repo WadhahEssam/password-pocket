@@ -64482,6 +64482,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* GET_PASSWORDS */]:
             return __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.mapKeys(action.payload, 'id');
 
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["i" /* SIGN_OUT */]:
+            return {};
+
         default:
             return state;
     }
@@ -87731,7 +87734,8 @@ var PasswordCard = function (_Component) {
             hideCred: true,
             open: false,
             message: '',
-            time: 6000
+            time: 6000,
+            color: props.password.color
         };
 
         return _this;
@@ -87756,18 +87760,18 @@ var PasswordCard = function (_Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent___default.a,
-                            { className: '' },
+                            { style: { backgroundColor: this.state.color }, className: '' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'card-header-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Avatar___default.a,
-                                    { style: { backgroundColor: '#6868ad' }, 'aria-label': 'Recipe' },
+                                    { style: { backgroundColor: "white", color: this.state.color }, 'aria-label': 'Recipe' },
                                     (this.props.password.name.charAt(0) + this.props.password.name.charAt(1) + "").toUpperCase()
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'h2',
-                                    { className: 'card-title' },
+                                    { className: 'card-title', style: { color: "white" } },
                                     this.props.password.name
                                 )
                             )
@@ -87787,7 +87791,7 @@ var PasswordCard = function (_Component) {
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
-                                        { 'aria-label': 'Delete', className: 'copy-button' },
+                                        { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
@@ -87803,7 +87807,7 @@ var PasswordCard = function (_Component) {
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
-                                        { 'aria-label': 'Delete', className: 'copy-button', onClick: function onClick() {} },
+                                        { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button', onClick: function onClick() {} },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
@@ -90101,7 +90105,7 @@ var AddPasswordPanel = function (_Component) {
         var _this = _possibleConstructorReturn(this, (AddPasswordPanel.__proto__ || Object.getPrototypeOf(AddPasswordPanel)).call(this, props));
 
         _this.state = {
-            color: 'red',
+            color: '#de5d5d',
             showPassword: false,
             open: false,
             message: '',
@@ -90176,7 +90180,7 @@ var AddPasswordPanel = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'add-password-modal-form-color-picker' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'red', value: 'red', defaultChecked: true, onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'red', value: '#c56e6e', defaultChecked: true, onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90184,7 +90188,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'red' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'red' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'green', value: 'green', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'green', value: '#83b383', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90192,7 +90196,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'green' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'green' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'yellow', value: 'yellow', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'yellow', value: '#d4d43a', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90200,7 +90204,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'yellow' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'yellow' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'olive', value: 'olive', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'olive', value: '#9e9e63', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90208,7 +90212,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'olive' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'olive' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'orange', value: 'orange', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'orange', value: '#e2b053', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90216,7 +90220,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'orange' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'orange' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'teal', value: 'teal', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'teal', value: '#3f8686', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90224,7 +90228,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'teal' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'teal' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'blue', value: 'blue', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'blue', value: '#7272b5', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90232,7 +90236,7 @@ var AddPasswordPanel = function (_Component) {
                                             { className: 'radio-label', htmlFor: 'blue' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'blue' })
                                         ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'violet', value: 'violet', onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'violet', value: '#bd8abd', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

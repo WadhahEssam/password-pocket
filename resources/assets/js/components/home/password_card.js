@@ -76,6 +76,7 @@ class PasswordCard extends Component {
             open : false ,
             message : '' ,
             time : 6000 ,
+            color : props.password.color
         };
 
     }
@@ -92,12 +93,12 @@ class PasswordCard extends Component {
 
                     <Card >
 
-                        <CardContent className="" >
+                        <CardContent  style={{ backgroundColor: this.state.color }}  className="" >
                             <div className="card-header-div" >
-                                <Avatar style={{ backgroundColor: '#6868ad' }} aria-label="Recipe" >
+                                <Avatar style={{ backgroundColor: "white" , color : this.state.color }} aria-label="Recipe" >
                                     {(this.props.password.name.charAt(0) + this.props.password.name.charAt(1) + "").toUpperCase()}
                                 </Avatar>
-                                <h2 className="card-title" >{this.props.password.name}</h2>
+                                <h2 className="card-title" style={{ color: "white"}}  >{this.props.password.name}</h2>
                             </div>
                         </CardContent>
 
@@ -110,7 +111,7 @@ class PasswordCard extends Component {
                                 <input type="text" className="card-text-input" value={this.state.username} onChange={() => { }} ></input>
 
                                 <CopyToClipboard text={this.state.username} onCopy={() => { this.setState({open:true , message:'User copied !' , time:1500 }) }}>
-                                    <IconButton aria-label="Delete" className="copy-button" >
+                                    <IconButton aria-label="Delete" style={{ color: this.state.color }} className="copy-button" >
                                         <CopyIcon />
                                     </IconButton>
                                 </CopyToClipboard>
@@ -121,7 +122,7 @@ class PasswordCard extends Component {
 
                                 <input type={(this.state.hideCred) ? ('password') : ('text')} className="card-text-input" value={this.state.password} onChange={() => { }} ></input>
                                 <CopyToClipboard text={this.state.password}onCopy={() => { this.setState({open:true , message:'Password copied !' , time:1500 }) }}>
-                                    <IconButton aria-label="Delete" className="copy-button" onClick={() => { }} >
+                                    <IconButton aria-label="Delete" style={{ color: this.state.color }} className="copy-button" onClick={() => { }} >
                                         <CopyIcon />
                                     </IconButton>
                                 </CopyToClipboard>

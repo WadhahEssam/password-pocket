@@ -1,4 +1,4 @@
-import { GET_PASSWORDS, ADD_PASSWORD } from "../actions";
+import { GET_PASSWORDS, ADD_PASSWORD, SIGN_OUT } from "../actions";
 import _ from 'lodash' ;
 
 export default ( state = {} , action ) => {
@@ -10,6 +10,9 @@ export default ( state = {} , action ) => {
 
         case GET_PASSWORDS :
             return _.mapKeys( action.payload , 'id' )  ;
+
+        case SIGN_OUT :
+            return {} ;
 
         default:
             return state

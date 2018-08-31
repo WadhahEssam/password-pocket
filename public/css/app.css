@@ -8,15 +8,15 @@ input[type="radio"]:checked + label span {
 }
 
 input[type="radio"]:checked + label .red {
-  border: 2px solid #711313;
+  border: 2px solid #9c2020;
 }
 
 input[type="radio"]:checked + label .orange {
-  border: 2px solid #873a08;
+  border: 2px solid #805507;
 }
 
 input[type="radio"]:checked + label .yellow {
-  border: 2px solid #816102;
+  border: 2px solid #75751a;
 }
 
 input[type="radio"]:checked + label .olive {
@@ -24,7 +24,7 @@ input[type="radio"]:checked + label .olive {
 }
 
 input[type="radio"]:checked + label .green {
-  border: 2px solid #0e4e1d;
+  border: 2px solid #324e32;
 }
 
 input[type="radio"]:checked + label .teal {
@@ -32,11 +32,11 @@ input[type="radio"]:checked + label .teal {
 }
 
 input[type="radio"]:checked + label .blue {
-  border: 2px solid #103f62;
+  border: 2px solid #282884;
 }
 
 input[type="radio"]:checked + label .violet {
-  border: 2px solid #321a64;
+  border: 2px solid #7a3c7a;
 }
 
 input[type="radio"]:checked + label .purple {
@@ -71,15 +71,15 @@ input[type="radio"]:checked + label .pink {
 }
 
 .radio-label span.red {
-  background: #DB2828;
+  background: #de5d5d;
 }
 
 .radio-label span.orange {
-  background: #F2711C;
+  background: #f3a413;
 }
 
 .radio-label span.yellow {
-  background: #FBBD08;
+  background: #d4d43a;
 }
 
 .radio-label span.olive {
@@ -87,7 +87,7 @@ input[type="radio"]:checked + label .pink {
 }
 
 .radio-label span.green {
-  background: #21BA45;
+  background: #649c64;
 }
 
 .radio-label span.teal {
@@ -95,11 +95,11 @@ input[type="radio"]:checked + label .pink {
 }
 
 .radio-label span.blue {
-  background: #2185D0;
+  background: #5d5dce;
 }
 
 .radio-label span.violet {
-  background: #6435C9;
+  background: #bd78bd;
 }
 
 .radio-label span.purple {
