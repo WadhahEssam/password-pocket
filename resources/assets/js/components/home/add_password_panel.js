@@ -7,15 +7,14 @@ import {showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar
 import IconButton from '@material-ui/core/IconButton';
 import ShowPasswordIcon from '@material-ui/icons/Visibility';
 import HidePasswordIcon from '@material-ui/icons/VisibilityOff';
-import Snackbar from '@material-ui/core/Snackbar';
-import CloseIcon from '@material-ui/icons/Close';
+
 
 class AddPasswordPanel extends Component {
 
     constructor ( props ) {
         super ( props ) ;
         this.state = {
-            color : '#de5d5d' ,
+            color : '#8a8a8a' ,
             showPassword : false ,
             open : false ,
             message : '' ,
@@ -75,7 +74,10 @@ class AddPasswordPanel extends Component {
 
                                     <div className="add-password-modal-form-color-picker" >
 
-                                        <input type="radio" name="color" id="red" value="#c56e6e" defaultChecked  onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <input type="radio" name="color" id="olive" value="#8a8a8a" defaultChecked onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                        <label className="radio-label" htmlFor="olive"><span className="olive"></span></label>
+
+                                        <input type="radio" name="color" id="red" value="#c56e6e" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="red"><span className="red"></span></label>
 
                                         <input type="radio" name="color" id="green" value="#83b383" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
@@ -83,9 +85,6 @@ class AddPasswordPanel extends Component {
 
                                         <input type="radio" name="color" id="yellow" value="#d4d43a" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="yellow"><span className="yellow"></span></label>
-
-                                        <input type="radio" name="color" id="olive" value="#9e9e63" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="olive"><span className="olive"></span></label>
 
                                         <input type="radio" name="color" id="orange" value="#e2b053" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
                                         <label className="radio-label" htmlFor="orange"><span className="orange"></span></label>
@@ -111,12 +110,7 @@ class AddPasswordPanel extends Component {
                                     </Button>
                                 </form>
 
-
-
                             </div>
-
-
-
 
                         </div>
                     </div>

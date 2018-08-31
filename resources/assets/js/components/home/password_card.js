@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import {deletePassword} from '../../actions/index'
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -155,7 +156,7 @@ class PasswordCard extends Component {
                             </IconButton>
 
 
-                            <IconButton aria-label="Add to favorites" className={classes.deleteIcon} >
+                            <IconButton aria-label="Add to favorites" className={classes.deleteIcon} onClick={ () => { this.props.deletePassword( this.props.password.id ) } } >
                                 <DeleteIcon />
                             </IconButton>
 
@@ -209,4 +210,4 @@ class PasswordCard extends Component {
 
 
 
-export default withStyles(styles)(PasswordCard);
+export default withStyles(styles) ( connect ( null , { deletePassword } ) ( PasswordCard ) ) ;

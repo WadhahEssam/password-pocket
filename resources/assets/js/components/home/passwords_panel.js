@@ -32,12 +32,11 @@ class PasswordsPanel extends Component {
         }
 
         const passwordCards = _.map(this.props.passwords , ( password )=>{
+            if ( !password.is_deleted )
             return (
                 <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                     <PasswordCard password={password} />
                 </Grid>
-
-
             );
         });
 

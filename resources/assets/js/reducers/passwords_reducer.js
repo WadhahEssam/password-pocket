@@ -1,4 +1,4 @@
-import { GET_PASSWORDS, ADD_PASSWORD, SIGN_OUT } from "../actions";
+import { GET_PASSWORDS, ADD_PASSWORD, SIGN_OUT, DELETE_PASSWORD } from "../actions";
 import _ from 'lodash' ;
 
 export default ( state = {} , action ) => {
@@ -10,6 +10,12 @@ export default ( state = {} , action ) => {
 
         case GET_PASSWORDS :
             return _.mapKeys( action.payload , 'id' )  ;
+
+        case DELETE_PASSWORD :
+            let newPasswords = _.clone(state) ;
+            const id = action.payload.id ;
+            newPasswords[id].is_deleted = 1 ;
+            return  newPasswords ;
 
         case SIGN_OUT :
             return {} ;

@@ -20,7 +20,7 @@ input[type="radio"]:checked + label .yellow {
 }
 
 input[type="radio"]:checked + label .olive {
-  border: 2px solid #505a0b;
+  border: 2px solid #4a4a4a;
 }
 
 input[type="radio"]:checked + label .green {
@@ -83,7 +83,7 @@ input[type="radio"]:checked + label .pink {
 }
 
 .radio-label span.olive {
-  background: #B5CC18;
+  background: #8a8a8a;
 }
 
 .radio-label span.green {

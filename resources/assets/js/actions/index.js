@@ -12,6 +12,7 @@ export const ADD_PASSWORD = 'ADD_PASSWORD'
 export const GET_PASSWORDS = 'GET_PASSWORDS'
 export const SHOW_SNACKBAR = 'SHOW_SNACKBAR'
 export const HIDE_SNACKBAR = 'HIDE_SNACKBAR'
+export const DELETE_PASSWORD = 'DELETE_PASSWORD'
 
 export function signup ( userInfo , callback ) {
 
@@ -176,6 +177,24 @@ export function addPassword ( newPassword , callback ) {
         });
 
 
+    }
+}
+
+export function deletePassword ( password_id ) {
+    return ( dispatch ) => {
+
+        const token = getToken() ;
+
+        axios.post('api/deletePassword', { token , password_id } )
+        .then ( function ( password ) {
+            dispatch ({
+                type : DELETE_PASSWORD ,
+                payload : password.data
+            });
+        })
+        .catch ( function (error) {
+            console.log(error);
+        });
     }
 }
 

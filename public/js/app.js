@@ -1128,27 +1128,29 @@ var _SvgIcon = _interopRequireDefault(__webpack_require__(606));
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CHANGE_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return SIGN_UP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SIGN_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return SIGN_UP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SIGN_IN; });
 /* unused harmony export CHECK_AUTH */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SIGN_OUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SHOW_ADD_PASSWORD_PANEL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return HIDE_ADD_PASSWORD_PANEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return SIGN_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SHOW_ADD_PASSWORD_PANEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return HIDE_ADD_PASSWORD_PANEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ADD_PASSWORD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return GET_PASSWORDS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SHOW_SNACKBAR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return HIDE_SNACKBAR; });
-/* harmony export (immutable) */ __webpack_exports__["u"] = signup;
-/* harmony export (immutable) */ __webpack_exports__["s"] = signin;
-/* harmony export (immutable) */ __webpack_exports__["m"] = checkAuth;
-/* harmony export (immutable) */ __webpack_exports__["t"] = signout;
-/* harmony export (immutable) */ __webpack_exports__["k"] = addPassword;
-/* harmony export (immutable) */ __webpack_exports__["n"] = getPasswords;
-/* harmony export (immutable) */ __webpack_exports__["l"] = changePage;
-/* harmony export (immutable) */ __webpack_exports__["q"] = showAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["o"] = hideAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["r"] = showSnackBar;
-/* harmony export (immutable) */ __webpack_exports__["p"] = hideSnackBar;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return GET_PASSWORDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SHOW_SNACKBAR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return HIDE_SNACKBAR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DELETE_PASSWORD; });
+/* harmony export (immutable) */ __webpack_exports__["w"] = signup;
+/* harmony export (immutable) */ __webpack_exports__["u"] = signin;
+/* harmony export (immutable) */ __webpack_exports__["n"] = checkAuth;
+/* harmony export (immutable) */ __webpack_exports__["v"] = signout;
+/* harmony export (immutable) */ __webpack_exports__["l"] = addPassword;
+/* harmony export (immutable) */ __webpack_exports__["o"] = deletePassword;
+/* harmony export (immutable) */ __webpack_exports__["p"] = getPasswords;
+/* harmony export (immutable) */ __webpack_exports__["m"] = changePage;
+/* harmony export (immutable) */ __webpack_exports__["s"] = showAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["q"] = hideAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["t"] = showSnackBar;
+/* harmony export (immutable) */ __webpack_exports__["r"] = hideSnackBar;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_index__ = __webpack_require__(116);
@@ -1166,6 +1168,7 @@ var ADD_PASSWORD = 'ADD_PASSWORD';
 var GET_PASSWORDS = 'GET_PASSWORDS';
 var SHOW_SNACKBAR = 'SHOW_SNACKBAR';
 var HIDE_SNACKBAR = 'HIDE_SNACKBAR';
+var DELETE_PASSWORD = 'DELETE_PASSWORD';
 
 function signup(userInfo, callback) {
 
@@ -1310,6 +1313,22 @@ function addPassword(newPassword, callback) {
             });
 
             callback();
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+}
+
+function deletePassword(password_id) {
+    return function (dispatch) {
+
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/deletePassword', { token: token, password_id: password_id }).then(function (password) {
+            dispatch({
+                type: DELETE_PASSWORD,
+                payload: password.data
+            });
         }).catch(function (error) {
             console.log(error);
         });
@@ -32097,7 +32116,7 @@ var DescriptionPanel = function (_Component) {
     return DescriptionPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["l" /* changePage */] })(DescriptionPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["m" /* changePage */] })(DescriptionPanel));
 
 /***/ }),
 /* 231 */
@@ -64385,7 +64404,7 @@ var createValues = function createValues(_ref) {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["j" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["k" /* SIGN_UP */]:
             return 'home';
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["b" /* CHANGE_PAGE */]:
@@ -64411,13 +64430,13 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["h" /* SIGN_IN */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["i" /* SIGN_IN */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["j" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["k" /* SIGN_UP */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["i" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["j" /* SIGN_OUT */]:
             var emptyUserState = { name: '', email: '', password: '', token: '' };
             return emptyUserState;
 
@@ -64442,10 +64461,10 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["f" /* SHOW_ADD_PASSWORD_PANEL */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["g" /* SHOW_ADD_PASSWORD_PANEL */]:
             return true;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["d" /* HIDE_ADD_PASSWORD_PANEL */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["e" /* HIDE_ADD_PASSWORD_PANEL */]:
             return false;
 
         default:
@@ -64479,10 +64498,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         case __WEBPACK_IMPORTED_MODULE_0__actions__["a" /* ADD_PASSWORD */]:
             return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* GET_PASSWORDS */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["d" /* GET_PASSWORDS */]:
             return __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.mapKeys(action.payload, 'id');
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["i" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* DELETE_PASSWORD */]:
+            var newPasswords = __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.clone(state);
+            var id = action.payload.id;
+            newPasswords[id].is_deleted = 1;
+            return newPasswords;
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["j" /* SIGN_OUT */]:
             return {};
 
         default:
@@ -66431,7 +66456,7 @@ function mapStateToProps(state) {
     return { page: state.page };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["m" /* checkAuth */] })(Login));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["n" /* checkAuth */] })(Login));
 
 /***/ }),
 /* 521 */
@@ -71528,7 +71553,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["l" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["s" /* signin */] })(LoginPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["m" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["u" /* signin */] })(LoginPanel)));
 
 /***/ }),
 /* 574 */
@@ -81478,7 +81503,7 @@ function mapStateToProps(state) {
     return { state: state };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["l" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["u" /* signup */] })(SignIn)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["m" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["w" /* signup */] })(SignIn)));
 
 /***/ }),
 /* 620 */
@@ -85331,7 +85356,7 @@ function mapStateToFunction(state) {
     return { userData: state.userData };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["q" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["n" /* getPasswords */] })(Home));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["s" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["p" /* getPasswords */] })(Home));
 
 /***/ }),
 /* 646 */
@@ -85413,7 +85438,7 @@ var NavBar = function (_Component) {
     return NavBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["t" /* signout */] })(NavBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["v" /* signout */] })(NavBar));
 
 /***/ }),
 /* 647 */
@@ -85879,7 +85904,7 @@ var SideBar = function (_Component) {
     return SideBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_20_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_19__actions_index__["q" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_19__actions_index__["t" /* signout */] })(SideBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_20_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_19__actions_index__["s" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_19__actions_index__["v" /* signout */] })(SideBar));
 
 /***/ }),
 /* 650 */
@@ -87488,7 +87513,7 @@ var PasswordsPanel = function (_Component) {
             };
 
             var passwordCards = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(this.props.passwords, function (password) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                if (!password.is_deleted) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                     { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
@@ -87589,7 +87614,7 @@ function mapStateToProps(state) {
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_9__actions_index__["q" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["p" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["r" /* showSnackBar */] })(PasswordsPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_9__actions_index__["s" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["r" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_9__actions_index__["t" /* showSnackBar */] })(PasswordsPanel));
 
 /***/ }),
 /* 664 */
@@ -87601,48 +87626,49 @@ function mapStateToProps(state) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_classnames__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_classnames__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Card__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__material_ui_core_Card__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardActions__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardActions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardActions__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Collapse__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Collapse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Collapse__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Avatar__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Avatar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Avatar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Typography__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Typography___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_Typography__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_red__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_red___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_red__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_ExpandMore__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_icons_ExpandMore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_ExpandMore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_StarBorder__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_StarBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_StarBorder__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_Delete__ = __webpack_require__(668);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_Delete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_Delete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy__ = __webpack_require__(669);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Visibility__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Visibility__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_VisibilityOff__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_VisibilityOff__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_Paper__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_core_Paper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_core_Paper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Divider__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__material_ui_core_Divider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_react_copy_to_clipboard__ = __webpack_require__(670);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_react_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_react_copy_to_clipboard__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__material_ui_core_Snackbar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__material_ui_core_Snackbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_icons_Close__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__material_ui_icons_Close__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_core_Button__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_index__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_classnames__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_classnames__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Card__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Card__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardActions__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardActions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardActions__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Collapse__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Collapse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Collapse__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Avatar__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Avatar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_Avatar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Typography__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Typography___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_Typography__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_colors_red__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_ui_core_colors_red___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__material_ui_core_colors_red__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete__ = __webpack_require__(668);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy__ = __webpack_require__(669);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__ = __webpack_require__(670);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__material_ui_core_Button__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87652,6 +87678,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -87703,7 +87730,7 @@ var styles = function styles(theme) {
             transform: 'rotate(180deg)'
         },
         avatar: {
-            backgroundColor: __WEBPACK_IMPORTED_MODULE_11__material_ui_core_colors_red___default.a[500]
+            backgroundColor: __WEBPACK_IMPORTED_MODULE_12__material_ui_core_colors_red___default.a[500]
         },
         deleteIcon: (_deleteIcon = {
             marginLeft: 'auto'
@@ -87753,19 +87780,19 @@ var PasswordCard = function (_Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_18__material_ui_core_Paper___default.a,
+                    __WEBPACK_IMPORTED_MODULE_19__material_ui_core_Paper___default.a,
                     { elevation: 4, className: '' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_4__material_ui_core_Card___default.a,
+                        __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Card___default.a,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent___default.a,
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default.a,
                             { style: { backgroundColor: this.state.color }, className: '' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'card-header-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Avatar___default.a,
+                                    __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Avatar___default.a,
                                     { style: { backgroundColor: "white", color: this.state.color }, 'aria-label': 'Recipe' },
                                     (this.props.password.name.charAt(0) + this.props.password.name.charAt(1) + "").toUpperCase()
                                 ),
@@ -87776,23 +87803,23 @@ var PasswordCard = function (_Component) {
                                 )
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_19__material_ui_core_Divider___default.a, null),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent___default.a,
+                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default.a,
                             { className: 'card-content' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'card-text-input', value: this.state.username, onChange: function onChange() {} }),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_20_react_copy_to_clipboard__["CopyToClipboard"],
+                                    __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.username, onCopy: function onCopy() {
                                             _this2.setState({ open: true, message: 'User copied !', time: 1500 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                                        __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                         { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy___default.a, null)
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
                             ),
@@ -87801,67 +87828,69 @@ var PasswordCard = function (_Component) {
                                 { className: 'chip-div' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: this.state.hideCred ? 'password' : 'text', className: 'card-text-input', value: this.state.password, onChange: function onChange() {} }),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_20_react_copy_to_clipboard__["CopyToClipboard"],
+                                    __WEBPACK_IMPORTED_MODULE_21_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.password, onCopy: function onCopy() {
                                             _this2.setState({ open: true, message: 'Password copied !', time: 1500 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                                        __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                         { 'aria-label': 'Delete', style: { color: this.state.color }, className: 'copy-button', onClick: function onClick() {} },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_FileCopy___default.a, null)
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_FileCopy___default.a, null)
                                     )
                                 )
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_19__material_ui_core_Divider___default.a, null),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_20__material_ui_core_Divider___default.a, null),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardActions___default.a,
+                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core_CardActions___default.a,
                             { disableActionSpacing: true, className: 'card-footer' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                 { 'aria-label': 'Add to favorites', className: classes.starIcon },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_StarBorder___default.a, null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_StarBorder___default.a, null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                 { 'aria-label': 'Add to favorites', onClick: function onClick() {
                                         _this2.setState({ hideCred: !_this2.state.hideCred });
                                     } },
-                                this.state.hideCred ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__material_ui_icons_Visibility___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_VisibilityOff___default.a, null)
+                                this.state.hideCred ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__material_ui_icons_Visibility___default.a, null) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_18__material_ui_icons_VisibilityOff___default.a, null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                                 {
                                     onClick: function onClick() {
                                         _this2.setState({ expanded: !_this2.state.expanded });
                                     },
-                                    className: __WEBPACK_IMPORTED_MODULE_3_classnames___default()(classes.expand, _defineProperty({}, classes.expandOpen, this.state.expanded)),
+                                    className: __WEBPACK_IMPORTED_MODULE_4_classnames___default()(classes.expand, _defineProperty({}, classes.expandOpen, this.state.expanded)),
                                     'aria-expanded': this.state.expanded,
                                     'aria-label': 'Show more'
                                 },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__material_ui_icons_ExpandMore___default.a, null)
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__material_ui_icons_ExpandMore___default.a, null)
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
-                                { 'aria-label': 'Add to favorites', className: classes.deleteIcon },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__material_ui_icons_Delete___default.a, null)
+                                __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
+                                { 'aria-label': 'Add to favorites', className: classes.deleteIcon, onClick: function onClick() {
+                                        _this2.props.deletePassword(_this2.props.password.id);
+                                    } },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__material_ui_icons_Delete___default.a, null)
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Collapse___default.a,
+                            __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Collapse___default.a,
                             { 'in': this.state.expanded, timeout: 'auto', unmountOnExit: true },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_5__material_ui_core_CardContent___default.a,
+                                __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default.a,
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_10__material_ui_core_Typography___default.a,
+                                    __WEBPACK_IMPORTED_MODULE_11__material_ui_core_Typography___default.a,
                                     { paragraph: true },
                                     this.props.password.description
                                 )
                             )
                         )
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_21__material_ui_core_Snackbar___default.a, {
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_22__material_ui_core_Snackbar___default.a, {
                         anchorOrigin: {
                             vertical: 'bottom',
                             horizontal: 'left'
@@ -87884,7 +87913,7 @@ var PasswordCard = function (_Component) {
                             this.state.message
                         ),
                         action: [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_9__material_ui_core_IconButton___default.a,
+                            __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
                             {
                                 key: 'close',
                                 'aria-label': 'Close',
@@ -87895,7 +87924,7 @@ var PasswordCard = function (_Component) {
                                     };_this2.setState({ open: false });
                                 }
                             },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_22__material_ui_icons_Close___default.a, null)
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_23__material_ui_icons_Close___default.a, null)
                         )]
                     })
                 )
@@ -87906,7 +87935,7 @@ var PasswordCard = function (_Component) {
     return PasswordCard;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(PasswordCard));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { deletePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["o" /* deletePassword */] })(PasswordCard)));
 
 /***/ }),
 /* 665 */
@@ -90070,10 +90099,6 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_icons_Visibility__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_icons_VisibilityOff__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Snackbar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_Snackbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Close__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_icons_Close__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -90094,8 +90119,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
 var AddPasswordPanel = function (_Component) {
     _inherits(AddPasswordPanel, _Component);
 
@@ -90105,7 +90128,7 @@ var AddPasswordPanel = function (_Component) {
         var _this = _possibleConstructorReturn(this, (AddPasswordPanel.__proto__ || Object.getPrototypeOf(AddPasswordPanel)).call(this, props));
 
         _this.state = {
-            color: '#de5d5d',
+            color: '#8a8a8a',
             showPassword: false,
             open: false,
             message: '',
@@ -90180,7 +90203,15 @@ var AddPasswordPanel = function (_Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'add-password-modal-form-color-picker' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'red', value: '#c56e6e', defaultChecked: true, onChange: function onChange(e) {
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'olive', value: '#8a8a8a', defaultChecked: true, onChange: function onChange(e) {
+                                                _this2.setState({ color: e.target.value });
+                                            } }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { className: 'radio-label', htmlFor: 'olive' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'olive' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'red', value: '#c56e6e', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
                                             } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -90203,14 +90234,6 @@ var AddPasswordPanel = function (_Component) {
                                             'label',
                                             { className: 'radio-label', htmlFor: 'yellow' },
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'yellow' })
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'olive', value: '#9e9e63', onChange: function onChange(e) {
-                                                _this2.setState({ color: e.target.value });
-                                            } }),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { className: 'radio-label', htmlFor: 'olive' },
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'olive' })
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'radio', name: 'color', id: 'orange', value: '#e2b053', onChange: function onChange(e) {
                                                 _this2.setState({ color: e.target.value });
@@ -90329,7 +90352,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["q" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["o" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["k" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["r" /* showSnackBar */] })(AddPasswordPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["s" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["q" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["l" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["t" /* showSnackBar */] })(AddPasswordPanel)));
 
 /***/ }),
 /* 698 */
@@ -101582,11 +101605,14 @@ exports.default = _default;
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["e" /* HIDE_SNACKBAR */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["f" /* HIDE_SNACKBAR */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["g" /* SHOW_SNACKBAR */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* SHOW_SNACKBAR */]:
             return action.payload;
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["c" /* DELETE_PASSWORD */]:
+            return { open: true, message: action.payload.name + ' is moved to trash ! ', time: 3000 };
 
         default:
             return state;
