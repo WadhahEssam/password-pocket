@@ -87487,7 +87487,7 @@ var PasswordsPanel = function (_Component) {
             var passwordCards = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(this.props.passwords, function (password) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
-                    { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
+                    { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
                 );
             });
@@ -87521,7 +87521,7 @@ var PasswordsPanel = function (_Component) {
                             passwordCards,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
-                                { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 4, xl: 2 },
+                                { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Paper___default.a,
                                     { elevation: 4, className: 'add-password-card' },

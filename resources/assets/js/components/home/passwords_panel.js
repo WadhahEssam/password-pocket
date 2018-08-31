@@ -33,7 +33,7 @@ class PasswordsPanel extends Component {
 
         const passwordCards = _.map(this.props.passwords , ( password )=>{
             return (
-                <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
+                <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                     <PasswordCard password={password} />
                 </Grid>
 
@@ -63,7 +63,7 @@ class PasswordsPanel extends Component {
 
                             {passwordCards}
 
-                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={4} xl={2} >
+                            <Grid item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                                 <Paper elevation={4}  className="add-password-card" >
                                     <img className="add-password-icon" src="/img/add-icon.svg" height="80" onClick={ () => { this.props.showAddPasswordPanel()  } } />
                                 </Paper>

@@ -71,13 +71,12 @@
 /* PasswordCard */
 .chip-div {
     align-content: center;
-    width: fit-content;
+    width: 92%;
     margin: auto;
 }
 
 .password-card {
     width:auto ;
-    min-width: 280px !important ;
 }
 
 .fixed-add-button {
@@ -121,12 +120,13 @@
 .card-text-input {
     margin: 10px 0px;
     height: 29px;
+    width: calc(100% - 65px );
     border-radius: 6px;
     border: 1px solid darkgrey;
     padding: 0px 10px;
     font-family: monospace;
     position: relative;
-    left:10px;
+    left: 10px;
 }
 
 .add-password-card {
