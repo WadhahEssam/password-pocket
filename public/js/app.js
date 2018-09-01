@@ -982,6 +982,9 @@ module.exports = invariant;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_index__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js__ = __webpack_require__(734);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_simple_crypto_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
+
 
 
 
@@ -1139,13 +1142,15 @@ function addPassword(newPassword, callback) {
 
         newPassword.token = token;
 
+        var newPasswordClone = __WEBPACK_IMPORTED_MODULE_3_lodash___default.a.clone(newPassword);
+
         // encrypting the password
-        newPassword.password = simpleCrypto.encrypt(newPassword.password);
+        newPasswordClone.password = simpleCrypto.encrypt(newPasswordClone.password);
 
         console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is a hash of the user password that is not sent to server ) ');
-        console.log(newPassword);
+        console.log(newPasswordClone);
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/createPassword', newPassword).then(function (response) {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/createPassword', newPasswordClone).then(function (response) {
 
             response.data.password = simpleCrypto.decrypt(response.data.password);
 

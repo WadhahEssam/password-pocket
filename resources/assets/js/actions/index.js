@@ -1,6 +1,7 @@
 import axios from 'axios' ;
 import { localHash , publicHash , saveToken , getToken , savePassword , getPassword , checkPasswordAndToken } from '../helpers/index'
 import SimpleCrypto from "simple-crypto-js";
+import _ from 'lodash';
 
 var simpleCrypto = new SimpleCrypto( getPassword() );
 
@@ -167,15 +168,17 @@ export function addPassword ( newPassword , callback ) {
 
         newPassword.token = token ;
 
+        let newPasswordClone = _.clone(newPassword) ;
+
         // encrypting the password
-        newPassword.password = simpleCrypto.encrypt(newPassword.password) ;
+        newPasswordClone.password = simpleCrypto.encrypt(newPasswordClone.password) ;
 
         console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is a hash of the user password that is not sent to server ) ') ;
-        console.log(newPassword);
+        console.log(newPasswordClone);
 
 
 
-        axios.post('/api/createPassword',  newPassword )
+        axios.post('/api/createPassword',  newPasswordClone )
         .then ( function ( response ) {
 
             response.data.password = simpleCrypto.decrypt(response.data.password) ;
