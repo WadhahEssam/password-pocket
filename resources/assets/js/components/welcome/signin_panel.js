@@ -49,7 +49,7 @@ class LoginPanel extends Component {
                     <div className="documentaion-button-login-panel-div" >
                         <Chip
                             label="WHY ?"
-                            onClick={ ()=>{console.log('check why')} }
+                            onClick={ ()=>{  } }
                             className="documentaion-button-login-panel"
                         />
                     </div>

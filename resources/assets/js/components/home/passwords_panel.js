@@ -6,11 +6,11 @@ import AddPasswordPanel from './add_password_panel';
 import { connect } from 'react-redux'
 import _ from 'lodash' ;
 import Paper from '@material-ui/core/Paper';
-import { MuiThemeProvider } from '@material-ui/core';
 import { showAddPasswordPanel , showSnackBar , hideSnackBar } from '../../actions/index'
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import 'react-anything-sortable/sortable.css';
 
 class PasswordsPanel extends Component {
 
@@ -44,9 +44,7 @@ class PasswordsPanel extends Component {
             <div>
                 <main >
                     <div className={ (this.props.view === 'mobile') ? "content-mobile" : "content" } >
-                        {/* <div className="search-box-div">
-                            <input className="search-box" placeholder="Search"/>
-                        </div> */}
+
 
                         <div className="search-box-div">
                             <SearchBar

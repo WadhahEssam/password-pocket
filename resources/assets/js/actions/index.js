@@ -1,5 +1,8 @@
 import axios from 'axios' ;
 import { localHash , publicHash , saveToken , getToken , savePassword , getPassword , checkPasswordAndToken } from '../helpers/index'
+import SimpleCrypto from "simple-crypto-js";
+
+var simpleCrypto = new SimpleCrypto( getPassword() );
 
 export const CHANGE_PAGE = "change_page" ;
 export const SIGN_UP = 'sign_up' ;
@@ -164,9 +167,19 @@ export function addPassword ( newPassword , callback ) {
 
         newPassword.token = token ;
 
+        // encrypting the password
+        newPassword.password = simpleCrypto.encrypt(newPassword.password) ;
+
+        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is a hash of the user password that is not sent to server ) ') ;
+        console.log(newPassword);
+
+
+
         axios.post('/api/createPassword',  newPassword )
         .then ( function ( response ) {
-            console.log(response) ;
+
+            response.data.password = simpleCrypto.decrypt(response.data.password) ;
+
             dispatch ({
                 type : ADD_PASSWORD ,
                 payload : response.data
@@ -189,6 +202,9 @@ export function deletePassword ( password_id ) {
 
         axios.post('api/deletePassword', { token , password_id } )
         .then ( function ( password ) {
+
+            password.data.password = simpleCrypto.decrypt(password.data.password) ;
+
             dispatch ({
                 type : DELETE_PASSWORD ,
                 payload : password.data
@@ -207,6 +223,9 @@ export function restorePassword ( password_id ) {
 
         axios.post('api/restorePassword', { token , password_id } )
         .then ( function ( password ) {
+
+            password.data.password = simpleCrypto.decrypt(password.data.password) ;
+
             dispatch ({
                 type : RESTORE_PASSWORD ,
                 payload : password.data
@@ -225,6 +244,9 @@ export function starPassword ( password_id ) {
 
         axios.post('api/starPassword', { token , password_id } )
         .then ( function ( password ) {
+
+            password.data.password = simpleCrypto.decrypt(password.data.password) ;
+
             dispatch ({
                 type : STAR_PASSWORD ,
                 payload : password.data
@@ -243,6 +265,9 @@ export function unstarPassword ( password_id ) {
 
         axios.post('api/unstarPassword', { token , password_id } )
         .then ( function ( password ) {
+
+            password.data.password = simpleCrypto.decrypt(password.data.password) ;
+
             dispatch ({
                 type : UNSTAR_PASSWORD ,
                 payload : password.data
@@ -261,6 +286,12 @@ export function getPasswords () {
         const token = getToken() ;
         axios.post('api/getPasswords' , {token})
         .then( function (passwords) {
+
+            passwords.data.map( password => {
+                console.log( simpleCrypto.decrypt(password.password.toString() ) )
+                password.password = simpleCrypto.decrypt( password.password );
+            });
+
             dispatch ({
                 type : GET_PASSWORDS ,
                 payload : passwords.data

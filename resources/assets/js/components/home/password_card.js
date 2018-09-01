@@ -150,17 +150,18 @@ class PasswordCard extends Component {
                                 {(this.state.hideCred) ? <ShowOnIcon /> : <ShowOffIcon />}
                             </IconButton>
 
-                            <IconButton
-                                onClick={() => { this.setState({ expanded: !this.state.expanded }) }}
-                                className={classnames(classes.expand, {
-                                    [classes.expandOpen]: this.state.expanded,
-                                })}
-                                aria-expanded={this.state.expanded}
-                                aria-label="Show more"
-                            >
-                                <ExpandMoreIcon />
-                            </IconButton>
-
+                            { ( this.props.password.description === null ) ? '' :
+                                <IconButton
+                                    onClick={() => { this.setState({ expanded: !this.state.expanded }) }}
+                                    className={classnames(classes.expand, {
+                                        [classes.expandOpen]: this.state.expanded,
+                                    })}
+                                    aria-expanded={this.state.expanded}
+                                    aria-label="Show more"
+                                >
+                                    <ExpandMoreIcon />
+                                </IconButton>
+                            }
 
                             <IconButton aria-label="Add to favorites" className={classes.deleteIcon} onClick={ () => { this.props.deletePassword( this.props.password.id ) } } >
                                 <DeleteIcon />

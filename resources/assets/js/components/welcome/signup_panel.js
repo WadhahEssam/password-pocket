@@ -38,7 +38,6 @@ class SignIn extends Component {
 
     render () {
 
-        console.log(this.props.state) ;
 
         return (
 

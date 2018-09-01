@@ -59,6 +59,7 @@ class Home extends Component {
                             value={value}
                             onChange={ ( event , value )=>{ this.setState({ value }); } }
                             showLabels
+                            style={ {paddingTop:"3px"} }
                         >
                         <BottomNavigationAction label="All" icon={<AllIcon />} />
                         <BottomNavigationAction label="Starred" icon={<StarBorder />} />
