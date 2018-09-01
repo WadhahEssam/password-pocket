@@ -20,6 +20,7 @@ export const DELETE_PASSWORD = 'DELETE_PASSWORD'
 export const RESTORE_PASSWORD = 'RESTORE_PASSWORD'
 export const STAR_PASSWORD = 'STAR_PASSWORD'
 export const UNSTAR_PASSWORD = 'UNSTAR_PASSWORD'
+export const CHANGE_VIEW = 'CHANGE_VIEW'
 
 export function signup ( userInfo , callback ) {
 
@@ -173,7 +174,7 @@ export function addPassword ( newPassword , callback ) {
         // encrypting the password
         newPasswordClone.password = simpleCrypto.encrypt(newPasswordClone.password) ;
 
-        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is a hash of the user password that is not sent to server ) ') ;
+        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is ' + getPassword() + ' which is a hash of the your password that is made locally and not sent to the server ) ') ;
         console.log(newPasswordClone);
 
 
@@ -282,8 +283,6 @@ export function unstarPassword ( password_id ) {
     }
 }
 
-
-
 export function getPasswords () {
     return ( dispatch ) => {
         const token = getToken() ;
@@ -291,7 +290,6 @@ export function getPasswords () {
         .then( function (passwords) {
 
             passwords.data.map( password => {
-                console.log( simpleCrypto.decrypt(password.password.toString() ) )
                 password.password = simpleCrypto.decrypt( password.password );
             });
 
@@ -326,7 +324,6 @@ export function showAddPasswordPanel () {
     }
 }
 
-
 export function hideAddPasswordPanel () {
     return ( dispatch ) => {
         dispatch ({
@@ -350,6 +347,15 @@ export function hideSnackBar () {
         dispatch ({
             type : HIDE_SNACKBAR ,
             payload : { open : false , message : '' , time : 3000 }
+        });
+    }
+}
+
+export function changeView ( view ) {
+    return ( dispatch ) => {
+        dispatch ({
+            type : CHANGE_VIEW ,
+            payload : view
         });
     }
 }

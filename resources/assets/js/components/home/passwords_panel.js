@@ -17,7 +17,7 @@ class PasswordsPanel extends Component {
     constructor ( props ) {
         super ( props ) ;
         this.state = {
-            value : ''
+            value : '' ,
         }
     }
 
@@ -32,18 +32,48 @@ class PasswordsPanel extends Component {
         }
 
         const passwordCards = _.map(this.props.passwords , ( password )=>{
-            if ( !password.is_deleted )
-            return (
-                <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
-                    <PasswordCard password={password} />
-                </Grid>
-            );
+            if ( this.props.view === 'all' ) {
+                if ( !password.is_deleted && password.is_starred )
+                return (
+                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                        <PasswordCard password={password} />
+                    </Grid>
+                );
+            }
+            else if ( this.props.view === 'starred' ) {
+                if ( !password.is_deleted && password.is_starred )
+                return (
+                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                        <PasswordCard password={password} />
+                    </Grid>
+                );
+            } else if ( this.props.view === 'deleted' ) {
+                if ( password.is_deleted )
+                return (
+                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                        <PasswordCard password={password} />
+                    </Grid>
+                );
+            }
         });
+
+        // used only in the (all) view , to render the not starred elements
+        const notStarredPasswordCards = _.map(this.props.passwords , ( password )=>{
+            if ( this.props.view === 'all' ) {
+                if ( !password.is_deleted && !password.is_starred )
+                return (
+                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                        <PasswordCard password={password} />
+                    </Grid>
+                );
+            }
+        });
+
 
         return (
             <div>
                 <main >
-                    <div className={ (this.props.view === 'mobile') ? "content-mobile" : "content" } >
+                    <div className={ (this.props.device === 'mobile') ? "content-mobile" : "content" } >
 
 
                         <div className="search-box-div">
@@ -59,6 +89,9 @@ class PasswordsPanel extends Component {
                         <Grid container { ... gridOptions } >
 
                             {passwordCards}
+
+                            {/* this is used only in all view */}
+                            { (this.props.view === 'all') ? notStarredPasswordCards : '' }
 
                             <Grid item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                                 <Paper elevation={4}  className="add-password-card" >
@@ -111,7 +144,8 @@ function mapStateToProps ( state ) {
     return {
         isAddPasswordPanelOpened : state.isAddPasswordPanelOpened ,
         passwords : state.passwords,
-        snackBar : state.snackBar
+        snackBar : state.snackBar ,
+        view : state.view
     } ;
 }
 

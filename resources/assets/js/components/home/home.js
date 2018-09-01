@@ -11,7 +11,8 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AllIcon from '@material-ui/icons/GridOn';
 import StarBorder from '@material-ui/icons/StarBorder';
 import DeletedIcon from '@material-ui/icons/DeleteSweep';
-import { showAddPasswordPanel , getPasswords } from '../../actions/index'
+import { showAddPasswordPanel , getPasswords ,changeView } from '../../actions/index'
+
 
 class Home extends Component {
 
@@ -61,9 +62,9 @@ class Home extends Component {
                             showLabels
                             style={ {paddingTop:"3px"} }
                         >
-                        <BottomNavigationAction label="All" icon={<AllIcon />} />
-                        <BottomNavigationAction label="Starred" icon={<StarBorder />} />
-                        <BottomNavigationAction label="Deleted" icon={<DeletedIcon />} />
+                        <BottomNavigationAction label="All" icon={<AllIcon />} onClick={ () => { this.props.changeView('all') } } />
+                        <BottomNavigationAction label="Starred" icon={<StarBorder />} onClick={ () => { this.props.changeView('starred') } } />
+                        <BottomNavigationAction label="Deleted" icon={<DeletedIcon />} onClick={ () => { this.props.changeView('deleted') } } />
                     </BottomNavigation>
                 </Hidden>
 
@@ -75,11 +76,11 @@ class Home extends Component {
 
                 {/* Passwords Panel */}
                 <Hidden xsDown smDown>
-                    <PasswordsPanel view="normal" />
+                    <PasswordsPanel device="normal" />
                 </Hidden>
 
                 <Hidden only={['lg','md','xl']}>
-                    <PasswordsPanel view="mobile" />
+                    <PasswordsPanel device="mobile" />
                 </Hidden>
 
                 {/* Add Password Button */}
@@ -94,7 +95,10 @@ class Home extends Component {
 }
 
 function mapStateToFunction ( state ) {
-    return { userData : state.userData } ;
+    return {
+        userData : state.userData ,
+        view : state.view ,
+     } ;
 }
 
-export default connect ( mapStateToFunction , { showAddPasswordPanel , getPasswords } ) ( Home ) ;
+export default connect ( mapStateToFunction , { showAddPasswordPanel , getPasswords , changeView } ) ( Home ) ;

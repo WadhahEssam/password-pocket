@@ -5,19 +5,16 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import MenuIcon from '@material-ui/icons/Menu';
 import AllIcon from '@material-ui/icons/Dashboard';
-import ViewIcon from '@material-ui/icons/GridOn';
-import ViewInsideIcon from '@material-ui/icons/ChromeReaderMode';
 import DeletedIcon from '@material-ui/icons/DeleteSweep';
 import AddIcon from '@material-ui/icons/AddCircle';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
-import {showAddPasswordPanel , signout} from '../../actions/index'
+import {showAddPasswordPanel , signout , changeView } from '../../actions/index'
 import {connect} from 'react-redux'
 
 class SideBar extends Component {
@@ -28,9 +25,11 @@ class SideBar extends Component {
         this.state = {
             menu1 : true ,
             menu2 : false ,
+            selectedIndex: 1,
         };
     }
     render () {
+
         return (
             <div>
                 <Drawer
@@ -39,7 +38,6 @@ class SideBar extends Component {
                 >
 
                     <List>
-
                         <ListItem className="title-sidebar-item">
                             <h2 className="sidebar-title" >Password Pocket</h2>
                         </ListItem>
@@ -52,24 +50,25 @@ class SideBar extends Component {
                             <ListItemText inset primary="Passwords" />
                             {this.state.menu1 ? <ExpandLess /> : <ExpandMore />}
                         </ListItem>
+
                         <Collapse className="collapse" in={this.state.menu1} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
 
-                                <ListItem className="collapse-item" button >
+                                <ListItem className="collapse-item" button onClick={ () => { this.props.changeView('all') } } >
                                     <ListItemIcon>
                                         <AllIcon />
                                     </ListItemIcon>
                                     <ListItemText inset primary="All" />
                                 </ListItem>
 
-                                <ListItem className="collapse-item" button >
+                                <ListItem className="collapse-item" button onClick={ () => { this.props.changeView('starred') } } >
                                     <ListItemIcon>
                                         <StarBorder />
                                     </ListItemIcon>
                                     <ListItemText inset primary="Starred" />
                                 </ListItem>
 
-                                <ListItem className="collapse-item" button >
+                                <ListItem className="collapse-item" button onClick={ () => { this.props.changeView('deleted') } } >
                                     <ListItemIcon>
                                         <DeletedIcon />
                                     </ListItemIcon>
@@ -109,4 +108,4 @@ class SideBar extends Component {
     }
 }
 
-export default connect ( null , { showAddPasswordPanel , signout } ) ( SideBar ) ;
+export default connect ( null , { showAddPasswordPanel , signout , changeView } ) ( SideBar ) ;

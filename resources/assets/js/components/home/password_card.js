@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { deletePassword , starPassword , unstarPassword } from '../../actions/index'
+import { deletePassword , restorePassword , starPassword , unstarPassword } from '../../actions/index'
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Star from '@material-ui/icons/Star';
 import DeleteIcon from '@material-ui/icons/Delete';
+import RestoreIcon from '@material-ui/icons/RestoreFromTrash';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import ShowOnIcon from '@material-ui/icons/Visibility';
 import ShowOffIcon from '@material-ui/icons/VisibilityOff';
@@ -23,7 +24,6 @@ import Divider from '@material-ui/core/Divider';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
-import Button from '@material-ui/core/Button';
 
 
 const styles = theme => ({
@@ -55,7 +55,6 @@ const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             marginRight: -8,
         },
-        color: "#d48989"
     },
     starIcon: {
         color: '#c1c16d',
@@ -78,7 +77,7 @@ class PasswordCard extends Component {
             open : false ,
             message : '' ,
             time : 6000 ,
-            color : props.password.color
+            color : props.password.color ,
         };
 
     }
@@ -163,8 +162,8 @@ class PasswordCard extends Component {
                                 </IconButton>
                             }
 
-                            <IconButton aria-label="Add to favorites" className={classes.deleteIcon} onClick={ () => { this.props.deletePassword( this.props.password.id ) } } >
-                                <DeleteIcon />
+                            <IconButton aria-label="Add to favorites" className={classes.deleteIcon} style={ (this.props.password.is_deleted) ? { color:'#74ad76'} : {color: "#d48989"} } onClick={ () => { (this.props.password.is_deleted) ? this.props.restorePassword(this.props.password.id) : this.props.deletePassword( this.props.password.id ) } } >
+                                { (this.props.password.is_deleted) ? <RestoreIcon /> : <DeleteIcon /> }
                             </IconButton>
 
 
@@ -217,4 +216,4 @@ class PasswordCard extends Component {
 
 
 
-export default withStyles(styles) ( connect ( null , { deletePassword , starPassword , unstarPassword } ) ( PasswordCard ) ) ;
+export default withStyles(styles) ( connect ( null , { deletePassword , restorePassword , starPassword , unstarPassword } ) ( PasswordCard ) ) ;

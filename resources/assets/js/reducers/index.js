@@ -6,6 +6,7 @@ import UserDataReducer from './user_data_reducer';
 import IsAddPasswordPanelOpened from './is_add_password_panel_open' ;
 import PasswordsReducer from './passwords_reducer' ;
 import SnackBarReducer from './snackbar_reducer'
+import ViewReducer from './view_reducer';
 
 export default combineReducers({
     page : pageReducer ,
@@ -13,6 +14,7 @@ export default combineReducers({
     isAddPasswordPanelOpened : IsAddPasswordPanelOpened ,
     passwords : PasswordsReducer ,
     snackBar : SnackBarReducer ,
+    view : ViewReducer ,
     form : formReducer
 });
 
