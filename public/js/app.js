@@ -2678,7 +2678,7 @@ function checkAuth(callback) {
             var password = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* getPassword */])();
             var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
 
-            console.log('Trying to sign you up with your this your token ');
+            console.log('Trying to sign you up with your token ');
             console.log('Token : ' + token);
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/me', { token: token }).then(function (user) {
@@ -93881,11 +93881,11 @@ var PasswordsPanel = function (_Component) {
                 className: "welcome-grid",
                 spacing: 24,
                 alignItems: "stretch"
-            };
 
-            var passwordCards = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(this.props.passwords, function (password) {
+                // weird mapping -> to render the elements from last to first
+            };var passwordCards = Object.assign([], this.props.passwords).reverse().map(function (password, index) {
                 if (_this2.props.view === 'all') {
-                    if (!password.is_deleted && password.is_starred) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    if (!password.is_deleted) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                         { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
@@ -93898,17 +93898,6 @@ var PasswordsPanel = function (_Component) {
                     );
                 } else if (_this2.props.view === 'deleted') {
                     if (password.is_deleted) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
-                        { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
-                    );
-                }
-            });
-
-            // used only in the (all) view , to render the not starred elements
-            var notStarredPasswordCards = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(this.props.passwords, function (password) {
-                if (_this2.props.view === 'all') {
-                    if (!password.is_deleted && !password.is_starred) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                         { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
@@ -93943,7 +93932,6 @@ var PasswordsPanel = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                             _extends({ container: true }, gridOptions),
                             passwordCards,
-                            this.props.view === 'all' ? notStarredPasswordCards : '',
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                                 { item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
@@ -94213,7 +94201,7 @@ var PasswordCard = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_23_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.username, onCopy: function onCopy() {
-                                            _this2.setState({ open: true, message: 'User copied !', time: 1500 });
+                                            _this2.setState({ open: true, message: 'User copied !', time: 1000 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
@@ -94229,7 +94217,7 @@ var PasswordCard = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_23_react_copy_to_clipboard__["CopyToClipboard"],
                                     { text: this.state.password, onCopy: function onCopy() {
-                                            _this2.setState({ open: true, message: 'Password copied !', time: 1500 });
+                                            _this2.setState({ open: true, message: 'Password copied !', time: 1000 });
                                         } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_10__material_ui_core_IconButton___default.a,
@@ -97003,7 +96991,7 @@ var AddPasswordPanel = function (_Component) {
 
             values.color = this.state.color;
             this.props.addPassword(values, function () {
-                _this3.props.hideAddPasswordPanel();_this3.props.showSnackBar('Successfully Added', 1500);
+                _this3.props.hideAddPasswordPanel();_this3.props.showSnackBar('Successfully Added', 1500);_this3.props.changeView('all');
             });
         }
     }, {
@@ -97061,7 +97049,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["y" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["v" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["p" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["z" /* showSnackBar */] })(AddPasswordPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["y" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["v" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["p" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["z" /* showSnackBar */], changeView: __WEBPACK_IMPORTED_MODULE_5__actions_index__["r" /* changeView */] })(AddPasswordPanel)));
 
 /***/ }),
 /* 721 */

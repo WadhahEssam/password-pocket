@@ -3,7 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button' ;
 import { Field , reduxForm } from 'redux-form' ;
 import {connect} from 'react-redux' ;
-import {showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar } from '../../actions/index'
+import {showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar , changeView } from '../../actions/index'
 import IconButton from '@material-ui/core/IconButton';
 import ShowPasswordIcon from '@material-ui/icons/Visibility';
 import HidePasswordIcon from '@material-ui/icons/VisibilityOff';
@@ -122,7 +122,7 @@ class AddPasswordPanel extends Component {
 
     onSubmit ( values ) {
         values.color = this.state.color ;
-        this.props.addPassword( values , () => { this.props.hideAddPasswordPanel() ; this.props.showSnackBar('Successfully Added' , 1500) } ) ;
+        this.props.addPassword( values , () => { this.props.hideAddPasswordPanel() ; this.props.showSnackBar('Successfully Added' , 1500) ; this.props.changeView('all') }  ) ;
     }
 
     renderInputField ( field )  {
@@ -179,5 +179,5 @@ function validate ( values ) {
 }
 
 
-export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } ) ( connect ( null , {  showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar} )  ( AddPasswordPanel) ) ;
+export default  reduxForm ( { validate : validate , form : 'AddNewPasswordForm' } ) ( connect ( null , {  showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar , changeView } )  ( AddPasswordPanel) ) ;
 

@@ -31,9 +31,10 @@ class PasswordsPanel extends Component {
             alignItems : "stretch" ,
         }
 
-        const passwordCards = _.map(this.props.passwords , ( password )=>{
+        // weird mapping -> to render the elements from last to first
+        const passwordCards =  Object.assign([], this.props.passwords ).reverse().map( ( password , index )=>{
             if ( this.props.view === 'all' ) {
-                if ( !password.is_deleted && password.is_starred )
+                if ( !password.is_deleted )
                 return (
                     <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                         <PasswordCard password={password} />
@@ -49,18 +50,6 @@ class PasswordsPanel extends Component {
                 );
             } else if ( this.props.view === 'deleted' ) {
                 if ( password.is_deleted )
-                return (
-                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
-                        <PasswordCard password={password} />
-                    </Grid>
-                );
-            }
-        });
-
-        // used only in the (all) view , to render the not starred elements
-        const notStarredPasswordCards = _.map(this.props.passwords , ( password )=>{
-            if ( this.props.view === 'all' ) {
-                if ( !password.is_deleted && !password.is_starred )
                 return (
                     <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                         <PasswordCard password={password} />
@@ -89,9 +78,6 @@ class PasswordsPanel extends Component {
                         <Grid container { ... gridOptions } >
 
                             {passwordCards}
-
-                            {/* this is used only in all view */}
-                            { (this.props.view === 'all') ? notStarredPasswordCards : '' }
 
                             <Grid item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                                 <Paper elevation={4}  className="add-password-card" >

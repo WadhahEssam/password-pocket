@@ -111,7 +111,7 @@ class PasswordCard extends Component {
 
                                 <input type="text" className="card-text-input" value={this.state.username} onChange={() => { }} ></input>
 
-                                <CopyToClipboard text={this.state.username} onCopy={() => { this.setState({open:true , message:'User copied !' , time:1500 }) }}>
+                                <CopyToClipboard text={this.state.username} onCopy={() => { this.setState({open:true , message:'User copied !' , time:1000 }) }}>
                                     <IconButton aria-label="Delete" style={{ color: this.state.color }} className="copy-button" >
                                         <CopyIcon />
                                     </IconButton>
@@ -122,7 +122,7 @@ class PasswordCard extends Component {
                             <div className="chip-div" >
 
                                 <input type={(this.state.hideCred) ? ('password') : ('text')} className="card-text-input" value={this.state.password} onChange={() => { }} ></input>
-                                <CopyToClipboard text={this.state.password}onCopy={() => { this.setState({open:true , message:'Password copied !' , time:1500 }) }}>
+                                <CopyToClipboard text={this.state.password}onCopy={() => { this.setState({open:true , message:'Password copied !' , time:1000 }) }}>
                                     <IconButton aria-label="Delete" style={{ color: this.state.color }} className="copy-button" onClick={() => { }} >
                                         <CopyIcon />
                                     </IconButton>

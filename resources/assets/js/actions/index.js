@@ -102,7 +102,7 @@ export function checkAuth ( callback ) {
             const password = getPassword() ;
             const token = getToken() ;
 
-            console.log('Trying to sign you up with your this your token ');
+            console.log('Trying to sign you up with your token ');
             console.log('Token : ' + token ) ;
 
             axios.post('/api/auth/me' , { token } )
