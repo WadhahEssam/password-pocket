@@ -18,7 +18,8 @@
 }
 
 .search-box-div {
-    width: 320px;
+    width: 100%;
+    max-width: 440px;
     margin: auto;
     margin-bottom: 17px;
 }
@@ -94,8 +95,8 @@
 }
 
 .card-header {
-    padding: 16px 16px !important ;
-    padding-top:16px !important;
+    padding: 10px 16px !important ;
+    padding-top:10px !important;
 }
 
 .card-header-div {
@@ -111,7 +112,7 @@
 }
 
 .card-footer {
-    padding: 2px 16px !important ;
+    padding: 0px 16px !important;
 }
 
 .copy-button {
@@ -132,7 +133,7 @@
 }
 
 .add-password-card {
-    height: 235px;
+    height: 220px;
     padding: 20px;
     position: relative;
     opacity: 0.8;

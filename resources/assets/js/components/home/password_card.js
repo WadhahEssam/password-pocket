@@ -94,7 +94,7 @@ class PasswordCard extends Component {
 
                     <Card >
 
-                        <CardContent  style={{ backgroundColor: this.state.color }}  className="" >
+                        <CardContent  style={{ backgroundColor: this.state.color , padding:"12px 16px"}}  className="" >
                             <div className="card-header-div" >
                                 <Avatar style={{ backgroundColor: "white" , color : this.state.color }} aria-label="Recipe" >
                                     {(this.props.password.name.charAt(0) + this.props.password.name.charAt(1) + "").toUpperCase()}

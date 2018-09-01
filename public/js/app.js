@@ -94174,7 +94174,7 @@ var PasswordCard = function (_Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_6__material_ui_core_CardContent___default.a,
-                            { style: { backgroundColor: this.state.color }, className: '' },
+                            { style: { backgroundColor: this.state.color, padding: "12px 16px" }, className: '' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'card-header-div' },
