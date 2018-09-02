@@ -1,5 +1,5 @@
 import axios from 'axios' ;
-import { localHash , publicHash , saveToken , getToken , savePassword , getPassword , checkPasswordAndToken } from '../helpers/index'
+import { localHash , publicHash , saveToken , getToken , savePassword , getPassword , checkPasswordAndToken , clearStorage } from '../helpers/index'
 import SimpleCrypto from "simple-crypto-js";
 import _ from 'lodash';
 
@@ -160,6 +160,8 @@ export function signout ( callback ) {
         console.log('Trying to sign you out with this token of yours : ');
         console.log('Token : ' + token ) ;
 
+
+
         axios.post('/api/auth/logout' , { token } )
         .then ( function (response) {
             console.log(response)
@@ -173,6 +175,7 @@ export function signout ( callback ) {
             payload : {}
         });
 
+        clearStorage() ;
         callback() ;
 
     }

@@ -2587,7 +2587,7 @@ exports.default = _default;
 
 
 
-var simpleCrypto = new __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js___default.a(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* getPassword */])());
+var simpleCrypto = new __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js___default.a(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])());
 
 var CHANGE_PAGE = "change_page";
 var SIGN_UP = 'sign_up';
@@ -2612,19 +2612,19 @@ function signup(userInfo, callback) {
 
     return function (dispatch) {
 
-        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* publicHash */])(userInfo.password), name: userInfo.name };
+        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* publicHash */])(userInfo.password), name: userInfo.name };
 
         console.log('A sign up request sent to the server with this data :');
         console.log(requestData);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/signup', requestData).then(function (response) {
             var token = response.data.access_token;
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* saveToken */])(token);
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* localHash */])(userInfo.password));
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* saveToken */])(token);
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password));
 
             var payload = {
                 name: userInfo.name,
-                password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* localHash */])(userInfo.password),
+                password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password),
                 email: userInfo.email,
                 token: token
             };
@@ -2648,21 +2648,21 @@ function signup(userInfo, callback) {
 
 function signin(userInfo, callback) {
     return function (dispatch) {
-        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* publicHash */])(userInfo.password) };
+        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* publicHash */])(userInfo.password) };
 
         console.log('A sign in request sent to the server with this data :');
         console.log(requestData);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/signin', requestData).then(function (response) {
             var token = response.data.access_token;
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* saveToken */])(token);
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* localHash */])(userInfo.password));
-            simpleCrypto.setSecret(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* getPassword */])());
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* saveToken */])(token);
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password));
+            simpleCrypto.setSecret(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])());
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/me', { token: token }).then(function (user) {
                 var payload = {
                     name: user.data.name,
-                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* localHash */])(userInfo.password),
+                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password),
                     email: userInfo.email,
                     token: token
                 };
@@ -2688,8 +2688,8 @@ function checkAuth(callback) {
     return function (dispatch) {
 
         if (Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["a" /* checkPasswordAndToken */])()) {
-            var password = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* getPassword */])();
-            var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+            var password = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])();
+            var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
             console.log('Trying to sign you up with your token ');
             console.log('Token : ' + token);
@@ -2698,7 +2698,7 @@ function checkAuth(callback) {
 
                 var payload = {
                     name: user.data.name,
-                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* localHash */])(password),
+                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(password),
                     email: user.data.email,
                     token: token
                 };
@@ -2729,7 +2729,7 @@ function signout(callback) {
 
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         console.log('Trying to sign you out with this token of yours : ');
         console.log('Token : ' + token);
@@ -2745,6 +2745,7 @@ function signout(callback) {
             payload: {}
         });
 
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* clearStorage */])();
         callback();
     };
 }
@@ -2752,7 +2753,7 @@ function signout(callback) {
 function addPassword(newPassword, callback) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         newPassword.token = token;
 
@@ -2761,7 +2762,7 @@ function addPassword(newPassword, callback) {
         // encrypting the password
         newPasswordClone.password = simpleCrypto.encrypt(newPasswordClone.password);
 
-        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is ' + Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["b" /* getPassword */])() + ' which is a hash of the your password that is made locally and not sent to the server ) ');
+        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is ' + Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])() + ' which is a hash of the your password that is made locally and not sent to the server ) ');
         console.log(newPasswordClone);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/createPassword', newPasswordClone).then(function (response) {
@@ -2783,7 +2784,7 @@ function addPassword(newPassword, callback) {
 function deletePassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/deletePassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2802,7 +2803,7 @@ function deletePassword(password_id) {
 function restorePassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/restorePassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2821,7 +2822,7 @@ function restorePassword(password_id) {
 function starPassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/starPassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2840,7 +2841,7 @@ function starPassword(password_id) {
 function unstarPassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/unstarPassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2858,7 +2859,7 @@ function unstarPassword(password_id) {
 
 function getPasswords() {
     return function (dispatch) {
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/getPasswords', { token: token }).then(function (passwords) {
 
             passwords.data.map(function (password) {
@@ -10032,14 +10033,15 @@ function isPromise(obj) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["h"] = validateEmail;
-/* harmony export (immutable) */ __webpack_exports__["e"] = publicHash;
-/* harmony export (immutable) */ __webpack_exports__["d"] = localHash;
-/* harmony export (immutable) */ __webpack_exports__["g"] = saveToken;
-/* harmony export (immutable) */ __webpack_exports__["c"] = getToken;
+/* harmony export (immutable) */ __webpack_exports__["i"] = validateEmail;
+/* harmony export (immutable) */ __webpack_exports__["f"] = publicHash;
+/* harmony export (immutable) */ __webpack_exports__["e"] = localHash;
+/* harmony export (immutable) */ __webpack_exports__["h"] = saveToken;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getToken;
 /* harmony export (immutable) */ __webpack_exports__["a"] = checkPasswordAndToken;
-/* harmony export (immutable) */ __webpack_exports__["f"] = savePassword;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getPassword;
+/* harmony export (immutable) */ __webpack_exports__["g"] = savePassword;
+/* harmony export (immutable) */ __webpack_exports__["c"] = getPassword;
+/* harmony export (immutable) */ __webpack_exports__["b"] = clearStorage;
 
 
 function validateEmail(email) {
@@ -10121,6 +10123,10 @@ function savePassword(hashedPassword) {
 
 function getPassword() {
     return localStorage.getItem('hashedPassword');
+}
+
+function clearStorage() {
+    localStorage.clear();
 }
 
 /***/ }),
@@ -76490,7 +76496,7 @@ function validate(values) {
 
     if (!values.email) {
         errors.email = "Email is required";
-    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["h" /* validateEmail */])(values.email)) {
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["i" /* validateEmail */])(values.email)) {
         errors.email = "Email is not valid";
     }
 
@@ -86859,7 +86865,7 @@ function validate(values) {
 
     if (!values.email) {
         errors.email = "Email is required";
-    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["h" /* validateEmail */])(values.email)) {
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["i" /* validateEmail */])(values.email)) {
         errors.email = "Email is not valid";
     }
 

@@ -42,3 +42,7 @@ export function savePassword ( hashedPassword ) {
 export function getPassword () {
     return localStorage.getItem( 'hashedPassword' );
 }
+
+export function clearStorage () {
+    localStorage.clear() ;
+}
