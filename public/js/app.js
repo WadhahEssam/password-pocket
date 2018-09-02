@@ -94028,9 +94028,9 @@ var PasswordsPanel = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_search_bar___default.a, {
                                 className: 'search-box',
                                 value: this.state.search,
-                                onChange: function onChange(newValue) {
-                                    return _this2.setState({ search: newValue });
-                                },
+                                onChange: __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.debounce(function (newValue) {
+                                    _this2.setState({ search: newValue });
+                                }, 300),
                                 onRequestSearch: function onRequestSearch() {}
                             })
                         ),
