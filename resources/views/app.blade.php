@@ -15,8 +15,6 @@
 
         <title>Password Pocket</title>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
         <link href="{{mix('css/app.css')}}" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/welcome.css" rel="stylesheet" type="text/css">
