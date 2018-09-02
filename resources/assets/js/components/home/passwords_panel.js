@@ -11,6 +11,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { escapeRegExp } from '../../helpers/index'
 
 class PasswordsPanel extends Component {
 
@@ -45,7 +46,7 @@ class PasswordsPanel extends Component {
         // weird mapping -> to render the elements from last to first
         const passwordCards =  Object.assign([], this.props.passwords ).reverse().map( ( password , index )=>{
             if ( this.props.view === 'all' ) {
-                if ( !password.is_deleted )
+                if ( !password.is_deleted && password.name.toLowerCase().match( escapeRegExp(this.state.search) ) )
                 return (
                         <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                             <CSSTransitionGroup { ... transitionOptions }>
@@ -55,7 +56,7 @@ class PasswordsPanel extends Component {
                 );
             }
             else if ( this.props.view === 'starred' ) {
-                if ( !password.is_deleted && password.is_starred )
+                if ( !password.is_deleted && password.is_starred && password.name.toLowerCase().match( escapeRegExp(this.state.search) ) )
                 return (
                         <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
                             <CSSTransitionGroup { ... transitionOptions }>
@@ -63,7 +64,7 @@ class PasswordsPanel extends Component {
                             </CSSTransitionGroup>
                         </Grid>
                 );
-            } else if ( this.props.view === 'deleted' ) {
+            } else if ( this.props.view === 'deleted' && password.name.toLowerCase().match( escapeRegExp(this.state.search) ) ) {
                 if ( password.is_deleted )
                 return (
                         <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >

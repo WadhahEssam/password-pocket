@@ -46,3 +46,7 @@ export function getPassword () {
 export function clearStorage () {
     localStorage.clear() ;
 }
+
+export function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}

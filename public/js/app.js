@@ -2587,7 +2587,7 @@ exports.default = _default;
 
 
 
-var simpleCrypto = new __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js___default.a(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])());
+var simpleCrypto = new __WEBPACK_IMPORTED_MODULE_2_simple_crypto_js___default.a(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getPassword */])());
 
 var CHANGE_PAGE = "change_page";
 var SIGN_UP = 'sign_up';
@@ -2612,19 +2612,19 @@ function signup(userInfo, callback) {
 
     return function (dispatch) {
 
-        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* publicHash */])(userInfo.password), name: userInfo.name };
+        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* publicHash */])(userInfo.password), name: userInfo.name };
 
         console.log('A sign up request sent to the server with this data :');
         console.log(requestData);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/signup', requestData).then(function (response) {
             var token = response.data.access_token;
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* saveToken */])(token);
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password));
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["i" /* saveToken */])(token);
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* localHash */])(userInfo.password));
 
             var payload = {
                 name: userInfo.name,
-                password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password),
+                password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* localHash */])(userInfo.password),
                 email: userInfo.email,
                 token: token
             };
@@ -2648,21 +2648,21 @@ function signup(userInfo, callback) {
 
 function signin(userInfo, callback) {
     return function (dispatch) {
-        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* publicHash */])(userInfo.password) };
+        var requestData = { email: userInfo.email, password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* publicHash */])(userInfo.password) };
 
         console.log('A sign in request sent to the server with this data :');
         console.log(requestData);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/signin', requestData).then(function (response) {
             var token = response.data.access_token;
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* saveToken */])(token);
-            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["g" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password));
-            simpleCrypto.setSecret(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])());
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["i" /* saveToken */])(token);
+            Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["h" /* savePassword */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* localHash */])(userInfo.password));
+            simpleCrypto.setSecret(Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getPassword */])());
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/auth/me', { token: token }).then(function (user) {
                 var payload = {
                     name: user.data.name,
-                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(userInfo.password),
+                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* localHash */])(userInfo.password),
                     email: userInfo.email,
                     token: token
                 };
@@ -2688,8 +2688,8 @@ function checkAuth(callback) {
     return function (dispatch) {
 
         if (Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["a" /* checkPasswordAndToken */])()) {
-            var password = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])();
-            var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+            var password = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getPassword */])();
+            var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
             console.log('Trying to sign you up with your token ');
             console.log('Token : ' + token);
@@ -2698,7 +2698,7 @@ function checkAuth(callback) {
 
                 var payload = {
                     name: user.data.name,
-                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* localHash */])(password),
+                    password: Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["f" /* localHash */])(password),
                     email: user.data.email,
                     token: token
                 };
@@ -2729,7 +2729,7 @@ function signout(callback) {
 
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         console.log('Trying to sign you out with this token of yours : ');
         console.log('Token : ' + token);
@@ -2753,7 +2753,7 @@ function signout(callback) {
 function addPassword(newPassword, callback) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         newPassword.token = token;
 
@@ -2762,7 +2762,7 @@ function addPassword(newPassword, callback) {
         // encrypting the password
         newPasswordClone.password = simpleCrypto.encrypt(newPasswordClone.password);
 
-        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is ' + Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["c" /* getPassword */])() + ' which is a hash of the your password that is made locally and not sent to the server ) ');
+        console.log('Password will be sent to the server with the information below // NOTE THAT // the password is ecrypted ( encryption key is ' + Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getPassword */])() + ' which is a hash of the your password that is made locally and not sent to the server ) ');
         console.log(newPasswordClone);
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/createPassword', newPasswordClone).then(function (response) {
@@ -2784,7 +2784,7 @@ function addPassword(newPassword, callback) {
 function deletePassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/deletePassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2803,7 +2803,7 @@ function deletePassword(password_id) {
 function restorePassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/restorePassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2822,7 +2822,7 @@ function restorePassword(password_id) {
 function starPassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/starPassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2841,7 +2841,7 @@ function starPassword(password_id) {
 function unstarPassword(password_id) {
     return function (dispatch) {
 
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/unstarPassword', { token: token, password_id: password_id }).then(function (password) {
 
@@ -2859,7 +2859,7 @@ function unstarPassword(password_id) {
 
 function getPasswords() {
     return function (dispatch) {
-        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["d" /* getToken */])();
+        var token = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_index__["e" /* getToken */])();
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/getPasswords', { token: token }).then(function (passwords) {
 
             passwords.data.map(function (password) {
@@ -10033,15 +10033,16 @@ function isPromise(obj) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["i"] = validateEmail;
-/* harmony export (immutable) */ __webpack_exports__["f"] = publicHash;
-/* harmony export (immutable) */ __webpack_exports__["e"] = localHash;
-/* harmony export (immutable) */ __webpack_exports__["h"] = saveToken;
-/* harmony export (immutable) */ __webpack_exports__["d"] = getToken;
+/* harmony export (immutable) */ __webpack_exports__["j"] = validateEmail;
+/* harmony export (immutable) */ __webpack_exports__["g"] = publicHash;
+/* harmony export (immutable) */ __webpack_exports__["f"] = localHash;
+/* harmony export (immutable) */ __webpack_exports__["i"] = saveToken;
+/* harmony export (immutable) */ __webpack_exports__["e"] = getToken;
 /* harmony export (immutable) */ __webpack_exports__["a"] = checkPasswordAndToken;
-/* harmony export (immutable) */ __webpack_exports__["g"] = savePassword;
-/* harmony export (immutable) */ __webpack_exports__["c"] = getPassword;
+/* harmony export (immutable) */ __webpack_exports__["h"] = savePassword;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getPassword;
 /* harmony export (immutable) */ __webpack_exports__["b"] = clearStorage;
+/* harmony export (immutable) */ __webpack_exports__["c"] = escapeRegExp;
 
 
 function validateEmail(email) {
@@ -10127,6 +10128,10 @@ function getPassword() {
 
 function clearStorage() {
     localStorage.clear();
+}
+
+function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 
 /***/ }),
@@ -76496,7 +76501,7 @@ function validate(values) {
 
     if (!values.email) {
         errors.email = "Email is required";
-    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["i" /* validateEmail */])(values.email)) {
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["j" /* validateEmail */])(values.email)) {
         errors.email = "Email is not valid";
     }
 
@@ -86865,7 +86870,7 @@ function validate(values) {
 
     if (!values.email) {
         errors.email = "Email is required";
-    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["i" /* validateEmail */])(values.email)) {
+    } else if (!Object(__WEBPACK_IMPORTED_MODULE_15__helpers_index__["j" /* validateEmail */])(values.email)) {
         errors.email = "Email is not valid";
     }
 
@@ -93913,6 +93918,7 @@ exports.default = _default;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__material_ui_core_IconButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_transition_group_CSSTransitionGroup__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_transition_group_CSSTransitionGroup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_transition_group_CSSTransitionGroup__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__helpers_index__ = __webpack_require__(110);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -93922,6 +93928,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -93974,7 +93981,7 @@ var PasswordsPanel = function (_Component) {
                 // weird mapping -> to render the elements from last to first
             };var passwordCards = Object.assign([], this.props.passwords).reverse().map(function (password, index) {
                 if (_this2.props.view === 'all') {
-                    if (!password.is_deleted) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    if (!password.is_deleted && password.name.toLowerCase().match(Object(__WEBPACK_IMPORTED_MODULE_13__helpers_index__["c" /* escapeRegExp */])(_this2.state.search))) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                         { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -93984,7 +93991,7 @@ var PasswordsPanel = function (_Component) {
                         )
                     );
                 } else if (_this2.props.view === 'starred') {
-                    if (!password.is_deleted && password.is_starred) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    if (!password.is_deleted && password.is_starred && password.name.toLowerCase().match(Object(__WEBPACK_IMPORTED_MODULE_13__helpers_index__["c" /* escapeRegExp */])(_this2.state.search))) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                         { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -93993,7 +94000,7 @@ var PasswordsPanel = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__password_card__["a" /* default */], { password: password })
                         )
                     );
-                } else if (_this2.props.view === 'deleted') {
+                } else if (_this2.props.view === 'deleted' && password.name.toLowerCase().match(Object(__WEBPACK_IMPORTED_MODULE_13__helpers_index__["c" /* escapeRegExp */])(_this2.state.search))) {
                     if (password.is_deleted) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Grid___default.a,
                         { key: password.id, item: true, className: 'password-card', xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
