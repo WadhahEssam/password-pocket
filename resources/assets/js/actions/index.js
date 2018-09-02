@@ -21,6 +21,8 @@ export const RESTORE_PASSWORD = 'RESTORE_PASSWORD'
 export const STAR_PASSWORD = 'STAR_PASSWORD'
 export const UNSTAR_PASSWORD = 'UNSTAR_PASSWORD'
 export const CHANGE_VIEW = 'CHANGE_VIEW'
+export const SIGNUP_ERROR = 'SIGNUP_ERROR'
+export const SIGNIN_ERROR = 'SIGNIN_ERROR'
 
 export function signup ( userInfo , callback ) {
 
@@ -55,6 +57,10 @@ export function signup ( userInfo , callback ) {
         })
         .catch ( function ( error ) {
             console.log(error) ;
+            dispatch({
+                type : SIGNUP_ERROR ,
+                payload : true
+            });
         });
     }
 }
@@ -92,6 +98,10 @@ export function signin ( userInfo , callback ) {
         })
         .catch ( function ( error ) {
             console.log('error with auth') ;
+            dispatch({
+                type : SIGNIN_ERROR ,
+                payload : true
+            });
         });
     }
 }

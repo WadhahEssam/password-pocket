@@ -1,9 +1,11 @@
 import React , { Component } from 'react' ;
 import { connect } from 'react-redux' ;
-import { checkAuth } from '../../actions/index';
+import { checkAuth , hideSnackBar } from '../../actions/index';
 import SignIn from './signin' ;
 import SignUp from './signup' ;
-
+import Snackbar from '@material-ui/core/Snackbar';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 
 class Login extends Component {
 
@@ -29,14 +31,43 @@ class Login extends Component {
 
                 </div>
 
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    className="snackbar"
+                    variant="error"
+                    open={this.props.snackBar.open}
+                    autoHideDuration={this.props.snackBar.time}
+                    onClose={ ( event , reason ) => { if ( reason === 'clickaway') { return } ; this.props.hideSnackBar() } }
+                    ContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    message={<span id="message-id">{this.props.snackBar.message}</span>}
+                    action={[
+                        <IconButton
+                            key="close"
+                            aria-label="Close"
+                            color="inherit"
+                            onClick={ ( event , reason ) => { if ( reason === 'clickaway') { return } ; this.props.hideSnackBar() } }
+                        >
+                            <CloseIcon />
+                        </IconButton>,
+                    ]}
+                />
+
             </div>
         );
     }
 }
 
 function mapStateToProps ( state ) {
-    return { page : state.page  } ;
+    return {
+        page : state.page ,
+        snackBar : state.snackBar
+    };
 }
 
-export default connect ( mapStateToProps , {checkAuth} ) ( Login )  ;
+export default connect ( mapStateToProps , { checkAuth , hideSnackBar } ) ( Login )  ;
 

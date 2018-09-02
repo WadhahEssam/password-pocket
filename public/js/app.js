@@ -2542,10 +2542,10 @@ exports.default = _default;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CHANGE_PAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return SIGN_UP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return SIGN_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return SIGN_UP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return SIGN_IN; });
 /* unused harmony export CHECK_AUTH */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return SIGN_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return SIGN_OUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SHOW_ADD_PASSWORD_PANEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return HIDE_ADD_PASSWORD_PANEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ADD_PASSWORD; });
@@ -2554,25 +2554,27 @@ exports.default = _default;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return HIDE_SNACKBAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return DELETE_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return RESTORE_PASSWORD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return STAR_PASSWORD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return UNSTAR_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return STAR_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return UNSTAR_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CHANGE_VIEW; });
-/* harmony export (immutable) */ __webpack_exports__["C"] = signup;
-/* harmony export (immutable) */ __webpack_exports__["A"] = signin;
-/* harmony export (immutable) */ __webpack_exports__["s"] = checkAuth;
-/* harmony export (immutable) */ __webpack_exports__["B"] = signout;
-/* harmony export (immutable) */ __webpack_exports__["p"] = addPassword;
-/* harmony export (immutable) */ __webpack_exports__["t"] = deletePassword;
-/* harmony export (immutable) */ __webpack_exports__["x"] = restorePassword;
-/* harmony export (immutable) */ __webpack_exports__["D"] = starPassword;
-/* harmony export (immutable) */ __webpack_exports__["E"] = unstarPassword;
-/* harmony export (immutable) */ __webpack_exports__["u"] = getPasswords;
-/* harmony export (immutable) */ __webpack_exports__["q"] = changePage;
-/* harmony export (immutable) */ __webpack_exports__["y"] = showAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["v"] = hideAddPasswordPanel;
-/* harmony export (immutable) */ __webpack_exports__["z"] = showSnackBar;
-/* harmony export (immutable) */ __webpack_exports__["w"] = hideSnackBar;
-/* harmony export (immutable) */ __webpack_exports__["r"] = changeView;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return SIGNUP_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return SIGNIN_ERROR; });
+/* harmony export (immutable) */ __webpack_exports__["E"] = signup;
+/* harmony export (immutable) */ __webpack_exports__["C"] = signin;
+/* harmony export (immutable) */ __webpack_exports__["u"] = checkAuth;
+/* harmony export (immutable) */ __webpack_exports__["D"] = signout;
+/* harmony export (immutable) */ __webpack_exports__["r"] = addPassword;
+/* harmony export (immutable) */ __webpack_exports__["v"] = deletePassword;
+/* harmony export (immutable) */ __webpack_exports__["z"] = restorePassword;
+/* harmony export (immutable) */ __webpack_exports__["F"] = starPassword;
+/* harmony export (immutable) */ __webpack_exports__["G"] = unstarPassword;
+/* harmony export (immutable) */ __webpack_exports__["w"] = getPasswords;
+/* harmony export (immutable) */ __webpack_exports__["s"] = changePage;
+/* harmony export (immutable) */ __webpack_exports__["A"] = showAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["x"] = hideAddPasswordPanel;
+/* harmony export (immutable) */ __webpack_exports__["B"] = showSnackBar;
+/* harmony export (immutable) */ __webpack_exports__["y"] = hideSnackBar;
+/* harmony export (immutable) */ __webpack_exports__["t"] = changeView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_index__ = __webpack_require__(110);
@@ -2603,6 +2605,8 @@ var RESTORE_PASSWORD = 'RESTORE_PASSWORD';
 var STAR_PASSWORD = 'STAR_PASSWORD';
 var UNSTAR_PASSWORD = 'UNSTAR_PASSWORD';
 var CHANGE_VIEW = 'CHANGE_VIEW';
+var SIGNUP_ERROR = 'SIGNUP_ERROR';
+var SIGNIN_ERROR = 'SIGNIN_ERROR';
 
 function signup(userInfo, callback) {
 
@@ -2634,6 +2638,10 @@ function signup(userInfo, callback) {
             callback();
         }).catch(function (error) {
             console.log(error);
+            dispatch({
+                type: SIGNUP_ERROR,
+                payload: true
+            });
         });
     };
 }
@@ -2668,6 +2676,10 @@ function signin(userInfo, callback) {
             });
         }).catch(function (error) {
             console.log('error with auth');
+            dispatch({
+                type: SIGNIN_ERROR,
+                payload: true
+            });
         });
     };
 }
@@ -34587,7 +34599,7 @@ var DescriptionPanel = function (_Component) {
     return DescriptionPanel;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["q" /* changePage */] })(DescriptionPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_2__actions_index__["s" /* changePage */] })(DescriptionPanel));
 
 /***/ }),
 /* 225 */
@@ -65705,7 +65717,7 @@ var createValues = function createValues(_ref) {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["m" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["o" /* SIGN_UP */]:
             return 'home';
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["b" /* CHANGE_PAGE */]:
@@ -69241,13 +69253,13 @@ function UserDataReducer() {
 
     switch (action.type) {
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["k" /* SIGN_IN */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["m" /* SIGN_IN */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["m" /* SIGN_UP */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["o" /* SIGN_UP */]:
             return action.payload;
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["l" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_index__["n" /* SIGN_OUT */]:
             var emptyUserState = { name: '', email: '', password: '', token: '' };
             return emptyUserState;
 
@@ -69317,16 +69329,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         case __WEBPACK_IMPORTED_MODULE_0__actions__["d" /* DELETE_PASSWORD */]:
             return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* STAR_PASSWORD */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["p" /* STAR_PASSWORD */]:
             return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
         case __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* RESTORE_PASSWORD */]:
             return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["o" /* UNSTAR_PASSWORD */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["q" /* UNSTAR_PASSWORD */]:
             return _extends({}, state, _defineProperty({}, action.payload.id, action.payload));
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["l" /* SIGN_OUT */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* SIGN_OUT */]:
             return {};
 
         default:
@@ -69361,11 +69373,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         case __WEBPACK_IMPORTED_MODULE_0__actions__["h" /* RESTORE_PASSWORD */]:
             return { open: true, message: action.payload.name + ' is restored from trash ! ', time: 1500 };
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["n" /* STAR_PASSWORD */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["p" /* STAR_PASSWORD */]:
             return { open: true, message: action.payload.name + ' is starred ! ', time: 1500 };
 
-        case __WEBPACK_IMPORTED_MODULE_0__actions__["o" /* UNSTAR_PASSWORD */]:
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["q" /* UNSTAR_PASSWORD */]:
             return { open: true, message: action.payload.name + ' is unstarred ! ', time: 1500 };
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["l" /* SIGNUP_ERROR */]:
+            return { open: true, message: ' Error with creating a new account ! ', time: 1500 };
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions__["k" /* SIGNIN_ERROR */]:
+            return { open: true, message: ' Wrong information ', time: 1500 };
 
         default:
             return state;
@@ -71251,6 +71269,12 @@ thunk.withExtraArgument = createThunkMiddleware;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_index__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signin__ = __webpack_require__(515);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup__ = __webpack_require__(619);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Snackbar__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Snackbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Close__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Close___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Close__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_IconButton__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_IconButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_IconButton__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71258,6 +71282,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
 
 
 
@@ -71286,6 +71313,7 @@ var Login = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -71295,7 +71323,44 @@ var Login = function (_Component) {
                     'div',
                     { className: 'centered welcome-panel' },
                     this.props.page === "signin" ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__signin__["a" /* default */], { history: this.props.history }) : this.props.page === "signup" ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__signup__["a" /* default */], { history: this.props.history }) : ''
-                )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__material_ui_core_Snackbar___default.a, {
+                    anchorOrigin: {
+                        vertical: 'bottom',
+                        horizontal: 'left'
+                    },
+                    className: 'snackbar',
+                    variant: 'error',
+                    open: this.props.snackBar.open,
+                    autoHideDuration: this.props.snackBar.time,
+                    onClose: function onClose(event, reason) {
+                        if (reason === 'clickaway') {
+                            return;
+                        };_this3.props.hideSnackBar();
+                    },
+                    ContentProps: {
+                        'aria-describedby': 'message-id'
+                    },
+                    message: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        { id: 'message-id' },
+                        this.props.snackBar.message
+                    ),
+                    action: [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_7__material_ui_core_IconButton___default.a,
+                        {
+                            key: 'close',
+                            'aria-label': 'Close',
+                            color: 'inherit',
+                            onClick: function onClick(event, reason) {
+                                if (reason === 'clickaway') {
+                                    return;
+                                };_this3.props.hideSnackBar();
+                            }
+                        },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__material_ui_icons_Close___default.a, null)
+                    )]
+                })
             );
         }
     }]);
@@ -71304,10 +71369,13 @@ var Login = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 function mapStateToProps(state) {
-    return { page: state.page };
+    return {
+        page: state.page,
+        snackBar: state.snackBar
+    };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["s" /* checkAuth */] })(Login));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { checkAuth: __WEBPACK_IMPORTED_MODULE_2__actions_index__["u" /* checkAuth */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_2__actions_index__["y" /* hideSnackBar */] })(Login));
 
 /***/ }),
 /* 515 */
@@ -76435,7 +76503,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["q" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["A" /* signin */] })(LoginPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignInForm' })(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { changePage: __WEBPACK_IMPORTED_MODULE_1__actions_index__["s" /* changePage */], signin: __WEBPACK_IMPORTED_MODULE_1__actions_index__["C" /* signin */] })(LoginPanel)));
 
 /***/ }),
 /* 569 */
@@ -86820,7 +86888,7 @@ function mapStateToProps(state) {
     return { state: state };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["q" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["C" /* signup */] })(SignIn)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'SignUpForm' })(Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { changePage: __WEBPACK_IMPORTED_MODULE_3__actions_index__["s" /* changePage */], signup: __WEBPACK_IMPORTED_MODULE_3__actions_index__["E" /* signup */] })(SignIn)));
 
 /***/ }),
 /* 621 */
@@ -91325,7 +91393,7 @@ function mapStateToFunction(state) {
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["y" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["u" /* getPasswords */], changeView: __WEBPACK_IMPORTED_MODULE_13__actions_index__["r" /* changeView */] })(Home));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToFunction, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_13__actions_index__["A" /* showAddPasswordPanel */], getPasswords: __WEBPACK_IMPORTED_MODULE_13__actions_index__["w" /* getPasswords */], changeView: __WEBPACK_IMPORTED_MODULE_13__actions_index__["t" /* changeView */] })(Home));
 
 /***/ }),
 /* 657 */
@@ -91407,7 +91475,7 @@ var NavBar = function (_Component) {
     return NavBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["B" /* signout */] })(NavBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(null, { signout: __WEBPACK_IMPORTED_MODULE_6__actions_index__["D" /* signout */] })(NavBar));
 
 /***/ }),
 /* 658 */
@@ -91913,7 +91981,7 @@ var SideBar = function (_Component) {
     return SideBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_17_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_16__actions_index__["y" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_16__actions_index__["B" /* signout */], changeView: __WEBPACK_IMPORTED_MODULE_16__actions_index__["r" /* changeView */] })(SideBar));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_17_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_16__actions_index__["A" /* showAddPasswordPanel */], signout: __WEBPACK_IMPORTED_MODULE_16__actions_index__["D" /* signout */], changeView: __WEBPACK_IMPORTED_MODULE_16__actions_index__["t" /* changeView */] })(SideBar));
 
 /***/ }),
 /* 663 */
@@ -94005,7 +94073,7 @@ function mapStateToProps(state) {
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_8__actions_index__["y" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_8__actions_index__["w" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_8__actions_index__["z" /* showSnackBar */] })(PasswordsPanel));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(mapStateToProps, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_8__actions_index__["A" /* showAddPasswordPanel */], hideSnackBar: __WEBPACK_IMPORTED_MODULE_8__actions_index__["y" /* hideSnackBar */], showSnackBar: __WEBPACK_IMPORTED_MODULE_8__actions_index__["B" /* showSnackBar */] })(PasswordsPanel));
 
 /***/ }),
 /* 680 */
@@ -94333,7 +94401,7 @@ var PasswordCard = function (_Component) {
     return PasswordCard;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { deletePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["t" /* deletePassword */], restorePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["x" /* restorePassword */], starPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["D" /* starPassword */], unstarPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["E" /* unstarPassword */] })(PasswordCard)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__["withStyles"])(styles)(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(null, { deletePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["v" /* deletePassword */], restorePassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["z" /* restorePassword */], starPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["F" /* starPassword */], unstarPassword: __WEBPACK_IMPORTED_MODULE_3__actions_index__["G" /* unstarPassword */] })(PasswordCard)));
 
 /***/ }),
 /* 681 */
@@ -97081,7 +97149,7 @@ function validate(values) {
     return errors;
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["y" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["v" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["p" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["z" /* showSnackBar */], changeView: __WEBPACK_IMPORTED_MODULE_5__actions_index__["r" /* changeView */] })(AddPasswordPanel)));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_redux_form__["c" /* reduxForm */])({ validate: validate, form: 'AddNewPasswordForm' })(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, { showAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["A" /* showAddPasswordPanel */], hideAddPasswordPanel: __WEBPACK_IMPORTED_MODULE_5__actions_index__["x" /* hideAddPasswordPanel */], addPassword: __WEBPACK_IMPORTED_MODULE_5__actions_index__["r" /* addPassword */], showSnackBar: __WEBPACK_IMPORTED_MODULE_5__actions_index__["B" /* showSnackBar */], changeView: __WEBPACK_IMPORTED_MODULE_5__actions_index__["t" /* changeView */] })(AddPasswordPanel)));
 
 /***/ }),
 /* 722 */
