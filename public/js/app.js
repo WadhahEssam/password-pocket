@@ -94029,7 +94029,7 @@ var PasswordsPanel = function (_Component) {
                                 className: 'search-box',
                                 value: this.state.search,
                                 onChange: __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.debounce(function (newValue) {
-                                    _this2.setState({ search: newValue });
+                                    _this2.setState({ search: newValue.toLowerCase() });
                                 }, 300),
                                 onRequestSearch: function onRequestSearch() {}
                             })

@@ -87,7 +87,7 @@ class PasswordsPanel extends Component {
                             <SearchBar
                                 className="search-box"
                                 value={this.state.search}
-                                onChange={ _.debounce( (newValue)=>{ this.setState({search:newValue}) } , 300 )  }
+                                onChange={ _.debounce( (newValue)=>{ this.setState({search:newValue.toLowerCase()}) } , 300 )  }
                                 onRequestSearch={() => { } }
                             />
                         </div>
