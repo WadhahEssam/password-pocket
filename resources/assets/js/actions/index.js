@@ -71,6 +71,7 @@ export function signin ( userInfo , callback ) {
             const token  = response.data.access_token ;
             saveToken(token) ;
             savePassword( localHash(userInfo.password) ) ;
+            simpleCrypto.setSecret( getPassword() ) ;
 
             axios.post('/api/auth/me' , { token } )
             .then ( function (user) {
@@ -102,6 +103,7 @@ export function checkAuth ( callback ) {
             const password = getPassword() ;
             const token = getToken() ;
 
+
             console.log('Trying to sign you up with your token ');
             console.log('Token : ' + token ) ;
 
@@ -125,11 +127,15 @@ export function checkAuth ( callback ) {
             })
             .catch ( function ( error ) {
                 console.log('token is expired') ;
+                dispatch({
+                    type : CHANGE_PAGE ,
+                    payload : 'signin'
+                });
             });
         } else {
             dispatch ( {
-                type : 'nothing' ,
-                payload : 'nothing'
+                type : CHANGE_PAGE ,
+                payload : 'signin'
             })
         }
     }

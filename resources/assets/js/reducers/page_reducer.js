@@ -1,6 +1,6 @@
 import { CHANGE_PAGE  , SIGN_UP } from '../actions' ;
 
-export default function ( state = 'signin' , action ) {
+export default function ( state = 'new' , action ) {
 
     switch ( action.type ) {
 

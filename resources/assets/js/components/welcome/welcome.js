@@ -17,7 +17,6 @@ class Login extends Component {
 
     render() {
 
-
         return (
             <div>
 
@@ -26,7 +25,7 @@ class Login extends Component {
 
                 <div  className="centered welcome-panel" >
 
-                    { (this.props.page === "signin" ) ?  <SignIn  history={this.props.history}/> : <SignUp history={this.props.history}/>  }
+                    { (this.props.page === "signin" ) ?  <SignIn  history={this.props.history}/> : ( ( this.props.page === "signup" ) ? <SignUp history={this.props.history}/> : '' ) }
 
                 </div>
 

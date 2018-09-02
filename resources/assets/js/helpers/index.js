@@ -32,16 +32,13 @@ export function getToken () {
 }
 
 export function checkPasswordAndToken () {
-    return ( ( localStorage.getItem('token') != null ) && ( localStorage.getItem('password') != null ) ) ;
+    return ( ( localStorage.getItem('token') != null ) && ( localStorage.getItem('hashedPassword') != null ) ) ;
 }
 
 export function savePassword ( hashedPassword ) {
-    localStorage.setItem( 'password', hashedPassword );
+    localStorage.setItem( 'hashedPassword', hashedPassword );
 }
 
 export function getPassword () {
-    return localStorage.getItem( 'password' );
+    return localStorage.getItem( 'hashedPassword' );
 }
-
-
-
