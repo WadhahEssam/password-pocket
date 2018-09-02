@@ -10,14 +10,14 @@ import { showAddPasswordPanel , showSnackBar , hideSnackBar } from '../../action
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import 'react-anything-sortable/sortable.css';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 class PasswordsPanel extends Component {
 
     constructor ( props ) {
         super ( props ) ;
         this.state = {
-            value : '' ,
+            search : '' ,
         }
     }
 
@@ -31,29 +31,46 @@ class PasswordsPanel extends Component {
             alignItems : "stretch" ,
         }
 
+
+        const transitionOptions = {
+            transitionName : "example" ,
+            transitionAppear : true ,
+            transitionAppearTimeout : 500 ,
+            transitionEnter : true ,
+            transitionEnterTimeout : 300 ,
+            transitionLeave : true ,
+            transitionLeaveTimeout : 300
+        }
+
         // weird mapping -> to render the elements from last to first
         const passwordCards =  Object.assign([], this.props.passwords ).reverse().map( ( password , index )=>{
             if ( this.props.view === 'all' ) {
                 if ( !password.is_deleted )
                 return (
-                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
-                        <PasswordCard password={password} />
-                    </Grid>
+                        <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                            <CSSTransitionGroup { ... transitionOptions }>
+                                <PasswordCard password={password} />
+                            </CSSTransitionGroup>
+                        </Grid>
                 );
             }
             else if ( this.props.view === 'starred' ) {
                 if ( !password.is_deleted && password.is_starred )
                 return (
-                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
-                        <PasswordCard password={password} />
-                    </Grid>
+                        <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                            <CSSTransitionGroup { ... transitionOptions }>
+                                <PasswordCard password={password} />
+                            </CSSTransitionGroup>
+                        </Grid>
                 );
             } else if ( this.props.view === 'deleted' ) {
                 if ( password.is_deleted )
                 return (
-                    <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
-                        <PasswordCard password={password} />
-                    </Grid>
+                        <Grid key={password.id} item className="password-card" xs={12} sm={6} md={4} lg={3} xl={2} >
+                            <CSSTransitionGroup { ... transitionOptions }>
+                                <PasswordCard password={password} />
+                            </CSSTransitionGroup>
+                        </Grid>
                 );
             }
         });
@@ -68,9 +85,9 @@ class PasswordsPanel extends Component {
                         <div className="search-box-div">
                             <SearchBar
                                 className="search-box"
-                                value={this.state.value}
-                                onChange={(newValue) => this.setState({ value: newValue })}
-                                onRequestSearch={() => doSomethingWith(this.state.value)}
+                                value={this.state.search}
+                                onChange={(newValue) => this.setState({ search: newValue })}
+                                onRequestSearch={() => { } }
                             />
                         </div>
 

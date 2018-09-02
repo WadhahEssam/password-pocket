@@ -7,6 +7,7 @@ import {showAddPasswordPanel , hideAddPasswordPanel , addPassword , showSnackBar
 import IconButton from '@material-ui/core/IconButton';
 import ShowPasswordIcon from '@material-ui/icons/Visibility';
 import HidePasswordIcon from '@material-ui/icons/VisibilityOff';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 
 class AddPasswordPanel extends Component {
@@ -23,99 +24,113 @@ class AddPasswordPanel extends Component {
 
     }
 
+
+
     render() {
+
+        const transitionOptions = {
+            transitionName : "example" ,
+            transitionAppear : true ,
+            transitionAppearTimeout : 500 ,
+            transitionEnter : true ,
+            transitionEnterTimeout : 300 ,
+            transitionLeave : true ,
+            transitionLeaveTimeout : 300
+        }
 
         return (
             <div>
-                <div className="overlay">
-                    <div className="add-password-modal-div" >
-                        <div className="add-password-modal">
+                <CSSTransitionGroup { ... transitionOptions }>
+
+                    <div className="overlay">
+                        <div className="add-password-modal-div" >
+                            <div className="add-password-modal">
 
 
-                            <div className="add-password-modal-title">
-                                <h1>Add New Password</h1>
+                                <div className="add-password-modal-title">
+                                    <h1>Add New Password</h1>
+                                </div>
+
+                                <Divider/>
+
+                                <div className="add-password-modal-form-div">
+
+                                    <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}  >
+
+                                        <Field
+                                            name="name"
+                                            component={this.renderInputField}
+                                            placeholder="Name ( Name of the site or app )"
+                                            type="text"
+                                        />
+
+                                        <Field
+                                            name="login_cred"
+                                            component={this.renderInputField}
+                                            placeholder="Login Data ( Username Or Email )"
+                                            type="text"
+                                        />
+
+                                        <Field
+                                            name="password"
+                                            component={this.renderInputField}
+                                            placeholder="Password"
+                                            type={ (this.state.showPassword ) ? ('text') : ('password') }
+                                        />
+
+                                        <IconButton aria-label="Delete" className="add-password-modal-form-show-password-button" onClick={ () => { this.setState( { showPassword:!this.state.showPassword } ) } } >
+                                            { (this.state.showPassword) ? <HidePasswordIcon /> : <ShowPasswordIcon/> }
+                                        </IconButton>
+
+                                        <Field
+                                            name="description"
+                                            component={this.renderTextareaField}
+                                        />
+
+                                        <div className="add-password-modal-form-color-picker" >
+
+                                            <input type="radio" name="color" id="olive" value="#8a8a8a" defaultChecked onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="olive"><span className="olive"></span></label>
+
+                                            <input type="radio" name="color" id="red" value="#c56e6e" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="red"><span className="red"></span></label>
+
+                                            <input type="radio" name="color" id="green" value="#83b383" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="green"><span className="green"></span></label>
+
+                                            <input type="radio" name="color" id="yellow" value="#d4d43a" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="yellow"><span className="yellow"></span></label>
+
+                                            <input type="radio" name="color" id="orange" value="#e2b053" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="orange"><span className="orange"></span></label>
+
+                                            <input type="radio" name="color" id="teal" value="#3f8686" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="teal"><span className="teal"></span></label>
+
+                                            <input type="radio" name="color" id="blue" value="#7272b5" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="blue"><span className="blue"></span></label>
+
+                                            <input type="radio" name="color" id="violet" value="#bd8abd" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
+                                            <label className="radio-label" htmlFor="violet"><span className="violet"></span></label>
+
+                                        </div>
+
+
+                                        <Button type="submit" variant="contained" color="primary" className="add-password-modal-form-add-button" >
+                                            Add
+                                        </Button>
+
+                                        <Button variant="contained" color="primary" className="add-password-modal-form-close-button" onClick={ ()=>{ this.props.hideAddPasswordPanel() }} >
+                                            Close
+                                        </Button>
+                                    </form>
+
+                                </div>
+
                             </div>
-
-                            <Divider/>
-
-                            <div className="add-password-modal-form-div">
-
-                                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}  >
-
-                                    <Field
-                                        name="name"
-                                        component={this.renderInputField}
-                                        placeholder="Name ( Name of the site or app )"
-                                        type="text"
-                                    />
-
-                                    <Field
-                                        name="login_cred"
-                                        component={this.renderInputField}
-                                        placeholder="Login Data ( Username Or Email )"
-                                        type="text"
-                                    />
-
-                                    <Field
-                                        name="password"
-                                        component={this.renderInputField}
-                                        placeholder="Password"
-                                        type={ (this.state.showPassword ) ? ('text') : ('password') }
-                                    />
-
-                                    <IconButton aria-label="Delete" className="add-password-modal-form-show-password-button" onClick={ () => { this.setState( { showPassword:!this.state.showPassword } ) } } >
-                                        { (this.state.showPassword) ? <HidePasswordIcon /> : <ShowPasswordIcon/> }
-                                    </IconButton>
-
-                                    <Field
-                                        name="description"
-                                        component={this.renderTextareaField}
-                                    />
-
-                                    <div className="add-password-modal-form-color-picker" >
-
-                                        <input type="radio" name="color" id="olive" value="#8a8a8a" defaultChecked onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="olive"><span className="olive"></span></label>
-
-                                        <input type="radio" name="color" id="red" value="#c56e6e" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="red"><span className="red"></span></label>
-
-                                        <input type="radio" name="color" id="green" value="#83b383" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="green"><span className="green"></span></label>
-
-                                        <input type="radio" name="color" id="yellow" value="#d4d43a" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="yellow"><span className="yellow"></span></label>
-
-                                        <input type="radio" name="color" id="orange" value="#e2b053" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="orange"><span className="orange"></span></label>
-
-                                        <input type="radio" name="color" id="teal" value="#3f8686" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="teal"><span className="teal"></span></label>
-
-                                        <input type="radio" name="color" id="blue" value="#7272b5" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="blue"><span className="blue"></span></label>
-
-                                        <input type="radio" name="color" id="violet" value="#bd8abd" onChange={ (e)=>{ this.setState( {color: e.target.value} ) } } />
-                                        <label className="radio-label" htmlFor="violet"><span className="violet"></span></label>
-
-                                    </div>
-
-
-                                    <Button type="submit" variant="contained" color="primary" className="add-password-modal-form-add-button" >
-                                        Add
-                                    </Button>
-
-                                    <Button variant="contained" color="primary" className="add-password-modal-form-close-button" onClick={ ()=>{ this.props.hideAddPasswordPanel() }} >
-                                        Close
-                                    </Button>
-                                </form>
-
-                            </div>
-
                         </div>
                     </div>
-                </div>
-
+                </CSSTransitionGroup>
             </div>
         );
     }
