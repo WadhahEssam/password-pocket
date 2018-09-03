@@ -4,7 +4,7 @@
 :warning: This document is not a description of the website itself and how to use it, instead it only walks you throw the underlying techonology and vision used behind building its security. 
 
 ## why is it extremely safe ?
-All sensitive user data is either hashed or encrypted in client side, hence all the data in the database becomes **junk data** if you  happen to have access to it. This means developers / system admins can't ever know the passwords you store in the website. if someone somehow stole your authentication token they won't be able to decrypt the saved password. the cool thing is that the whole method **testable** directly from your browser. 
+All sensitive user data is either hashed or encrypted in client side, hence all the data in the database becomes **junk data** if you  happen to have access to it. This means developers / system admins can't ever know the passwords you store in the website. Even if someone somehow stole your authentication token they won't be able to decrypt the encrypted passwords. the cool thing is that the whole method **testable** directly from your browser. 
 
 ## How it works 
 The diagram below shows how the sensitive user data are processed in both client/server sides before they are stored in the database ( click on the diagram to see it in full size )  :
