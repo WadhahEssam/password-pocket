@@ -10,8 +10,6 @@ the diagram below shows how sensitive user data are processed in both client/ser
 
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/diagram.png)
 
-## info :
-
 ### Difference between UserPassword & NewPassword :
 - UserPassword : is the password used to for authentication .
 - NewPassword : is the password that the user want to save to retrieve later . 
@@ -21,3 +19,25 @@ the diagram below shows how sensitive user data are processed in both client/ser
 
 ### Encrytion Algorithms :
 - used the CryptoJS encryptoin library .
+
+## Images 
+
+### Home :
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/2.png)
+
+### Dashboard :
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/1.png)
+
+### Adding NewPassword :
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/3.png)
+
+## Test Security :
+Since the whole website is a one page web app , you can easily check outgoing/ingoing data from the dev tools :
+
+### inspecting createPassword request :
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.png)
+
+### inspecting createPassword request :
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/reponse.png)
+
+
