@@ -40,7 +40,8 @@ Since the whole website is a one page web app , you can easily check outgoing/in
 ### also note that the app shows in the console every request data and how this data is encrypted and by which key . 
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/console.jpg)
 
-### if you experince in React/Redux you can check the redux action creator in /resources/assets/actions/index.js , because here is all the request to the server has been established and all passwords are being hashed and encrypted , it is fairly simple and easy to follow the code .
+### Dig deeper :
+if you have some experince in React/Redux feel free to check the redux action creator in /resources/assets/actions/index.js , because here is all the request to the server has been established and all passwords are being hashed and encrypted , it is fairly simple and easy to follow the code .
 
 ## Technologies Used :
 - PHP 7.2 
