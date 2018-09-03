@@ -72,7 +72,7 @@ composer install
 npm install 
 ```
 
-4. Put database information in the .env file 
+4. Create database and put your database configration in the .env file 
 ```
 DB_DATABASE=password-pocket
 DB_USERNAME=root
