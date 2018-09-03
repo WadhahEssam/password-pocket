@@ -32,12 +32,12 @@ the diagram below shows how sensitive user data are processed in both client/ser
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/3.png)
 
 ## Test Security :
-Since the whole website is a one page web app , you can easily check outgoing/ingoing data from the dev tools :
+Since the whole website is a one page web app , you can easily check outgoing/ingoing data from the dev tools , to ensure the data you send is being hashed/encrypted :
 
 ### inspecting createPassword request :
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.jpg)
 
-### inspecting createPassword request :
-![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.jpg)
+### also note that the app shows in the console every request data and how this data is encrypted and by which key . 
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/console.jpg)
 
 
