@@ -73,6 +73,11 @@ npm install
 ```
 
 4. Put database information in the .env file 
+```
+DB_DATABASE=password-pocket
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
 5. Migrate your database tables .
 ```
