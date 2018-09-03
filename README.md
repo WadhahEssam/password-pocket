@@ -15,7 +15,7 @@ the diagram below shows how sensitive user data are processed in both client/ser
 - NewPassword : is the password that the user want to save to retrieve later . 
 
 ### Hashing Algorithms :
-- privateHash & publicHash are totally different algorithms you can find them in /resources/helpers/index.js 
+- privateHash & publicHash are totally different algorithms you can find them in /resources/assets/helpers/index.js 
 
 ### Encrytion Algorithms :
 - used the CryptoJS encryptoin library .
@@ -31,7 +31,7 @@ the diagram below shows how sensitive user data are processed in both client/ser
 ### Adding NewPassword :
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/3.png)
 
-## Test Security :
+## Test The Security :
 Since the whole website is a one page web app , you can easily check outgoing/ingoing data from the dev tools , to ensure the data you send is being hashed/encrypted :
 
 ### inspecting createPassword request :
@@ -39,5 +39,46 @@ Since the whole website is a one page web app , you can easily check outgoing/in
 
 ### also note that the app shows in the console every request data and how this data is encrypted and by which key . 
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/console.jpg)
+
+### if you experince in React/Redux you can check the redux action creator in /resources/assets/actions/index.js , because here is all the request to the server has been established and all passwords are being hashed and encrypted , it is fairly simple and easy to follow the code .
+
+## Technologies Used :
+- PHP 7.2 
+- MySQL
+- Laravel 5.6 
+- JWT Authentication : laravel-jwt-auth 1.0
+- React.js 16.4
+- Redux 4.0
+- React Router 4.3
+- SimpleCryptoJS 2.0
+
+## Installation 
+
+1. Clone Repository :
+```
+git clone https://github.com/WadhahEssam/password-pocket.git
+```
+
+2. Install composer dependencies
+```
+composer install
+```
+
+3. Install node dependencies 
+```
+npm install 
+```
+
+4. put database information in the .env file 
+
+5. migrate your database tables .
+```
+php artisan migrate
+```
+
+6. generate JWT secrete key  .
+```
+php artisan jwt:secret
+```
 
 
