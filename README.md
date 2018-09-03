@@ -35,9 +35,9 @@ the diagram below shows how sensitive user data are processed in both client/ser
 Since the whole website is a one page web app , you can easily check outgoing/ingoing data from the dev tools :
 
 ### inspecting createPassword request :
-![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.png)
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.jpg)
 
 ### inspecting createPassword request :
-![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/reponse.png)
+![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/request.jpg)
 
 
