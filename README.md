@@ -84,4 +84,15 @@ php artisan migrate
 php artisan jwt:secret
 ```
 
+7. Run php server .
+```
+php artisan serve
+```
+
+
+8. Compile javascript files  .
+```
+npm run watch
+```
+
 
