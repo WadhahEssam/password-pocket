@@ -52,6 +52,7 @@ if you have some experince in React/Redux feel free to check the redux action cr
 - Redux 4.0
 - React Router 4.3
 - SimpleCryptoJS 2.0
+- Material-UI 1.5
 
 ## Installation 
 
