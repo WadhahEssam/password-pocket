@@ -7,7 +7,7 @@
 All sensitive user data is either hashed or encrypted in client side, hence all the data in the database becomes **junk data** if you  happen to have access to it. This means developers / system admins can't ever know the passwords you store in the website. Even if someone somehow stole your authentication token they won't be able to decrypt the encrypted passwords because the encryption key is never sent to the server side. the cool thing is that the whole method **testable** directly from your browser. 
 
 ## How it works 
-The diagram below shows how the sensitive user pass3words are processed in both client/server sides before they are stored in the database ( click on the diagram to see it in full size )  :
+The diagram below shows how the sensitive user passwords are processed in both client/server sides before they are stored in the database ( click on the diagram to see it in full size )  :
 
 ![alt text](https://raw.githubusercontent.com/WadhahEssam/password-pocket/master/img/diagram.png)
 
